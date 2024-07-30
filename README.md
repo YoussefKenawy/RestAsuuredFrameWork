@@ -37,8 +37,9 @@ TestNG is used to structure and run test cases efficiently.
 
 5. Extent Reports
 Extent Reports are integrated for generating detailed test reports.
-**Contact
-Youssef Kenawy Abdo - youssefkenawy778@gmail.com
+### Contact
+
+*Youssef Kenawy Abdo - youssefkenawy778@gmail.com**
 Project Link https://github.com/YoussefKenawy/RestAsuuredFrameWork**
 
-Project Link: 
+
