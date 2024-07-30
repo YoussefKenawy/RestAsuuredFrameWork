@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fee848fe-d138-4a75-a404-2ff5aa334ad6" name="Changes" comment="Update framework and add .getignore file" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+        <option value="package-info" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;YoussefKenawy&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/YoussefKenawy/RestAsuuredFrameWork.git&quot;,
+    &quot;accountId&quot;: &quot;f87fe7d2-9a79-498c-9fc3-00e03f0b57dd&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2jPwTxp2NQS2Gvj4TFg7uo6Wgdr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Maven.MyMavenRunner.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TestNG.C:/Users/Youssef/IdeaProjects/RestAssuredFrameWork/regressiontestsrunner.xml.executor": "Run",
+    "TestNG.CreateProject.createProject.executor": "Run",
+    "TestNG.CreateProject.createProjectWithAsssertionLogs.executor": "Run",
+    "TestNG.GetAllProjects.getallprojects.executor": "Run",
+    "TestNG.GetAllProjectsData.getAllProjects.executor": "Run",
+    "TestNG.GetAllProjectsData.getallprojects.executor": "Run",
+    "TestNG.GetUserProfile.executor": "Run",
+    "TestNG.GetUserProfile.getUserProfileData.executor": "Run",
+    "TestNG.Register.executor": "Run",
+    "TestNG.Register.registerUser.executor": "Run",
+    "TestNG.Register.registerUserUsingJsonFile.executor": "Run",
+    "TestNG.UpadetProject.executor": "Run",
+    "TestNG.UpadetProject.updateProject.executor": "Run",
+    "TestNG.UpdateProject.updateProject.executor": "Run",
+    "TestNG.UpdateUserProfileData.registerUser.executor": "Run",
+    "TestNG.UpdateUserProfileData.updateProfile.executor": "Run",
+    "TestNG.UserProfile.getUserProfileData.executor": "Run",
+    "git-widget-placeholder": "Youssef's-Branch",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Youssef/IdeaProjects/RestAssuredFrameWork/src/test/dealResources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork\src\test\dealResources" />
+      <recent name="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork\src\main\java\utilities" />
+      <recent name="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork\src\test\dealResources\stagingEnv\Projects" />
+      <recent name="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork\src\test\dealResources\stagingEnv" />
+      <recent name="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork\src\main\resources" />
+      <recent name="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork\src\test\dealResources\stagingEnv\Users" />
+      <recent name="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork\src\test\dealResources\stagingEnv\Projects" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="utilities" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.GetAllProjectsData.getAllProjects">
+    <configuration name="MyMavenRunner" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="test" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="MyMavenRunner" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="test" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="CreateProject.createProject" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredFrameWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Projects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Projects" />
+      <option name="MAIN_CLASS_NAME" value="Projects.CreateProject" />
+      <option name="METHOD_NAME" value="createProject" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateProject.createProjectWithAsssertionLogs" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredFrameWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Projects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Projects" />
+      <option name="MAIN_CLASS_NAME" value="Projects.CreateProject" />
+      <option name="METHOD_NAME" value="createProjectWithAsssertionLogs" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateProject.createProject" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredFrameWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Projects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Projects" />
+      <option name="MAIN_CLASS_NAME" value="Projects.CreateProject" />
+      <option name="METHOD_NAME" value="createProject" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetAllProjectsData.getAllProjects" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredFrameWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Projects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Projects" />
+      <option name="MAIN_CLASS_NAME" value="Projects.GetAllProjectsData" />
+      <option name="METHOD_NAME" value="getAllProjects" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetAllProjectsData.getallprojects" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredFrameWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Projects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Projects" />
+      <option name="MAIN_CLASS_NAME" value="Projects.GetAllProjectsData" />
+      <option name="METHOD_NAME" value="getallprojects" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetAllProjectsData.getallprojects" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredFrameWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Projects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Projects" />
+      <option name="MAIN_CLASS_NAME" value="Projects.GetAllProjectsData" />
+      <option name="METHOD_NAME" value="getallprojects" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UpadetProject.updateProject" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredFrameWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Projects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Projects" />
+      <option name="MAIN_CLASS_NAME" value="Projects.UpadetProject" />
+      <option name="METHOD_NAME" value="updateProject" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UpdateProject.updateProject" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredFrameWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Projects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Projects" />
+      <option name="MAIN_CLASS_NAME" value="Projects.UpdateProject" />
+      <option name="METHOD_NAME" value="updateProject" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UpdateProject.updateProject" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredFrameWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Projects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Projects" />
+      <option name="MAIN_CLASS_NAME" value="Projects.UpdateProject" />
+      <option name="METHOD_NAME" value="updateProject" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Maven.MyMavenRunner" />
+      <item itemvalue="TestNG.GetAllProjectsData.getAllProjects" />
+      <item itemvalue="TestNG.CreateProject.createProjectWithAsssertionLogs" />
+      <item itemvalue="TestNG.CreateProject.createProject" />
+      <item itemvalue="TestNG.GetAllProjectsData.getallprojects" />
+      <item itemvalue="TestNG.UpdateProject.updateProject" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.GetAllProjectsData.getAllProjects" />
+        <item itemvalue="TestNG.GetAllProjectsData.getallprojects" />
+        <item itemvalue="TestNG.CreateProject.createProjectWithAsssertionLogs" />
+        <item itemvalue="TestNG.CreateProject.createProject" />
+        <item itemvalue="TestNG.UpdateProject.updateProject" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fee848fe-d138-4a75-a404-2ff5aa334ad6" name="Changes" comment="" />
+      <created>1721302034526</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721302034526</updated>
+      <workItem from="1721302035660" duration="2838000" />
+      <workItem from="1721306389563" duration="14000" />
+      <workItem from="1721310126986" duration="13270000" />
+      <workItem from="1721400439822" duration="128000" />
+      <workItem from="1721400581821" duration="479000" />
+      <workItem from="1721547823221" duration="7282000" />
+      <workItem from="1721573260007" duration="2057000" />
+      <workItem from="1721664635510" duration="3547000" />
+      <workItem from="1721737259636" duration="6550000" />
+      <workItem from="1722158312682" duration="8202000" />
+      <workItem from="1722169674364" duration="15300000" />
+      <workItem from="1722252151047" duration="2637000" />
+      <workItem from="1722288555594" duration="1782000" />
+      <workItem from="1722335059539" duration="1903000" />
+      <workItem from="1722336992153" duration="10471000" />
+    </task>
+    <task id="LOCAL-00001" summary="Adding Dependencies">
+      <option name="closed" value="true" />
+      <created>1721302218865</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721302218865</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update framework and add .getignore file">
+      <option name="closed" value="true" />
+      <created>1722351622430</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722351622430</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Youssef's-Branch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding Dependencies" />
+    <MESSAGE value="Update framework and add .getignore file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update framework and add .getignore file" />
+  </component>
+</project>

@@ -1,0 +1,1765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="6.437" tests="3" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork\target\test-classes;C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork\target\classes;C:\Users\Youssef\.m2\repository\org\json\json\20240303\json-20240303.jar;C:\Users\Youssef\.m2\repository\com\aventstack\extentreports\5.1.2\extentreports-5.1.2.jar;C:\Users\Youssef\.m2\repository\io\reactivex\rxjava3\rxjava\3.1.6\rxjava-3.1.6.jar;C:\Users\Youssef\.m2\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;C:\Users\Youssef\.m2\repository\org\freemarker\freemarker\2.3.32\freemarker-2.3.32.jar;C:\Users\Youssef\.m2\repository\io\rest-assured\rest-assured\5.5.0\rest-assured-5.5.0.jar;C:\Users\Youssef\.m2\repository\org\apache\groovy\groovy\4.0.22\groovy-4.0.22.jar;C:\Users\Youssef\.m2\repository\org\apache\groovy\groovy-xml\4.0.22\groovy-xml-4.0.22.jar;C:\Users\Youssef\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\Youssef\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\Youssef\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Youssef\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\Youssef\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\Youssef\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\Youssef\.m2\repository\io\rest-assured\json-path\5.5.0\json-path-5.5.0.jar;C:\Users\Youssef\.m2\repository\org\apache\groovy\groovy-json\4.0.22\groovy-json-4.0.22.jar;C:\Users\Youssef\.m2\repository\io\rest-assured\rest-assured-common\5.5.0\rest-assured-common-5.5.0.jar;C:\Users\Youssef\.m2\repository\io\rest-assured\xml-path\5.5.0\xml-path-5.5.0.jar;C:\Users\Youssef\.m2\repository\org\testng\testng\7.10.2\testng-7.10.2.jar;C:\Users\Youssef\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\Youssef\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\Youssef\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\Youssef\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.14.1\jackson-databind-2.14.1.jar;C:\Users\Youssef\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.14.1\jackson-annotations-2.14.1.jar;C:\Users\Youssef\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.14.1\jackson-core-2.14.1.jar;C:\Users\Youssef\.m2\repository\com\google\code\gson\gson\2.10\gson-2.10.jar;C:\Users\Youssef\.m2\repository\net\datafaker\datafaker\1.8.0\datafaker-1.8.0.jar;C:\Users\Youssef\.m2\repository\org\yaml\snakeyaml\1.33\snakeyaml-1.33.jar;C:\Users\Youssef\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\Youssef\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;C:\Users\Youssef\.m2\repository\org\projectlombok\lombok\1.18.24\lombok-1.18.24.jar;C:\Users\Youssef\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\Youssef\.m2\repository\org\javers\javers-core\6.12.0\javers-core-6.12.0.jar;C:\Users\Youssef\.m2\repository\org\picocontainer\picocontainer\2.15\picocontainer-2.15.jar;C:\Users\Youssef\.m2\repository\io\github\classgraph\classgraph\4.8.128\classgraph-4.8.128.jar;C:\Users\Youssef\.m2\repository\org\apache\poi\poi\5.3.0\poi-5.3.0.jar;C:\Users\Youssef\.m2\repository\commons-codec\commons-codec\1.17.0\commons-codec-1.17.0.jar;C:\Users\Youssef\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\Youssef\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\Youssef\.m2\repository\commons-io\commons-io\2.16.1\commons-io-2.16.1.jar;C:\Users\Youssef\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar;C:\Users\Youssef\.m2\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;C:\Users\Youssef\.m2\repository\org\apache\poi\poi-ooxml\5.2.3\poi-ooxml-5.2.3.jar;C:\Users\Youssef\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.3\poi-ooxml-lite-5.2.3.jar;C:\Users\Youssef\.m2\repository\org\apache\xmlbeans\xmlbeans\5.1.1\xmlbeans-5.1.1.jar;C:\Users\Youssef\.m2\repository\org\apache\commons\commons-compress\1.21\commons-compress-1.21.jar;C:\Users\Youssef\.m2\repository\com\github\virtuald\curvesapi\1.07\curvesapi-1.07.jar;C:\Users\Youssef\.m2\repository\com\github\ozlerhakan\poiji\4.1.1\poiji-4.1.1.jar;C:\Users\Youssef\.m2\repository\org\instancio\instancio-core\2.15.0\instancio-core-2.15.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
+    <property name="user.timezone" value="Africa/Cairo"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Users\Youssef\Downloads\jdk-11.0.21_windows-x64_bin\jdk-11.0.21\bin"/>
+    <property name="sun.java.command" value="C:\Users\Youssef\AppData\Local\Temp\surefire3125409754013288814\surefirebooter-20240730143426117_3.jar C:\Users\Youssef\AppData\Local\Temp\surefire3125409754013288814 2024-07-30T14-34-25_505-jvmRun1 surefire-20240730143426117_1tmp surefire_0-20240730143426117_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork\target\test-classes;C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork\target\classes;C:\Users\Youssef\.m2\repository\org\json\json\20240303\json-20240303.jar;C:\Users\Youssef\.m2\repository\com\aventstack\extentreports\5.1.2\extentreports-5.1.2.jar;C:\Users\Youssef\.m2\repository\io\reactivex\rxjava3\rxjava\3.1.6\rxjava-3.1.6.jar;C:\Users\Youssef\.m2\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;C:\Users\Youssef\.m2\repository\org\freemarker\freemarker\2.3.32\freemarker-2.3.32.jar;C:\Users\Youssef\.m2\repository\io\rest-assured\rest-assured\5.5.0\rest-assured-5.5.0.jar;C:\Users\Youssef\.m2\repository\org\apache\groovy\groovy\4.0.22\groovy-4.0.22.jar;C:\Users\Youssef\.m2\repository\org\apache\groovy\groovy-xml\4.0.22\groovy-xml-4.0.22.jar;C:\Users\Youssef\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\Youssef\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\Youssef\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Youssef\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\Youssef\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\Youssef\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\Youssef\.m2\repository\io\rest-assured\json-path\5.5.0\json-path-5.5.0.jar;C:\Users\Youssef\.m2\repository\org\apache\groovy\groovy-json\4.0.22\groovy-json-4.0.22.jar;C:\Users\Youssef\.m2\repository\io\rest-assured\rest-assured-common\5.5.0\rest-assured-common-5.5.0.jar;C:\Users\Youssef\.m2\repository\io\rest-assured\xml-path\5.5.0\xml-path-5.5.0.jar;C:\Users\Youssef\.m2\repository\org\testng\testng\7.10.2\testng-7.10.2.jar;C:\Users\Youssef\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\Youssef\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\Youssef\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\Youssef\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.14.1\jackson-databind-2.14.1.jar;C:\Users\Youssef\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.14.1\jackson-annotations-2.14.1.jar;C:\Users\Youssef\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.14.1\jackson-core-2.14.1.jar;C:\Users\Youssef\.m2\repository\com\google\code\gson\gson\2.10\gson-2.10.jar;C:\Users\Youssef\.m2\repository\net\datafaker\datafaker\1.8.0\datafaker-1.8.0.jar;C:\Users\Youssef\.m2\repository\org\yaml\snakeyaml\1.33\snakeyaml-1.33.jar;C:\Users\Youssef\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\Youssef\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;C:\Users\Youssef\.m2\repository\org\projectlombok\lombok\1.18.24\lombok-1.18.24.jar;C:\Users\Youssef\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\Youssef\.m2\repository\org\javers\javers-core\6.12.0\javers-core-6.12.0.jar;C:\Users\Youssef\.m2\repository\org\picocontainer\picocontainer\2.15\picocontainer-2.15.jar;C:\Users\Youssef\.m2\repository\io\github\classgraph\classgraph\4.8.128\classgraph-4.8.128.jar;C:\Users\Youssef\.m2\repository\org\apache\poi\poi\5.3.0\poi-5.3.0.jar;C:\Users\Youssef\.m2\repository\commons-codec\commons-codec\1.17.0\commons-codec-1.17.0.jar;C:\Users\Youssef\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\Youssef\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\Youssef\.m2\repository\commons-io\commons-io\2.16.1\commons-io-2.16.1.jar;C:\Users\Youssef\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar;C:\Users\Youssef\.m2\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;C:\Users\Youssef\.m2\repository\org\apache\poi\poi-ooxml\5.2.3\poi-ooxml-5.2.3.jar;C:\Users\Youssef\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.3\poi-ooxml-lite-5.2.3.jar;C:\Users\Youssef\.m2\repository\org\apache\xmlbeans\xmlbeans\5.1.1\xmlbeans-5.1.1.jar;C:\Users\Youssef\.m2\repository\org\apache\commons\commons-compress\1.21\commons-compress-1.21.jar;C:\Users\Youssef\.m2\repository\com\github\virtuald\curvesapi\1.07\curvesapi-1.07.jar;C:\Users\Youssef\.m2\repository\com\github\ozlerhakan\poiji\4.1.1\poiji-4.1.1.jar;C:\Users\Youssef\.m2\repository\org\instancio\instancio-core\2.15.0\instancio-core-2.15.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Youssef"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-10-17"/>
+    <property name="java.home" value="C:\Users\Youssef\Downloads\jdk-11.0.21_windows-x64_bin\jdk-11.0.21"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\Youssef\AppData\Local\Temp\surefire3125409754013288814\surefirebooter-20240730143426117_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.21+9-LTS-193"/>
+    <property name="user.name" value="Youssef"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="C:\Users\Youssef\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Youssef\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2024.1.4"/>
+    <property name="java.version" value="11.0.21"/>
+    <property name="user.dir" value="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Users\Youssef\Downloads\jdk-11.0.21_windows-x64_bin\jdk-11.0.21\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Git\cmd;C:\Users\Youssef\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA 2024.1.4\bin;;."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.21+9-LTS-193"/>
+    <property name="java.specification.maintenance.version" value="2"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="getallprojects" classname="Projects.GetAllProjectsData" time="2.53">
+    <system-out><![CDATA[{
+    "data": [
+        {
+            "_id": "66a4a2823ffbc9b191f93f4b",
+            "name": "مشروع الاراضي 1",
+            "price": 500000,
+            "status": "ACTIVE",
+            "details": "هلالالالالالالالالالالالالالالا",
+            "developerAgent": {
+                "_id": "669cdc8919b1b4793942f939",
+                "name": "Elkady Company",
+                "logos": {
+                    "small": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "medium": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "large": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "map": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "homePage": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "listing": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp"
+                }
+            },
+            "type": [
+                "DEAL_OPPORTUNITIES"
+            ],
+            "city": {
+                "_id": "5dd49004af8af4002cbfae4c",
+                "name_ar": "الخبر",
+                "name_en": "Al Khobar"
+            },
+            "district": {
+                "_id": "5dd490b2bc2e91004242ea46",
+                "name_ar": "الجسر",
+                "name_en": "Al Jisr Dist."
+            },
+            "location": {
+                "type": "PRECISE",
+                "value": {
+                    "type": "Point",
+                    "coordinates": [
+                        50.2051271413515,
+                        26.210010483972077
+                    ]
+                }
+            },
+            "media": {
+                "main": {
+                    "url": "https://uploadsstaging.dealapp.sa/ce0cf7fa-ffb2-4348-a858-00d48eee06b5.webp",
+                    "description": ""
+                },
+                "extra": [
+                    {
+                        "url": "https://uploadsstaging.dealapp.sa/64121c97-e902-47fc-a4e8-5e3998999558.webp",
+                        "description": ""
+                    }
+                ]
+            },
+            "agentCommissionPercentage": 3,
+            "dealCommissionPercentage": 6,
+            "totalCommissionPercentage": 9,
+            "createdAt": "2024-07-27T07:32:18.732Z",
+            "updatedAt": "2024-07-29T12:28:06.625Z",
+            "units": [
+                {
+                    "_id": "66a4a5f568e090325770bceb",
+                    "name": "اراضي سكنيه",
+                    "totalCount": 10,
+                    "soldCount": 10,
+                    "price": 100000,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "main": {
+                            "url": "https://uploadsstaging.dealapp.sa/44ed0c12-1e58-4091-bfef-a4c8c49da054.webp",
+                            "description": ""
+                        },
+                        "extra": [
+                            {
+                                "url": "https://uploadsstaging.dealapp.sa/7729f558-a6a3-4440-b102-fae9af5ffe42.webp",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "streetWidthRange": "51-60",
+                        "usageType": [
+                            
+                        ],
+                        "surroundingStreetsNum": 3,
+                        "facing": [
+                            "EAST"
+                        ]
+                    },
+                    "remainsCount": 0
+                },
+                {
+                    "_id": "66a4a5f63ffbc9b191f94035",
+                    "name": "اراضي زراعيه",
+                    "totalCount": 20,
+                    "soldCount": 20,
+                    "price": 50000,
+                    "propertyType": {
+                        "_id": "6309139445e4ba3abe2d5c2f",
+                        "propertyType": "AGRICULTURAL-LAND",
+                        "propertyType_ar": "أرض زراعية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 80,
+                    "media": {
+                        "main": {
+                            "url": "https://uploadsstaging.dealapp.sa/27f3ced9-e2b2-4a62-be2e-3febe7651863.webp",
+                            "description": ""
+                        },
+                        "extra": [
+                            {
+                                "url": "https://uploadsstaging.dealapp.sa/12ffcd45-f0a2-4c50-9ba4-d832a9c3554b.webp",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "usageType": [
+                            
+                        ],
+                        "surroundingStreetsNum": 3
+                    },
+                    "remainsCount": 0
+                },
+                {
+                    "_id": "66a4a5f63ffbc9b191f9403d",
+                    "name": "اراضي صناعيه",
+                    "totalCount": 26,
+                    "soldCount": 26,
+                    "price": 999998,
+                    "propertyType": {
+                        "_id": "6309136245e4ba02c62d5c27",
+                        "propertyType": "INDUSTRIAL-LAND",
+                        "propertyType_ar": "أرض صناعية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 150,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "streetWidthRange": "31-40",
+                        "usageType": [
+                            
+                        ],
+                        "surroundingStreetsNum": 3
+                    },
+                    "remainsCount": 0
+                },
+                {
+                    "_id": "66a763649c968296d1375674",
+                    "name": "marwan",
+                    "totalCount": 10,
+                    "soldCount": 0,
+                    "price": 1000,
+                    "propertyType": {
+                        "_id": "6309198845e4baaefe2d5d13",
+                        "propertyType": "BONE-VILLA",
+                        "propertyType_ar": "فيلا عظم",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/ba81a837-dfb1-4ea9-8490-d41b1e49ce86.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/f1f6bd71-0cf2-4637-95c6-447b206b2c18.png",
+                        "category": {
+                            "_id": "6307c17c45e4ba2bde2be77d",
+                            "name_en": "VILLAS-AND-PALACES",
+                            "name_ar": "فلل وقصور",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/ba81a837-dfb1-4ea9-8490-d41b1e49ce86.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/f1f6bd71-0cf2-4637-95c6-447b206b2c18.png"
+                        }
+                    },
+                    "propertyCategory": "6307c17c45e4ba2bde2be77d",
+                    "area": 100,
+                    "media": {
+                        "main": {
+                            "url": "https://uploadsstaging.dealapp.sa/bfd7cb24-ce8c-4c91-8b38-3d98b8483cd0.webp",
+                            "description": ""
+                        },
+                        "extra": [
+                            {
+                                "url": "https://uploadsstaging.dealapp.sa/5e49babd-c4d2-4e5b-b297-2c451491cd45.webp",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "usageType": [
+                            
+                        ]
+                    },
+                    "remainsCount": 10
+                },
+                {
+                    "_id": "66a76755a59dfb72507cee51",
+                    "name": "fkffjjf",
+                    "totalCount": 10,
+                    "soldCount": 0,
+                    "price": 10,
+                    "propertyType": {
+                        "_id": "630918fd45e4ba2f9b2d5cfc",
+                        "propertyType": "CASTLE",
+                        "propertyType_ar": "قصر",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/ba81a837-dfb1-4ea9-8490-d41b1e49ce86.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/f1f6bd71-0cf2-4637-95c6-447b206b2c18.png",
+                        "category": {
+                            "_id": "6307c17c45e4ba2bde2be77d",
+                            "name_en": "VILLAS-AND-PALACES",
+                            "name_ar": "فلل وقصور",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/ba81a837-dfb1-4ea9-8490-d41b1e49ce86.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/f1f6bd71-0cf2-4637-95c6-447b206b2c18.png"
+                        }
+                    },
+                    "propertyCategory": "6307c17c45e4ba2bde2be77d",
+                    "area": 10000,
+                    "media": {
+                        "main": {
+                            "url": "https://uploadsstaging.dealapp.sa/af24b8ca-9457-4d83-9a8e-5da9ff1740dd.webp",
+                            "description": ""
+                        },
+                        "extra": [
+                            {
+                                "url": "https://uploadsstaging.dealapp.sa/29a41519-9b7b-4a71-b95f-e35f98dff2f1.webp",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "propertyAgeRange": "NEW",
+                        "usageType": [
+                            
+                        ]
+                    },
+                    "remainsCount": 10
+                },
+                {
+                    "_id": "66a7682a9f211ebc7884470d",
+                    "name": "marjrh",
+                    "totalCount": 100,
+                    "soldCount": 1,
+                    "price": 100000,
+                    "propertyType": {
+                        "_id": "63091c6945e4ba37e82d5d4d",
+                        "propertyType": "ROVE-APARTMENT",
+                        "propertyType_ar": "شقة رووف",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/550631c3-2df3-490e-8e9f-b2049d822224.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/a5b688c9-3833-4737-a63c-f5f6f0963b5e.png",
+                        "category": {
+                            "_id": "6307c64e45e4badb612be78a",
+                            "name_en": "APARTMENTS-AND-ROOMS",
+                            "name_ar": "شقق وغرف",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/550631c3-2df3-490e-8e9f-b2049d822224.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/a5b688c9-3833-4737-a63c-f5f6f0963b5e.png"
+                        }
+                    },
+                    "propertyCategory": "6307c64e45e4badb612be78a",
+                    "area": 10000,
+                    "media": {
+                        "main": {
+                            "url": "https://uploadsstaging.dealapp.sa/20a52ec8-e235-44c1-a824-75977917328a.webp",
+                            "description": ""
+                        },
+                        "extra": [
+                            {
+                                "url": "https://uploadsstaging.dealapp.sa/d2a262f9-ffed-464b-a986-973dae3d74c1.webp",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "roomsNum": 1,
+                        "toiletsNum": "1",
+                        "propertyAgeRange": "NEW",
+                        "usageType": [
+                            
+                        ],
+                        "hallsNum": 1
+                    },
+                    "remainsCount": 99
+                },
+                {
+                    "_id": "66a768c69f211ebc78844886",
+                    "name": "100fjjfjf",
+                    "totalCount": 95,
+                    "soldCount": 1,
+                    "price": 999995,
+                    "propertyType": {
+                        "_id": "63091bec45e4bacf002d5d2d",
+                        "propertyType": "FLOOR",
+                        "propertyType_ar": "دور",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/7986c54a-2c57-4579-84ae-856f9df5af68.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5f013dfb-f615-46a3-b796-6b56be6fe682.png",
+                        "category": {
+                            "_id": "6307c66345e4bad1272be78f",
+                            "name_en": "FLOOR",
+                            "name_ar": "دور",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/7986c54a-2c57-4579-84ae-856f9df5af68.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5f013dfb-f615-46a3-b796-6b56be6fe682.png"
+                        }
+                    },
+                    "propertyCategory": "6307c66345e4bad1272be78f",
+                    "area": 10000,
+                    "media": {
+                        "main": {
+                            "url": "https://uploadsstaging.dealapp.sa/835e454b-d2d6-4400-ac46-e459fd88a4d2.webp",
+                            "description": ""
+                        },
+                        "extra": [
+                            {
+                                "url": "https://uploadsstaging.dealapp.sa/90e2f03d-c964-4ccc-971a-2a7680f1029e.webp",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "roomsNum": 1,
+                        "toiletsNum": "1",
+                        "usageType": [
+                            
+                        ],
+                        "hallsNum": 1
+                    },
+                    "remainsCount": 94
+                }
+            ],
+            "soldOut": false,
+            "isAcceptedTerms": true
+        },
+        {
+            "_id": "66a1de3856d71fea48ab11c6",
+            "name": "aya",
+            "price": 50000000000,
+            "status": "ACTIVE",
+            "details": "ddddddddddddddddd",
+            "developerAgent": {
+                "_id": "669cdc8919b1b4793942f939",
+                "name": "Elkady Company",
+                "logos": {
+                    "small": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "medium": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "large": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "map": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "homePage": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "listing": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp"
+                }
+            },
+            "type": [
+                "DEAL_OPPORTUNITIES"
+            ],
+            "city": {
+                "_id": "5dd49004af8af4002cbfae3c",
+                "name_ar": "ابها",
+                "name_en": "Abha"
+            },
+            "district": {
+                "_id": "60c70fa382e6795fea334a8a",
+                "name_ar": "آل السريع",
+                "name_en": "Al Soraya"
+            },
+            "location": {
+                "value": {
+                    "type": "Point",
+                    "coordinates": [
+                        42.63008013782997,
+                        18.16908539699188
+                    ]
+                },
+                "type": "PRECISE"
+            },
+            "media": {
+                "main": {
+                    "url": "https://uploadsstaging.dealapp.sa/e9ee849a-9157-43b8-95b0-a4eb2364a6c2.webp",
+                    "description": ""
+                },
+                "extra": [
+                    {
+                        "url": "https://uploadsstaging.dealapp.sa/609ae07a-34a5-45be-88e1-1049ee959275.webp",
+                        "description": ""
+                    }
+                ]
+            },
+            "agentCommissionPercentage": 56,
+            "dealCommissionPercentage": 32,
+            "totalCommissionPercentage": 88,
+            "createdAt": "2024-07-25T05:10:16.673Z",
+            "updatedAt": "2024-07-29T12:17:04.761Z",
+            "units": [
+                {
+                    "_id": "66a766a0a59dfb72507ced27",
+                    "name": "marwan",
+                    "totalCount": 10,
+                    "soldCount": 0,
+                    "price": 10000,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "main": {
+                            "url": "https://uploadsstaging.dealapp.sa/566d3f79-890f-4bdb-9f59-6182ca543181.webp",
+                            "description": ""
+                        },
+                        "extra": [
+                            {
+                                "url": "https://uploadsstaging.dealapp.sa/e80480e4-3782-4dbb-95d0-d5e3a16f6243.webp",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "streetWidthRange": "5-10",
+                        "usageType": [
+                            
+                        ],
+                        "surroundingStreetsNum": 2,
+                        "facing": [
+                            "NORTH"
+                        ]
+                    },
+                    "remainsCount": 10
+                }
+            ],
+            "soldOut": false,
+            "isAcceptedTerms": true
+        },
+        {
+            "_id": "66a1dd7b56d71fea48ab103e",
+            "name": "مشاريع الاسكان",
+            "price": 500000,
+            "status": "ACTIVE",
+            "details": "مشاريع اسكان ترفيه بجوار الشاطئ",
+            "developerAgent": {
+                "_id": "669cdc8919b1b4793942f939",
+                "name": "Elkady Company",
+                "logos": {
+                    "small": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "medium": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "large": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "map": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "homePage": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "listing": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp"
+                }
+            },
+            "type": [
+                "DEAL_OPPORTUNITIES"
+            ],
+            "city": {
+                "_id": "6009d942950ada00061eeeac",
+                "name_ar": "جدة",
+                "name_en": "Jeddah"
+            },
+            "district": {
+                "_id": "5dd490b1bc2e91004242e72f",
+                "name_ar": "الشاطئ",
+                "name_en": "Ash Shati Dist."
+            },
+            "location": {
+                "value": {
+                    "type": "Point",
+                    "coordinates": [
+                        39.11541901337529,
+                        21.599085626988597
+                    ]
+                },
+                "type": "PRECISE"
+            },
+            "media": {
+                "main": {
+                    "url": "https://uploadsstaging.dealapp.sa/94ba923e-230a-46c9-a4cd-0ee6d62049ad.webp",
+                    "description": ""
+                },
+                "extra": [
+                    {
+                        "url": "https://uploadsstaging.dealapp.sa/64577b11-8d3e-4bd2-b129-3d04e5b1e7fa.webp",
+                        "description": ""
+                    },
+                    {
+                        "url": "https://uploadsstaging.dealapp.sa/6c196907-eaa3-4770-a387-ed599dbfd4e6.webp",
+                        "description": ""
+                    },
+                    {
+                        "url": "https://uploadsstaging.dealapp.sa/8129793a-725d-4ef1-835e-24d536fa69b0.webp",
+                        "description": ""
+                    },
+                    {
+                        "url": "https://uploadsstaging.dealapp.sa/58aed790-b3a3-4d8a-b813-7f229a982474.webp",
+                        "description": ""
+                    },
+                    {
+                        "url": "https://uploadsstaging.dealapp.sa/9058d928-1378-4b1b-8095-29fb945ab9e3.webp",
+                        "description": ""
+                    },
+                    {
+                        "url": "https://uploadsstaging.dealapp.sa/e9e24e48-1bf2-4248-919c-8103c7b7cb70.webp",
+                        "description": ""
+                    }
+                ]
+            },
+            "agentCommissionPercentage": 15,
+            "dealCommissionPercentage": 15,
+            "totalCommissionPercentage": 30,
+            "createdAt": "2024-07-25T05:07:07.231Z",
+            "updatedAt": "2024-07-29T11:53:29.448Z",
+            "units": [
+                {
+                    "_id": "66a1eb5cc9b13ee3111d242a",
+                    "name": "وحدات سكنيه فيلا",
+                    "totalCount": 50,
+                    "soldCount": 0,
+                    "price": 500000000,
+                    "propertyType": {
+                        "_id": "6309180445e4bad8872d5cb8",
+                        "propertyType": "VILLA",
+                        "propertyType_ar": "فيلا",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/ba81a837-dfb1-4ea9-8490-d41b1e49ce86.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/f1f6bd71-0cf2-4637-95c6-447b206b2c18.png",
+                        "category": {
+                            "_id": "6307c17c45e4ba2bde2be77d",
+                            "name_en": "VILLAS-AND-PALACES",
+                            "name_ar": "فلل وقصور",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/ba81a837-dfb1-4ea9-8490-d41b1e49ce86.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/f1f6bd71-0cf2-4637-95c6-447b206b2c18.png"
+                        }
+                    },
+                    "propertyCategory": "6307c17c45e4ba2bde2be77d",
+                    "area": 200,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "roomsNum": 5,
+                        "toiletsNum": "4",
+                        "streetWidthRange": "11-20",
+                        "propertyAgeRange": "1",
+                        "usageType": [
+                            
+                        ],
+                        "hallsNum": 3,
+                        "surroundingStreetsNum": 3,
+                        "facing": [
+                            "SOUTH"
+                        ],
+                        "hasPool": true,
+                        "isFurnished": true
+                    },
+                    "remainsCount": 50
+                },
+                {
+                    "_id": "66a1eb5d56d71fea48ab1cec",
+                    "name": "وحدات سكنيه شقه",
+                    "totalCount": 50,
+                    "soldCount": 1,
+                    "price": 200000,
+                    "propertyType": {
+                        "_id": "63091bcd45e4ba93412d5d25",
+                        "propertyType": "APARTMENT",
+                        "propertyType_ar": "شقة",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/550631c3-2df3-490e-8e9f-b2049d822224.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/a5b688c9-3833-4737-a63c-f5f6f0963b5e.png",
+                        "category": {
+                            "_id": "6307c64e45e4badb612be78a",
+                            "name_en": "APARTMENTS-AND-ROOMS",
+                            "name_ar": "شقق وغرف",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/550631c3-2df3-490e-8e9f-b2049d822224.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/a5b688c9-3833-4737-a63c-f5f6f0963b5e.png"
+                        }
+                    },
+                    "propertyCategory": "6307c64e45e4badb612be78a",
+                    "area": 5000,
+                    "media": {
+                        "main": {
+                            "url": "https://uploadsstaging.dealapp.sa/f752b2d5-ced1-491b-8a21-c239c6019313.webp",
+                            "description": ""
+                        },
+                        "extra": [
+                            
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "roomsNum": 5,
+                        "toiletsNum": "5",
+                        "propertyAgeRange": "2",
+                        "usageType": [
+                            
+                        ],
+                        "hallsNum": 4
+                    },
+                    "remainsCount": 49
+                },
+                {
+                    "_id": "66a1eb5dc9b13ee3111d2432",
+                    "name": "وحدات للترفيه",
+                    "totalCount": 50,
+                    "soldCount": 15,
+                    "price": 80000,
+                    "propertyType": {
+                        "_id": "63092a8f45e4bacdf22d5e1f",
+                        "propertyType": "RESORT",
+                        "propertyType_ar": "منتجع",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/534f1415-9be3-4f29-9597-573ec535cf69.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/62d47565-7f58-4dcd-b428-8116bba735bf.png",
+                        "category": {
+                            "_id": "6307c6c745e4ba0f6e2be7a2",
+                            "name_en": "CHALETS-AND-REST",
+                            "name_ar": "شاليهات واستراحات",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/534f1415-9be3-4f29-9597-573ec535cf69.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/62d47565-7f58-4dcd-b428-8116bba735bf.png"
+                        }
+                    },
+                    "propertyCategory": "6307c6c745e4ba0f6e2be7a2",
+                    "area": 300,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "roomsNum": 7,
+                        "toiletsNum": "5",
+                        "usageType": [
+                            
+                        ],
+                        "hasPool": true,
+                        "hasFirePlace": true,
+                        "hasGarden": true
+                    },
+                    "remainsCount": 35
+                },
+                {
+                    "_id": "66a1eb5e56d71fea48ab1cf3",
+                    "name": "وحدات للمحلات",
+                    "totalCount": 60,
+                    "soldCount": 60,
+                    "price": 500000,
+                    "propertyType": {
+                        "_id": "6309180445e4bad8872d5cb8",
+                        "propertyType": "VILLA",
+                        "propertyType_ar": "فيلا",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/ba81a837-dfb1-4ea9-8490-d41b1e49ce86.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/f1f6bd71-0cf2-4637-95c6-447b206b2c18.png",
+                        "category": {
+                            "_id": "6307c17c45e4ba2bde2be77d",
+                            "name_en": "VILLAS-AND-PALACES",
+                            "name_ar": "فلل وقصور",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/ba81a837-dfb1-4ea9-8490-d41b1e49ce86.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/f1f6bd71-0cf2-4637-95c6-447b206b2c18.png"
+                        }
+                    },
+                    "propertyCategory": "6307c17c45e4ba2bde2be77d",
+                    "area": 90,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "roomsNum": 4,
+                        "toiletsNum": "3",
+                        "streetWidthRange": "31-40",
+                        "propertyAgeRange": "1",
+                        "usageType": [
+                            
+                        ],
+                        "hallsNum": 2,
+                        "surroundingStreetsNum": 3,
+                        "facing": [
+                            "NORTH"
+                        ],
+                        "isACsInstalled": true,
+                        "isFurnished": true
+                    },
+                    "remainsCount": 0
+                }
+            ],
+            "soldOut": false,
+            "isAcceptedTerms": true
+        },
+        {
+            "_id": "6697dc3c8e3e5767bc8befe0",
+            "name": "ddfggdg22",
+            "price": 100,
+            "status": "ACTIVE",
+            "details": "string",
+            "developerAgent": {
+                "_id": "6408dfc6fe94c9fba60d46bb",
+                "name": "شركة الماجدية ريزدنس",
+                "logos": {
+                    "large": "https://d37s99b316dw6l.cloudfront.net/878519f5-8652-42b7-85a4-921700ada3f5.png",
+                    "medium": "https://d37s99b316dw6l.cloudfront.net/a49460fe-7664-4aa0-8c0d-9aa358ac4ab8.png",
+                    "small": "https://d37s99b316dw6l.cloudfront.net/6d25a346-0cc0-493d-b094-6dcb36634409.png",
+                    "map": "https://uploadsstaging.dealapp.sa/0990c422-f5ef-4562-9945-bd9e97c20382.png"
+                }
+            },
+            "type": [
+                "DEAL_OPPORTUNITIES",
+                "PREMIUM_ADS"
+            ],
+            "city": {
+                "_id": "6009d941950ada00061eeeab",
+                "name_ar": "الرياض",
+                "name_en": "Riyadh"
+            },
+            "district": {
+                "_id": "5dd490aebc2e91004242e46c",
+                "name_ar": "العزيزية",
+                "name_en": "Al Aziziyah hamada test."
+            },
+            "location": {
+                "type": "PRECISE",
+                "value": {
+                    "type": "Point",
+                    "coordinates": [
+                        46.77012171518327,
+                        24.587629794356086
+                    ]
+                }
+            },
+            "media": {
+                "main": {
+                    "url": "https://uploadsstaging.dealapp.sa/f24e490f-687b-424d-b73d-b7157d723c76.webp",
+                    "description": ""
+                },
+                "extra": [
+                    {
+                        "url": "https://uploadsstaging.dealapp.sa/566ebe59-50c9-4ba5-bd07-1389577aeb35.webp",
+                        "description": ""
+                    },
+                    {
+                        "url": "https://uploadsstaging.dealapp.sa/1b564aa3-25dc-4056-951c-47b78f6e9eda.webp",
+                        "description": ""
+                    }
+                ]
+            },
+            "agentCommissionPercentage": 100,
+            "dealCommissionPercentage": 30,
+            "totalCommissionPercentage": 130,
+            "createdAt": "2024-07-17T14:59:08.551Z",
+            "updatedAt": "2024-07-28T03:30:06.589Z",
+            "units": [
+                {
+                    "_id": "669f72cd9fecd095bc0a5796",
+                    "name": "test1",
+                    "totalCount": 50,
+                    "soldCount": 40,
+                    "price": 1000,
+                    "propertyType": {
+                        "_id": "6309180445e4bad8872d5cb8",
+                        "propertyType": "VILLA",
+                        "propertyType_ar": "فيلا",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/ba81a837-dfb1-4ea9-8490-d41b1e49ce86.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/f1f6bd71-0cf2-4637-95c6-447b206b2c18.png",
+                        "category": {
+                            "_id": "6307c17c45e4ba2bde2be77d",
+                            "name_en": "VILLAS-AND-PALACES",
+                            "name_ar": "فلل وقصور",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/ba81a837-dfb1-4ea9-8490-d41b1e49ce86.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/f1f6bd71-0cf2-4637-95c6-447b206b2c18.png"
+                        }
+                    },
+                    "propertyCategory": "6307c17c45e4ba2bde2be77d",
+                    "area": 333,
+                    "media": {
+                        "main": {
+                            "url": "https://uploadsstaging.dealapp.sa/dbeb475d-ca35-4f6d-b850-2ade4a680fcc.webp",
+                            "description": ""
+                        },
+                        "extra": [
+                            {
+                                "url": "https://uploadsstaging.dealapp.sa/5418f054-07b2-4a89-b7b4-4bfdb7511de1.webp",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "propertyAgeRange": "2",
+                        "usageType": [
+                            
+                        ]
+                    },
+                    "remainsCount": 10
+                },
+                {
+                    "_id": "66a0be8219581084dd6e2189",
+                    "name": "test3",
+                    "totalCount": 19,
+                    "soldCount": 0,
+                    "price": 1002,
+                    "propertyType": {
+                        "_id": "63091bcd45e4ba93412d5d25",
+                        "propertyType": "APARTMENT",
+                        "propertyType_ar": "شقة",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/550631c3-2df3-490e-8e9f-b2049d822224.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/a5b688c9-3833-4737-a63c-f5f6f0963b5e.png",
+                        "category": {
+                            "_id": "6307c64e45e4badb612be78a",
+                            "name_en": "APARTMENTS-AND-ROOMS",
+                            "name_ar": "شقق وغرف",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/550631c3-2df3-490e-8e9f-b2049d822224.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/a5b688c9-3833-4737-a63c-f5f6f0963b5e.png"
+                        }
+                    },
+                    "propertyCategory": "6307c64e45e4badb612be78a",
+                    "area": 10021,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "roomsNum": 1,
+                        "toiletsNum": "3",
+                        "propertyAgeRange": "1",
+                        "usageType": [
+                            
+                        ],
+                        "hallsNum": 2
+                    },
+                    "remainsCount": 19
+                }
+            ],
+            "soldOut": false,
+            "isAcceptedTerms": true
+        },
+        {
+            "_id": "66976a7274b82c7bc72fc054",
+            "name": "test deal tany",
+            "price": 30000,
+            "status": "ACTIVE",
+            "details": "project details aaaaaaaaaaaaaaaaaaayaaaaaaaaproject details aaaaaaaaaaaaaaaaaaayaaaaaaaaproj",
+            "developerAgent": {
+                "_id": "66976383811df8c17533f5f5",
+                "name": "ElSalam",
+                "logos": {
+                    "small": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "medium": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "large": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "map": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "homePage": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "listing": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp"
+                }
+            },
+            "type": [
+                "PREMIUM_ADS",
+                "DEAL_OPPORTUNITIES"
+            ],
+            "city": {
+                "_id": "5dd49004af8af4002cbfae6e",
+                "name_ar": "احد رفيده",
+                "name_en": "Ahad Rifaydah"
+            },
+            "district": {
+                "_id": "5dd490b3bc2e91004242ec13",
+                "name_ar": "الرونه",
+                "name_en": "Ar Runah Dist."
+            },
+            "location": {
+                "type": "PRECISE",
+                "value": {
+                    "type": "Point",
+                    "coordinates": [
+                        42.81830898584285,
+                        18.2276424740539
+                    ]
+                }
+            },
+            "media": {
+                "main": {
+                    "url": "https://d3r3my41ffsjer.cloudfront.net/9400e98a-4fd1-4949-a175-05552b961823-image.png",
+                    "description": ""
+                },
+                "extra": [
+                    
+                ]
+            },
+            "agentCommissionPercentage": 10,
+            "dealCommissionPercentage": 20,
+            "totalCommissionPercentage": 30,
+            "createdAt": "2024-07-17T06:53:38.051Z",
+            "updatedAt": "2024-07-24T08:37:16.891Z",
+            "units": [
+                {
+                    "_id": "669773a9811df8c175340bcb",
+                    "name": "وحدات  العقارية",
+                    "totalCount": 10,
+                    "soldCount": 10,
+                    "price": 80808080,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "usageType": [
+                            
+                        ]
+                    },
+                    "remainsCount": 0
+                }
+            ],
+            "soldOut": true,
+            "isAcceptedTerms": true
+        },
+        {
+            "_id": "669512e83372cd397f6907ce",
+            "name": "test 2",
+            "price": 1000,
+            "status": "ACTIVE",
+            "details": "project details aaaaaaaaaaaaaaaaaaayaaaaaaaa",
+            "developerAgent": {
+                "_id": "6693586943cd01da46891151",
+                "name": "ElSalam",
+                "logos": {
+                    "small": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "medium": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "large": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "map": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "homePage": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "listing": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp"
+                }
+            },
+            "type": [
+                "PREMIUM_ADS"
+            ],
+            "city": {
+                "_id": "5dd49004af8af4002cbfae2e",
+                "name_ar": "تبوك",
+                "name_en": "Tabuk"
+            },
+            "district": {
+                "_id": "5dd490b5bc2e91004242ecb0",
+                "name_ar": "البساتين",
+                "name_en": "Al Basatin Dist."
+            },
+            "location": {
+                "type": "PRECISE",
+                "value": {
+                    "type": "Point",
+                    "coordinates": [
+                        36.560189008995685,
+                        28.363999013151666
+                    ]
+                }
+            },
+            "media": {
+                "main": {
+                    "url": "https://d3r3my41ffsjer.cloudfront.net/9400e98a-4fd1-4949-a175-05552b961823-image.png",
+                    "description": ""
+                },
+                "extra": [
+                    
+                ]
+            },
+            "createdAt": "2024-07-15T12:15:36.053Z",
+            "updatedAt": "2024-07-29T11:46:38.538Z",
+            "units": [
+                {
+                    "_id": "669512fe4ed9c8565bcf73ac",
+                    "name": "hossam  33332222وحدات   المدينة",
+                    "totalCount": 10,
+                    "soldCount": 0,
+                    "price": 1000,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "remainsCount": 10
+                }
+            ],
+            "soldOut": false,
+            "isAcceptedTerms": true
+        },
+        {
+            "_id": "66950c3a4ed9c8565bcf60c4",
+            "name": "test all2",
+            "price": 30000,
+            "status": "ACTIVE",
+            "details": "project details aaaaaaaaaaaaaaaaaaayaaaaaaaa",
+            "developerAgent": {
+                "_id": "669508503372cd397f68ea4d",
+                "name": "eman salma",
+                "logos": {
+                    "small": "https://uploadsstaging.dealapp.sa/d7440906-4a3f-4bc8-8057-ad350bdeef95.webp",
+                    "map": "https://uploadsstaging.dealapp.sa/f164e136-973d-4bc6-ae87-98face1a3212.webp",
+                    "homePage": "https://uploadsstaging.dealapp.sa/136ed6d1-9c51-47e5-946f-d779cb72c267.webp",
+                    "listing": "https://uploadsstaging.dealapp.sa/357a4fc0-ed14-44e5-bf03-877bbafd3bfa.webp"
+                }
+            },
+            "type": [
+                "DEAL_OPPORTUNITIES"
+            ],
+            "city": {
+                "_id": "5dd49004af8af4002cbfae2e",
+                "name_ar": "تبوك",
+                "name_en": "Tabuk"
+            },
+            "district": {
+                "_id": "5dd490b5bc2e91004242ecb0",
+                "name_ar": "البساتين",
+                "name_en": "Al Basatin Dist."
+            },
+            "location": {
+                "type": "PRECISE",
+                "value": {
+                    "coordinates": [
+                        
+                    ]
+                }
+            },
+            "media": {
+                "main": {
+                    "url": "https://d3r3my41ffsjer.cloudfront.net/9400e98a-4fd1-4949-a175-05552b961823-image.png",
+                    "description": "image description"
+                },
+                "extra": [
+                    
+                ]
+            },
+            "agentCommissionPercentage": 10,
+            "dealCommissionPercentage": 20,
+            "totalCommissionPercentage": 30,
+            "createdAt": "2024-07-15T11:47:06.395Z",
+            "updatedAt": "2024-07-29T12:05:42.912Z",
+            "units": [
+                {
+                    "_id": "669514fa3372cd397f690c2a",
+                    "name": "وحدات سلمى العقارية",
+                    "totalCount": 10,
+                    "soldCount": 0,
+                    "price": 80808080,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "remainsCount": 10
+                },
+                {
+                    "_id": "669576a0283aaa327d8d58f9",
+                    "name": "وحدات سلمى العقارية",
+                    "totalCount": 10,
+                    "soldCount": 0,
+                    "price": 80808080,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "usageType": [
+                            
+                        ]
+                    },
+                    "remainsCount": 10
+                },
+                {
+                    "_id": "66957ad7a487691484d6835e",
+                    "name": "وحدات سلمى العقارية",
+                    "totalCount": 10,
+                    "soldCount": 0,
+                    "price": 80808080,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "relatedQuestions": {
+                        "usageType": [
+                            
+                        ]
+                    },
+                    "remainsCount": 10
+                }
+            ],
+            "soldOut": false,
+            "isAcceptedTerms": true
+        },
+        {
+            "_id": "6693590aeb2d5ca8c2bff1bb",
+            "name": "Aya's company",
+            "price": 20000,
+            "status": "ACTIVE",
+            "details": "project details aaaaaaaaaaaaaaaaaaayaaaaaaaa",
+            "developerAgent": {
+                "_id": "6683a28cff8a3e71e93eb2b8",
+                "name": "aya company",
+                "logos": {
+                    "small": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "medium": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "large": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "map": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "homePage": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "listing": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp"
+                }
+            },
+            "type": [
+                "PREMIUM_ADS",
+                "DEAL_OPPORTUNITIES"
+            ],
+            "city": {
+                "_id": "5dd49004af8af4002cbfae2e",
+                "name_ar": "تبوك",
+                "name_en": "Tabuk"
+            },
+            "district": {
+                "_id": "5dd490b5bc2e91004242ecb0",
+                "name_ar": "البساتين",
+                "name_en": "Al Basatin Dist."
+            },
+            "location": {
+                "type": "PRECISE",
+                "value": {
+                    "coordinates": [
+                        
+                    ]
+                }
+            },
+            "media": {
+                "main": {
+                    "url": "https://d3r3my41ffsjer.cloudfront.net/9400e98a-4fd1-4949-a175-05552b961823-image.png",
+                    "description": "image description"
+                },
+                "extra": [
+                    
+                ]
+            },
+            "agentCommissionPercentage": 9,
+            "dealCommissionPercentage": 9,
+            "totalCommissionPercentage": 18,
+            "createdAt": "2024-07-14T04:50:18.560Z",
+            "updatedAt": "2024-07-29T12:12:16.483Z",
+            "units": [
+                {
+                    "_id": "66935da4eb2d5ca8c2bff6c5",
+                    "name": "2وحدات  مشاريع المدينة",
+                    "totalCount": 1,
+                    "soldCount": 0,
+                    "price": 109000,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "remainsCount": 1
+                }
+            ],
+            "soldOut": false,
+            "isAcceptedTerms": true
+        },
+        {
+            "_id": "6683a2bc078e66c9fb9f438b",
+            "name": "aya company",
+            "price": 50,
+            "status": "ACTIVE",
+            "details": "project details aaaaaaaaaaaaaaaaaaayaaaaaaaa",
+            "developerAgent": {
+                "_id": "6683a28cff8a3e71e93eb2b8",
+                "name": "aya company",
+                "logos": {
+                    "small": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "medium": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "large": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "map": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "homePage": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+                    "listing": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp"
+                }
+            },
+            "type": [
+                "PREMIUM_ADS"
+            ],
+            "city": {
+                "_id": "5dd49004af8af4002cbfae2e",
+                "name_ar": "تبوك",
+                "name_en": "Tabuk"
+            },
+            "district": {
+                "_id": "5dd490b5bc2e91004242ecb0",
+                "name_ar": "البساتين",
+                "name_en": "Al Basatin Dist."
+            },
+            "location": {
+                "type": "PRECISE",
+                "value": {
+                    "coordinates": [
+                        
+                    ]
+                }
+            },
+            "media": {
+                "main": {
+                    "url": "https://d3r3my41ffsjer.cloudfront.net/9400e98a-4fd1-4949-a175-05552b961823-image.png",
+                    "description": "image description"
+                },
+                "extra": [
+                    
+                ]
+            },
+            "createdAt": "2024-07-02T06:48:28.683Z",
+            "updatedAt": "2024-07-29T12:12:29.853Z",
+            "units": [
+                {
+                    "_id": "6683a2d4ff8a3e71e93eb2dd",
+                    "name": "2وحدات  مشاريع المدينة",
+                    "totalCount": 90,
+                    "soldCount": 61,
+                    "price": 109000,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "remainsCount": 29
+                },
+                {
+                    "_id": "668afa4806d70fc48ccc1fec",
+                    "name": "2وحدات  مشاريع المدينة",
+                    "totalCount": 1,
+                    "soldCount": 0,
+                    "price": 109000,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "remainsCount": 1
+                },
+                {
+                    "_id": "668afa6806d70fc48ccc1ff3",
+                    "name": "3وحدات  مشاريع المدينة",
+                    "totalCount": 1,
+                    "soldCount": 1,
+                    "price": 109000,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "remainsCount": 0
+                },
+                {
+                    "_id": "668afa8b1b9dd7c6071d4d4d",
+                    "name": "3وحدات  مشاريع المدينة",
+                    "totalCount": 1,
+                    "soldCount": 0,
+                    "price": 109000,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "remainsCount": 1
+                },
+                {
+                    "_id": "6696413fc3e4487b993c235b",
+                    "name": "وحدات سلمى العقارية",
+                    "totalCount": 10,
+                    "soldCount": 0,
+                    "price": 80808080,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "remainsCount": 10
+                },
+                {
+                    "_id": "66964146c3e4487b993c2362",
+                    "name": "وحدات  العقارية",
+                    "totalCount": 10,
+                    "soldCount": 0,
+                    "price": 80808080,
+                    "propertyType": {
+                        "_id": "630910da45e4bab52f2d5c02",
+                        "propertyType": "RESIDENTIAL-LAND",
+                        "propertyType_ar": "أرض سكنية",
+                        "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                        "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png",
+                        "category": {
+                            "_id": "6307c11345e4ba5ad32be774",
+                            "name_en": "LANDS",
+                            "name_ar": "أراضي",
+                            "cardIcon": "https://d37s99b316dw6l.cloudfront.net/b5eda661-591e-4f70-a818-f1b493319360.png",
+                            "filterIcon": "https://d37s99b316dw6l.cloudfront.net/5b55c8ce-6df0-4ce1-b4d3-51575bbb2ea4.png"
+                        }
+                    },
+                    "propertyCategory": "6307c11345e4ba5ad32be774",
+                    "area": 100,
+                    "media": {
+                        "extra": [
+                            
+                        ]
+                    },
+                    "remainsCount": 10
+                }
+            ],
+            "soldOut": false,
+            "isAcceptedTerms": true
+        }
+    ],
+    "total": 9,
+    "page": 1,
+    "limit": 10,
+    "totalPage": 1,
+    "hasNextPage": false,
+    "hasPrevPage": false
+}
+]]></system-out>
+    <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+  </testcase>
+  <testcase name="updateProject" classname="Projects.UpdateProject" time="1.802">
+    <system-out><![CDATA[{
+    "location": {
+        "value": {
+            "type": "Point",
+            "coordinates": [
+                41.494853799784245,
+                19.971516088992384
+            ]
+        },
+        "type": "PRECISE"
+    },
+    "media": {
+        "main": {
+            "url": "https://d3r3my41ffsjer.cloudfront.net/9400e98a-4fd1-4949-a175-05552b961823-image.png",
+            "description": ""
+        },
+        "extra": [
+            {
+                "url": "https://uploadsstaging.dealapp.sa/8056e9fa-4059-4592-a5a1-e65f5a312f3c.webp",
+                "description": ""
+            }
+        ]
+    },
+    "showOnMap": false,
+    "_id": "669cdd0919b1b4793942fd64",
+    "name": "updatedProjectName1",
+    "price": 2000,
+    "status": "ACTIVE",
+    "details": "Ethar",
+    "developerAgent": "669cdc8919b1b4793942f939",
+    "type": [
+        "DEAL_OPPORTUNITIES"
+    ],
+    "city": {
+        "_id": "5dd49004af8af4002cbfb433",
+        "name_ar": "الباحة",
+        "name_en": "Al Baha"
+    },
+    "district": {
+        "_id": "5dd490b6bc2e91004242eea1",
+        "name_ar": "الربوة",
+        "name_en": "Al Rabwah Dist."
+    },
+    "emails": [
+        {
+            "value": "aa.lk@gmail.com",
+            "active": true
+        },
+        {
+            "value": "khaled@gmail.com",
+            "active": true
+        }
+    ],
+    "statusLog": [
+        {
+            "status": "ACTIVE",
+            "by": "5e1638a65dad153ca2f260a4",
+            "at": "2024-07-21T10:03:53.872Z"
+        }
+    ],
+    "isLaunched": false,
+    "isLaunchingNotificationSent": false,
+    "remainingAlertFired": false,
+    "acceptedDealOpportunitiesTerms": [
+        {
+            "_id": "669778cc811df8c17534169c",
+            "at": "2024-06-11T00:18:42.832Z"
+        },
+        {
+            "_id": "65f97dd8edaca23d7f3f25df",
+            "at": "2024-07-24T09:59:58.240Z"
+        },
+        {
+            "_id": "65fab5443f805af5690368e9",
+            "at": "2024-07-24T10:08:29.062Z"
+        },
+        {
+            "_id": "65f13a44ec67717204167821",
+            "at": "2024-07-24T20:14:38.830Z"
+        }
+    ],
+    "code": 202,
+    "createdAt": "2024-07-21T10:03:53.881Z",
+    "updatedAt": "2024-07-30T10:34:25.644Z",
+    "agentCommissionPercentage": 30,
+    "dealCommissionPercentage": 20,
+    "totalCommissionPercentage": 50
+}
+]]></system-out>
+  </testcase>
+  <testcase name="createProject" classname="Projects.CreateProject" time="0.594">
+    <failure message="1 expectation failed.&#10;Expected status code &lt;201&gt; but was &lt;400&gt;.&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <400>.
+
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:60)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:86)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
+	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
+	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
+	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
+	at Projects.CreateProject.createProject(CreateProject.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:324)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:74)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:123)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+]]></failure>
+    <system-out><![CDATA[{
+    "error": {
+        "message": "Project already exists with the same name for this developer",
+        "code": "error.project.alreadyExistsWithSameName"
+    }
+}
+]]></system-out>
+  </testcase>
+</testsuite>
