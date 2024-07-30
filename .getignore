@@ -1,0 +1,13 @@
+# Ignore Extent Reports directory
+REPORTS/
+target/
+build/
+.idea/
+*.iml
+*.iws
+# Maven / Gradle
+*.jar
+*.war
+*.ear
+*.class
+*.log

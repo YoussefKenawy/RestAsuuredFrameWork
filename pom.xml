@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>RetargetCommonRestAPIAutomationFramework</artifactId>
+    <artifactId>RestAssuredFaramework</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <build>
@@ -18,7 +18,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <forkCount>0</forkCount>
+                    <forkCount>1</forkCount>
                 </configuration>
             </plugin>
         </plugins>
@@ -31,7 +31,6 @@
         <testngVersion>7.10.2</testngVersion>
         <jacksonVersion>2.14.1</jacksonVersion>
         <gsonVersion>2.10</gsonVersion>
-        <extentVersion>5.0.9</extentVersion>
         <datafakerVersion>1.8.0</datafakerVersion>
         <lombokVersion>1.18.24</lombokVersion>
         <apacheCommonLangVersion>3.12.0</apacheCommonLangVersion>
@@ -39,6 +38,21 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20240303</version>
+        </dependency>
+
+            <dependency>
+                <groupId>com.aventstack</groupId>
+                <artifactId>extentreports</artifactId>
+                <version>5.1.2</version>
+            </dependency>
+
+
+
         <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -70,7 +84,7 @@
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
-            <version>${extentVersion}</version>
+            <version>5.1.2</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/net.datafaker/datafaker -->
         <dependency>

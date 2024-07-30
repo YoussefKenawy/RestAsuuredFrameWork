@@ -1,0 +1,24 @@
+{
+  "name": "مشروع12",
+  "city": "5dd49004af8af4002cbfb433",
+  "district": "5dd490b6bc2e91004242eea1",
+
+
+  "price": 30000,
+  "details": "project details aaaaaaaaaaaaaaaaaaayaaaaaaaa",
+  "media": {
+    "main": {
+      "url": "https://d3r3my41ffsjer.cloudfront.net/9400e98a-4fd1-4949-a175-05552b961823-image.png",
+      "description": "image description"
+    }
+  },
+  "developerAgent": "669d0737fab50cac70fba3ce",
+  "agentCommissionPercentage": 10,
+   "dealCommissionPercentage": 20,
+  "totalCommissionPercentage":30,
+  "location": {
+    "type": "PRECISE"
+  },
+  "type":  ["DEAL_OPPORTUNITIES"]
+
+}
