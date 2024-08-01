@@ -12,13 +12,17 @@
       "description": "image description"
     }
   },
+  "emails": [
+    {
+      "value": "aa.lk@gmail.com",
+      "active": true
+    }
+  ],
   "developerAgent": "669d0737fab50cac70fba3ce",
   "agentCommissionPercentage": 10,
    "dealCommissionPercentage": 20,
   "totalCommissionPercentage":30,
   "location": {
     "type": "PRECISE"
-  },
-  "type":  ["DEAL_OPPORTUNITIES"]
-
+  }
 }

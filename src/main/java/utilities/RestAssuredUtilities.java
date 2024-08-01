@@ -124,6 +124,13 @@ public class RestAssuredUtilities {
         printResponseLogInReport(response);
         return response;
     }
-
-
+    public static Map<String,String>sendHeaders()
+    {
+        Map<String, String> headers = Map.of(
+                "Content-Type", "application/json; charset=utf-8",
+                "accept", "application/json",
+                "Connection", "keep-alive"
+        );
+        return  headers;
+    }
 }
