@@ -1,4 +1,4 @@
-package Users;
+package Dashboard.Users;
 
 import io.restassured.response.Response;
 import org.testng.Assert;
