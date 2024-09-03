@@ -6,10 +6,16 @@
     </listeners>
     <test verbose="2" preserve-order="true"
           name="C:\Users\Youssef\IdeaProjects\RestAssuredFrameWork\src\test\java\dealApp\users">
+
         <classes>
-            <class name="Projects.GetAllProjectsData"/>
-            <class name="Projects.UpdateProject"/>
-            <class name="Projects.CreateProject"/>
+            <class name="DealApp.ADS.CreateAd"/>
+            <class name="DealApp.ADS.UpdateAd"/>
+            <class name="DealApp.ADS.GetAnAd"/>
+            <class name="DealApp.ADS.GetAllAds"/>
+            <class name="DealApp.ADS.GetMostInteractiveAds"/>
+            <class name="DealApp.ADS.GetMyAds"/>
+            <class name="DealApp.ADS.GetAdsFromMap"/>
+
 
         </classes>
     </test>

@@ -1,4 +1,4 @@
-package Projects;
+package Dashboard.Projects;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
@@ -8,7 +8,6 @@ import utilities.Tokens;
 import java.io.IOException;
 import java.util.Map;
 
-import static org.hamcrest.Matchers.equalTo;
 import static utilities.JsonUtilitiles.getJsonDataAsMap;
 
 public class CreateProject  extends  RestAssuredUtilities{

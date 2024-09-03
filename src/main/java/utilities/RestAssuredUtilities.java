@@ -34,13 +34,25 @@ public class RestAssuredUtilities {
                 .body(requestBody);
     }
 
+
+    public static RequestSpecification getRequestSpecification(String endpoint, String token,Map<String,Object>queryParams)
+    {
+        String baseurl = "https://api.dealapp.sa/staging";
+        return RestAssured.given()
+                .baseUri(baseurl  + endpoint)
+                .queryParams(queryParams)
+                .auth()
+                .oauth2(token)
+                .log().all();
+    }
     public static RequestSpecification getRequestSpecification(String endpoint, String token)
     {
         String baseurl = "https://api.dealapp.sa/staging";
         return RestAssured.given()
                 .baseUri(baseurl  + endpoint)
                 .auth()
-                .oauth2(token);
+                .oauth2(token)
+                .log().all();
     }
 
 
@@ -52,16 +64,18 @@ public class RestAssuredUtilities {
         ExtentReportsManager.logInfoDetails("Headers are: ");
         ExtentReportsManager.printHeaders(queryableRequestSpecification.getHeaders().asList());
         ExtentReportsManager.logInfoDetails("Request body is ");
+        ExtentReportsManager.logInfoDetails("Query Params are: " + queryableRequestSpecification.getQueryParams());
         ExtentReportsManager.logJson(queryableRequestSpecification.getBody());
 
     }
-    // Overload method for GET requests since it does not have a request body
+    // Overload method for GET requests since it does not have a request oo
 
     private static void printRequestLogInReportForGetRequests(RequestSpecification requestSpecification)
     {
         QueryableRequestSpecification queryableRequestSpecification = SpecificationQuerier.query(requestSpecification);
         ExtentReportsManager.logInfoDetails("Endpoint is: " + queryableRequestSpecification.getBaseUri());
         ExtentReportsManager.logInfoDetails("Method is: " + queryableRequestSpecification.getMethod());
+        ExtentReportsManager.logInfoDetails("Query Params are: " + queryableRequestSpecification.getQueryParams());
     }
 
 
@@ -117,13 +131,21 @@ public class RestAssuredUtilities {
 
     public static Response performGet(String endpoint, String token)
     {
-
         RequestSpecification requestSpecification = getRequestSpecification(endpoint, token);
         Response response = requestSpecification.get();
         printRequestLogInReportForGetRequests(requestSpecification);
         printResponseLogInReport(response);
         return response;
     }
+    public static Response performGet(String endpoint, String token,Map<String,Object> queryParams)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token,queryParams);
+        Response response = requestSpecification.get();
+        printRequestLogInReportForGetRequests(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
+
     public static Map<String,String>sendHeaders()
     {
         Map<String, String> headers = Map.of(
@@ -133,4 +155,20 @@ public class RestAssuredUtilities {
         );
         return  headers;
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

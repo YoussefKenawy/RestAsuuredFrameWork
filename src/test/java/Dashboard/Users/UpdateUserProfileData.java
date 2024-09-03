@@ -1,4 +1,4 @@
-package Users;
+package Dashboard.Users;
 
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -20,7 +20,6 @@ public class UpdateUserProfileData {
         requestBody.put("","");
         requestBody.put("","");
         requestBody.put("","");
-
 
         Response response= performPut(endpoint,bearerToken,requestBody, new HashMap<>());
         Assert.assertEquals(response.statusCode(), 200);

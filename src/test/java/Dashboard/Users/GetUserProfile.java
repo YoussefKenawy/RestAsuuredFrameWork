@@ -1,7 +1,11 @@
-package Users;
+/*
+package Dashboard.Users;
 
+import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.awt.geom.RectangularShape;
 
 import static utilities.RestAssuredUtilities.*;
 
@@ -11,9 +15,11 @@ public class GetUserProfile {
 
     @Test
     public void getUserProfileData() {
-        performGet(endpoint,bearerToken);
+       Response response= performGet(endpoint,bearerToken);
         Assert.assertEquals(performGet(endpoint,bearerToken).statusCode(), 200);
+        Assert.assertEquals(response.getBody().asString(), response.asString());
     }
 
 }
 
+*/

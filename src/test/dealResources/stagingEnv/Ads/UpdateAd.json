@@ -1,0 +1,40 @@
+{
+  "purpose": "SALE",
+  "propertyType": "630910da45e4bab52f2d5c02",
+  "propertyCategory": "6307c11345e4ba5ad32be774",
+  "city": "6009d942950ada00061eeeac",
+  "district": "5dd490b0bc2e91004242e6e3",
+  "location": {
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        46.692731,
+        24.731759
+      ]
+    },
+    "type": "PRECISE"
+  },
+  "available": true,
+  "propertyAge": "2",
+  "negotiable": true,
+  "price": 70000,
+  "area": 30000,
+  "description": "Edited by Rest Assured.",
+  "advertiser": {
+    "name": " youssef kenawy",
+    "phone": "+966141197777",
+    "relation": "OWNER",
+    "regaType": "CITIZEN",
+    "acceptAdPolicy": true,
+    "crNumber": "252531",
+    "idNumber": "1234567891"
+  },
+  "notificationMethods": [
+    "CHAT",
+    "CALL_PHONE",
+    "WHATSAPP"
+  ],
+  "published": true,
+  "priceType": "BIDDING",
+  "rentType": "MONTHLY"
+}
