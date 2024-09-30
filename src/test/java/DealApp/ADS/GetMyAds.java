@@ -2,7 +2,6 @@ package DealApp.ADS;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-import org.yaml.snakeyaml.tokens.Token;
 import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 

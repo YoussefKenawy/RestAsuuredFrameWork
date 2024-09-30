@@ -15,12 +15,12 @@ public class RestAssuredUtilities {
     {
         String baseurl = "https://api.dealapp.sa/staging";
         return RestAssured.given()
-                .baseUri(baseurl  + endpoint)
+                .baseUri(baseurl + endpoint)
                 .headers(headers)
                 .auth()
-                .oauth2(token)
+                .oauth2(token).log().all()
                 .when()
-                .body(requestBody);
+                .body(requestBody).log().all();
     }
 
     // Overload method to delete token for requests that does not need token
@@ -28,28 +28,29 @@ public class RestAssuredUtilities {
     {
         String baseurl = "https://api.dealapp.sa/staging";
         return RestAssured.given()
-                .baseUri(baseurl  + endpoint)
+                .baseUri(baseurl + endpoint)
                 .headers(headers)
                 .when()
                 .body(requestBody);
     }
 
 
-    public static RequestSpecification getRequestSpecification(String endpoint, String token,Map<String,Object>queryParams)
+    public static RequestSpecification getRequestSpecification(String endpoint, String token, Map<String, Object> queryParams)
     {
         String baseurl = "https://api.dealapp.sa/staging";
         return RestAssured.given()
-                .baseUri(baseurl  + endpoint)
+                .baseUri(baseurl + endpoint)
                 .queryParams(queryParams)
                 .auth()
                 .oauth2(token)
                 .log().all();
     }
+
     public static RequestSpecification getRequestSpecification(String endpoint, String token)
     {
         String baseurl = "https://api.dealapp.sa/staging";
         return RestAssured.given()
-                .baseUri(baseurl  + endpoint)
+                .baseUri(baseurl + endpoint)
                 .auth()
                 .oauth2(token)
                 .log().all();
@@ -97,6 +98,24 @@ public class RestAssuredUtilities {
         return response;
     }
 
+    public static Response performDelete(String endpoint, String token, Map<String, Object> requestBody, Map<String, String> headers)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token, requestBody, headers);
+        Response response = requestSpecification.delete();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
+
+    public static Response performDelete(String endpoint, String token, String requestBody, Map<String, String> headers)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token, requestBody, headers);
+        Response response = requestSpecification.delete();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
+
     // Overload method to delete token for requests that does not need token
     public static Response performPost(String endpoint, Map<String, Object> requestBody, Map<String, String> headers)
     {
@@ -128,6 +147,24 @@ public class RestAssuredUtilities {
         return response;
     }
 
+    public static Response performPatch(String endpoint, String token)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token);
+        Response response = requestSpecification.patch();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
+
+    public static Response performPatch(String endpoint, String token, String requestBody, Map<String, String> headers)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token, requestBody, headers);
+        Response response = requestSpecification.patch();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
+
 
     public static Response performGet(String endpoint, String token)
     {
@@ -137,23 +174,24 @@ public class RestAssuredUtilities {
         printResponseLogInReport(response);
         return response;
     }
-    public static Response performGet(String endpoint, String token,Map<String,Object> queryParams)
+
+    public static Response performGet(String endpoint, String token, Map<String, Object> queryParams)
     {
-        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token,queryParams);
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token, queryParams);
         Response response = requestSpecification.get();
         printRequestLogInReportForGetRequests(requestSpecification);
         printResponseLogInReport(response);
         return response;
     }
 
-    public static Map<String,String>sendHeaders()
+    public static Map<String, String> sendHeaders()
     {
         Map<String, String> headers = Map.of(
                 "Content-Type", "application/json; charset=utf-8",
                 "accept", "application/json",
                 "Connection", "keep-alive"
         );
-        return  headers;
+        return headers;
     }
 
 }
