@@ -1,0 +1,11 @@
+{
+  "relatedQuestions": {
+    "roomsNum": "5",
+    "hallsNum": "7",
+    "toiletsNum": "7",
+    "propertyAgeRange": "9"
+  },
+
+  "priceType": "BASED_ON_MARKET",
+  "note": "Edited BY Rest Assured Framework",
+  "paymentMethod": "CASH"}

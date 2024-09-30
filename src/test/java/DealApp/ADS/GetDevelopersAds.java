@@ -6,10 +6,7 @@ import utilities.Tokens;
 
 import java.util.Map;
 
-import static io.restassured.RestAssured.given;
-
-public class GetAllAds extends RestAssuredUtilities {
-
+public class GetDevelopersAds extends RestAssuredUtilities {
 
     public static Map<String,Object> sendQueryParams()
     {
@@ -19,10 +16,10 @@ public class GetAllAds extends RestAssuredUtilities {
         return queryParams;
     }
     @Test
-    public void getAllAds()
+    public void getAllDevelopersAdsInAGivenCity()
     {
-      //  Map<String, Object> queryParams=sendQueryParams();
-         String endpoint="/ad";
-        performGet(endpoint,Tokens.getInstance().getClientToken(),sendQueryParams());
+        Map<String, Object> queryParams=sendQueryParams();
+        String endpoint="/ad/developers-ads";
+        performGet(endpoint, Tokens.getInstance().getClientToken(),sendQueryParams());
     }
 }
