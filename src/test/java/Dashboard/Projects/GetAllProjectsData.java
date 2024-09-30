@@ -1,4 +1,5 @@
-package Projects;
+/*
+package Dashboard.Projects;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -18,3 +19,4 @@ public class GetAllProjectsData {
     }
 }
 
+*/

@@ -15,12 +15,12 @@ public class RestAssuredUtilities {
     {
         String baseurl = "https://api.dealapp.sa/staging";
         return RestAssured.given()
-                .baseUri(baseurl  + endpoint)
+                .baseUri(baseurl + endpoint)
                 .headers(headers)
                 .auth()
-                .oauth2(token)
+                .oauth2(token).log().all()
                 .when()
-                .body(requestBody);
+                .body(requestBody).log().all();
     }
 
     // Overload method to delete token for requests that does not need token
@@ -28,19 +28,32 @@ public class RestAssuredUtilities {
     {
         String baseurl = "https://api.dealapp.sa/staging";
         return RestAssured.given()
-                .baseUri(baseurl  + endpoint)
+                .baseUri(baseurl + endpoint)
                 .headers(headers)
                 .when()
                 .body(requestBody);
+    }
+
+
+    public static RequestSpecification getRequestSpecification(String endpoint, String token, Map<String, Object> queryParams)
+    {
+        String baseurl = "https://api.dealapp.sa/staging";
+        return RestAssured.given()
+                .baseUri(baseurl + endpoint)
+                .queryParams(queryParams)
+                .auth()
+                .oauth2(token)
+                .log().all();
     }
 
     public static RequestSpecification getRequestSpecification(String endpoint, String token)
     {
         String baseurl = "https://api.dealapp.sa/staging";
         return RestAssured.given()
-                .baseUri(baseurl  + endpoint)
+                .baseUri(baseurl + endpoint)
                 .auth()
-                .oauth2(token);
+                .oauth2(token)
+                .log().all();
     }
 
 
@@ -52,16 +65,18 @@ public class RestAssuredUtilities {
         ExtentReportsManager.logInfoDetails("Headers are: ");
         ExtentReportsManager.printHeaders(queryableRequestSpecification.getHeaders().asList());
         ExtentReportsManager.logInfoDetails("Request body is ");
+        ExtentReportsManager.logInfoDetails("Query Params are: " + queryableRequestSpecification.getQueryParams());
         ExtentReportsManager.logJson(queryableRequestSpecification.getBody());
 
     }
-    // Overload method for GET requests since it does not have a request body
+    // Overload method for GET requests since it does not have a request oo
 
     private static void printRequestLogInReportForGetRequests(RequestSpecification requestSpecification)
     {
         QueryableRequestSpecification queryableRequestSpecification = SpecificationQuerier.query(requestSpecification);
         ExtentReportsManager.logInfoDetails("Endpoint is: " + queryableRequestSpecification.getBaseUri());
         ExtentReportsManager.logInfoDetails("Method is: " + queryableRequestSpecification.getMethod());
+        ExtentReportsManager.logInfoDetails("Query Params are: " + queryableRequestSpecification.getQueryParams());
     }
 
 
@@ -78,6 +93,24 @@ public class RestAssuredUtilities {
     {
         RequestSpecification requestSpecification = getRequestSpecification(endpoint, token, requestBody, headers);
         Response response = requestSpecification.post();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
+
+    public static Response performDelete(String endpoint, String token, Map<String, Object> requestBody, Map<String, String> headers)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token, requestBody, headers);
+        Response response = requestSpecification.delete();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
+
+    public static Response performDelete(String endpoint, String token, String requestBody, Map<String, String> headers)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token, requestBody, headers);
+        Response response = requestSpecification.delete();
         printRequestLogInReport(requestSpecification);
         printResponseLogInReport(response);
         return response;
@@ -114,10 +147,27 @@ public class RestAssuredUtilities {
         return response;
     }
 
+    public static Response performPatch(String endpoint, String token)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token);
+        Response response = requestSpecification.patch();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
+
+    public static Response performPatch(String endpoint, String token, String requestBody, Map<String, String> headers)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token, requestBody, headers);
+        Response response = requestSpecification.patch();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
+
 
     public static Response performGet(String endpoint, String token)
     {
-
         RequestSpecification requestSpecification = getRequestSpecification(endpoint, token);
         Response response = requestSpecification.get();
         printRequestLogInReportForGetRequests(requestSpecification);
@@ -125,5 +175,38 @@ public class RestAssuredUtilities {
         return response;
     }
 
+    public static Response performGet(String endpoint, String token, Map<String, Object> queryParams)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token, queryParams);
+        Response response = requestSpecification.get();
+        printRequestLogInReportForGetRequests(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
+
+    public static Map<String, String> sendHeaders()
+    {
+        Map<String, String> headers = Map.of(
+                "Content-Type", "application/json; charset=utf-8",
+                "accept", "application/json",
+                "Connection", "keep-alive"
+        );
+        return headers;
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

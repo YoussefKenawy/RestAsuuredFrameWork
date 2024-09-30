@@ -1,0 +1,24 @@
+{
+  "purpose": "RENT",
+  "relatedQuestions": {
+    "roomsNum": "5",
+    "hallsNum": "7",
+    "toiletsNum": "7",
+    "propertyAgeRange": "9"
+  },
+  "requestType": "NORMAL",
+  "propertyCategory": "6307c64e45e4badb612be78a",
+  "propertyType": "63091bcd45e4ba93412d5d25",
+  "city": "5dd49005af8af4002cbfbc61",
+  "districts": [
+    "5dd490b6bc2e91004242ee31"
+  ],
+  "priceType": "BASED_ON_MARKET",
+  "note": "لا يوجد",
+  "paymentMethod": "CASH",
+  "notificationMethods": [
+    "CHAT",
+    "CALL_PHONE",
+    "WHATSAPP"
+  ]
+}

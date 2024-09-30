@@ -1,9 +1,7 @@
 {
   "name": "updatedProjectName1",
-
   "details": "Ethar",
   "dealCommissionPercentage": 20,
   "totalCommissionPercentage": 50,
-  "type":  ["DEAL_OPPORTUNITIES"],
   "agentCommissionPercentage":30
 }
