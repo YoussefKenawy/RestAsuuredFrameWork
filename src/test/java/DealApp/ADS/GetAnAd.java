@@ -1,6 +1,5 @@
 package DealApp.ADS;
 
-
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,8 +16,7 @@ public class GetAnAd extends RestAssuredUtilities {
         String endpoint = "/ad/"+ adId;
         Response response = performGet(endpoint, Tokens.getInstance().getReaToken());
         Assert.assertEquals(response.getStatusCode(),200);
-        Assert.assertEquals(response.jsonPath().getString("data.id"), adId);
-
+        Assert.assertEquals(response.jsonPath().getString("data.id"), adId );
     }
 
 }
