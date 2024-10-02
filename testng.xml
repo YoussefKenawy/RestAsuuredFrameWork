@@ -10,6 +10,7 @@
             <package name="DealApp.MarketRequests"/>
             <package name="DealApp.ADS"/>
             <package name="DealApp.Requests"/>
+            <package name="DealApp.Subscriptions"/>
         </packages>
 
 
