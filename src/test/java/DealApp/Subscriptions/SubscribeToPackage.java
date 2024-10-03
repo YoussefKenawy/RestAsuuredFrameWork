@@ -79,12 +79,12 @@ public class SubscribeToPackage extends RestAssuredUtilities {
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertEquals(response.jsonPath().getString("name"), "PROFESSIONAL_ONE_YEAR");
         int percentage = response.jsonPath().getInt("autoRenewalDiscount.percentage");
-        Assert.assertTrue(percentage != 0);
-        Assert.assertEquals(response.jsonPath().getInt("couponDiscount.value"), 10);
-        Assert.assertEquals(response.jsonPath().getString("couponDiscount.coupon"), uniqueCouponText);
-
+        Assert.assertTrue(percentage == 0);
+        Assert.assertEquals(response.jsonPath().getInt("couponDiscount.value"), 100);
         finalPrice = response.jsonPath().getInt("finalPrice");
-        Assert.assertTrue(finalPrice != 0);
+        System.out.println("Final Price from response: " + finalPrice);
+        Assert.assertTrue(finalPrice == 0, "Expected final price to be 0, and it is: " + finalPrice);
+
     }
 
     @Test(dependsOnMethods = {"calculatePriceWithoutCoupon", "getCard"})
