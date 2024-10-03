@@ -11,6 +11,8 @@
             <package name="DealApp.ADS"/>
             <package name="DealApp.Requests"/>
             <package name="DealApp.Subscriptions"/>
+            <package name="DealApp.AdsLicense"/>
+
         </packages>
 
 

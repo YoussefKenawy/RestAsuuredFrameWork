@@ -20,7 +20,6 @@ public class CreateProject  extends  RestAssuredUtilities{
         Response response = RestAssuredUtilities.performPost(endpoint, Tokens.getInstance().getAdminToken(), requestBody, sendHeaders());
         response.then().statusCode(201);  // Asserting the status code
 
-
     }
 
 }

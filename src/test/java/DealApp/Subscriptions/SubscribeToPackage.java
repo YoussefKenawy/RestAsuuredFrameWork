@@ -51,10 +51,10 @@ public class SubscribeToPackage extends RestAssuredUtilities {
         // Create the coupon JSON object
         Map<String, Object> coupon = Map.of(
                 "text", uniqueCouponText,
-                "products", new String[]{"PROFESSIONAL_ONE_MONTH", "PROFESSIONAL_ONE_YEAR"},
+                "products", new String[]{"PROFESSIONAL_ONE_MONTH", "PROFESSIONAL_ONE_YEAR","AD_LICENSE_REQUEST_RENT"},
                 "roles", new String[]{"CLIENT", "REAL_STATE_AGENT"},
                 "discountType", "PERCENTAGE",
-                "discountValue", 10,
+                "discountValue", 100,
                 "expirationDate", "2030-06-12T18:17:58.691Z"
         );
         return coupon;
