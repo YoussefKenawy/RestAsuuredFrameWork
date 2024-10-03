@@ -22,7 +22,6 @@ public class CreateAd extends RestAssuredUtilities
         Assert.assertNotNull(_id, "ID should not be null");
         CreateAd.adId = _id;
         Assert.assertEquals(response.statusCode(), 201);
-
     }
 }
 
