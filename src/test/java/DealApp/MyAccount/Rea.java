@@ -15,6 +15,8 @@ import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Random;
 
+import static utilities.JsonUtilitiles.getJsonDataAsMap;
+
 public class Rea extends RestAssuredUtilities {
     static String token;
     static final String PREFIX = "+96611";
@@ -22,6 +24,8 @@ public class Rea extends RestAssuredUtilities {
     static final Random RANDOM = new Random();
     static String phone;
     static String reaToken;
+    static final String ID_PREFIX = "11";
+
 
     public static String generateRandomKSAPhoneNumber() {
         StringBuilder phoneNumber = new StringBuilder(PREFIX);
@@ -77,7 +81,7 @@ public class Rea extends RestAssuredUtilities {
     public void getOTP() {
         String endpoint = "/user/otp";
         Map<String, Object> requestBody = Map.of("phone", phone);
-        Response response = performPost(endpoint,  Tokens.getInstance().getAdminToken(),requestBody,sendHeaders());
+        Response response = performPost(endpoint, Tokens.getInstance().getAdminToken(), requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 200);
         token = response.jsonPath().getString("data.otp");
         Assert.assertNotNull(token, "OTP MUST NOT BE NULL");
@@ -90,15 +94,49 @@ public class Rea extends RestAssuredUtilities {
         Response response = performPost(endpoint, requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 200);
         Assert.assertEquals(response.jsonPath().getString("data.role"), "REAL_STATE_AGENT");
-         reaToken = response.getHeader("Authorization");
+        reaToken = response.getHeader("Authorization");
         System.out.println(reaToken);
     }
 
     @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaRegister", "reaEnterOTP"})
-    public void reaLogOut() {
+    public void reaLogOut()
+    {
         String endpoint = "/user/logout";
-        Response response = performPost(endpoint,reaToken,sendHeaders());
+        Response response = performPost(endpoint, reaToken, sendHeaders());
         Assert.assertEquals(response.statusCode(), 200);
+
+    }
+
+    public static String generateRandomKSAIdentityNumber() {
+        StringBuilder id = new StringBuilder(ID_PREFIX);
+
+        for (int i = 1; i <= NUMBER_LENGTH; i++)
+        {
+            int randomDigit = RANDOM.nextInt(10);
+            id.append(randomDigit);
+        }
+        String generatedNumber = id.toString();
+        System.out.println("Generated Random Phone Number: " + generatedNumber); // Debug statement
+        return generatedNumber;
+    }
+    public static Map<String,Object> sendQueryParams()
+    {
+        Map<String,Object>queryParams=Map.of ("testMode",true);
+        return  queryParams;
+    }
+
+    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaRegister", "reaEnterOTP"})
+    public void authorizeWithNafaz() throws IOException
+    {
+        String requestBodyJson = new String(Files.readAllBytes(Paths.get("src/test/dealResources/stagingEnv/Users/nafazDataVerfication.json")), StandardCharsets.UTF_8);
+        requestBodyJson = requestBodyJson.replace("\"nationalId\": \"1234567890\"", "\"nationalId\": \"" + generateRandomKSAIdentityNumber() + "\"");
+        Map<String, Object> requestBody = new ObjectMapper().readValue(requestBodyJson, new TypeReference<Map<String, Object>>() {});
+
+        String endpoint = "/user-verifications";
+        Response response = performPost(endpoint, reaToken, requestBody,sendQueryParams(),sendHeaders());
+        Assert.assertEquals(response.statusCode(), 201);
+        Assert.assertNotNull(response.jsonPath().getString("random"), "Random should no be null");
+
 
     }
 }
