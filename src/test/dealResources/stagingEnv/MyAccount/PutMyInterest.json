@@ -1,0 +1,30 @@
+{
+  "cityDistrictOfInterest": [
+    {
+      "cityId": "6009d941950ada00061eeeab",
+      "districtsId": [
+        "5dd490aebc2e91004242e460",
+        "5dd490aebc2e91004242e467",
+        "5dd490aebc2e91004242e468",
+        "64622c318e4fd9c4b59490b2",
+        "5dd490aebc2e91004242e469"
+      ]
+    }
+  ],
+  "propertiesOfInterest": [
+    {
+      "specialty": [
+        "SALE",
+        "RENT"
+      ],
+      "propertyType": "6309139445e4ba3abe2d5c2f"
+    },
+    {
+      "specialty": [
+        "SALE",
+        "RENT"
+      ],
+      "propertyType": "630913e545e4baba182d5c3e"
+    }
+  ]
+}
