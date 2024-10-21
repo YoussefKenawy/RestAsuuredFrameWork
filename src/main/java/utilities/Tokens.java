@@ -15,6 +15,8 @@ public class Tokens {
     private String clientToken;
     @Getter @Setter
     private String guestToken;
+    @Getter @Setter
+    private String AyaToken;
 
     private static Tokens instance;
 
@@ -32,11 +34,13 @@ public class Tokens {
 
     private void loadTokens() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, String> tokensMap = objectMapper.readValue(new File("C:\\Users\\Youssef\\IdeaProjects\\RestAssuredFrameWork\\src\\main\\resources\\tokens.json"), Map.class);
+        Map<String, String> tokensMap = objectMapper.readValue(new File("C:\\Users\\Tech Planet\\IdeaProjects\\RestAsuuredFrameWork\\src\\main\\resources\\tokens.json"), Map.class);
 
         this.adminToken = tokensMap.get("adminToken");
         this.reaToken = tokensMap.get("reaToken");
         this.clientToken = tokensMap.get("clientToken");
         this.guestToken = tokensMap.get("guestToken");
+        this.AyaToken = tokensMap.get("AyaToken");
+
     }
 }
