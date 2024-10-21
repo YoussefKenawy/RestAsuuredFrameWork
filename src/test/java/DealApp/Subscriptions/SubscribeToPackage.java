@@ -105,12 +105,12 @@ public class SubscribeToPackage extends RestAssuredUtilities {
     @Test(dependsOnMethods = {"calculatePriceWithCoupon", "createCoupon","getCard"})
     public void subscribeToPackageWithCoupon()
     {
-        Map<String, Object> requestBody = Map.of("autoRenewal", true,"cardId",cardID ,"coupon" ,uniqueCouponText, "packageName", "PROFESSIONAL_ONE_YEAR");
+        Map<String, Object> requestBody = Map.of("autoRenewal", true ,"coupon" ,uniqueCouponText, "packageName", "PROFESSIONAL_ONE_YEAR");
         String endpoint = "/subscribe-package";
         Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
         Assert.assertEquals(response.getStatusCode(), 200);
-        Assert.assertTrue(response.jsonPath().getBoolean("data.payment.metadata.autoRenewal"));
-        Assert.assertEquals(response.jsonPath().getString("data.payment.metadata.productName"), "PROFESSIONAL_ONE_YEAR");
+       Assert.assertTrue(response.jsonPath().getBoolean("data.subscription.autoRenewal"));
+        Assert.assertEquals(response.jsonPath().getString("data.subscription.packageName"), "PROFESSIONAL_ONE_YEAR");
         Assert.assertEquals(response.jsonPath().getString("data.coupon.text"), uniqueCouponText);
 
     }

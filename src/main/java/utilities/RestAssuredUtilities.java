@@ -1,5 +1,4 @@
 package utilities;
-
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.QueryableRequestSpecification;
@@ -22,6 +21,18 @@ public class RestAssuredUtilities {
                 .when()
                 .body(requestBody).log().all();
     }
+    public static RequestSpecification getRequestSpecification2(String endpoint, String token, Map<String, String> headers)
+    {
+        String baseurl = "https://api.dealapp.sa/staging";
+        return RestAssured.given()
+                .baseUri(baseurl + endpoint)
+                .headers(headers)
+                .auth()
+                .oauth2(token).log().all();
+
+    }
+
+
 
     // Overload method to delete token for requests that does not need token
     public static RequestSpecification getRequestSpecification(String endpoint, Object requestBody, Map<String, String> headers)
@@ -31,20 +42,34 @@ public class RestAssuredUtilities {
                 .baseUri(baseurl + endpoint)
                 .headers(headers)
                 .when()
-                .body(requestBody);
+                .body(requestBody)
+                .log().all();
     }
 
 
-    public static RequestSpecification getRequestSpecification(String endpoint, String token, Map<String, Object> queryParams)
+
+
+    public static RequestSpecification getRequestSpecification(String endpoint, String token, Map<String, Object> headers)
     {
         String baseurl = "https://api.dealapp.sa/staging";
         return RestAssured.given()
                 .baseUri(baseurl + endpoint)
-                .queryParams(queryParams)
+                .headers(headers)
                 .auth()
                 .oauth2(token)
                 .log().all();
     }
+    public static RequestSpecification getRequestSpecification3(String endpoint, String token, Map<String, Object> queryParam)
+    {
+        String baseurl = "https://api.dealapp.sa/staging";
+        return RestAssured.given()
+                .baseUri(baseurl + endpoint)
+                .queryParams(queryParam)
+                .auth()
+                .oauth2(token)
+                .log().all();
+    }
+
 
     public static RequestSpecification getRequestSpecification(String endpoint, String token)
     {
@@ -125,6 +150,14 @@ public class RestAssuredUtilities {
         printResponseLogInReport(response);
         return response;
     }
+    public static Response performPost(String endpoint, String token,Map<String,String> headers)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification2(endpoint, token,sendHeaders());
+        Response response = requestSpecification.post();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
 
 
     public static Response performPut(String endpoint, String token, Map<String, Object> requestBody, Map<String, String> headers)
@@ -177,7 +210,7 @@ public class RestAssuredUtilities {
 
     public static Response performGet(String endpoint, String token, Map<String, Object> queryParams)
     {
-        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token, queryParams);
+        RequestSpecification requestSpecification = getRequestSpecification3(endpoint, token, queryParams);
         Response response = requestSpecification.get();
         printRequestLogInReportForGetRequests(requestSpecification);
         printResponseLogInReport(response);
@@ -195,18 +228,3 @@ public class RestAssuredUtilities {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

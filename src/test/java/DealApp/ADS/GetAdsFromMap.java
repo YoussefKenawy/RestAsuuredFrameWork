@@ -28,7 +28,6 @@ public class GetAdsFromMap extends RestAssuredUtilities
     public void getAdsFromMap()
     {
         String endpoint="/ad";
-        Map<String, Object> queryParams=sendQueryParams();
         Response response=performGet(endpoint, Tokens.getInstance().getGuestToken(),sendQueryParams());
     }
 }

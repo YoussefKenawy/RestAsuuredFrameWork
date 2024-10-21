@@ -1,6 +1,8 @@
 {
   "name": "bassem",
+  "country":"KSA",
   "phone": "+966011127452",
   "email": "test@mail.com",
-  "gender": "MALE"
+  "gender": "MALE",
+  "role": "CLIENT"
 }

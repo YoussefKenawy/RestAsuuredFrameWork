@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ChangeStatusByAdmin extends RestAssuredUtilities {
 
-    @Test(dependsOnMethods = "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest")
+    @Test(dependsOnMethods ={ "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest","DealApp.ADS.CreateAd.createAd"})
     public void changeStatusByAdmin_ToApprove()
     {
         System.out.println(CreateMarketingRequest.marketRequestId);

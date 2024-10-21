@@ -41,7 +41,7 @@ public class Register {
                 "Connection", "keep-alive"
         );
 
-        Map<String, Object> requestBody = getJsonDataAsMap("/userRegistrationData.json");
+        Map<String, Object> requestBody = getJsonDataAsMap("/reaRegistrationData.json");
         Response response = performPost(endpoint, requestBody, headers);
         Assert.assertEquals(response.statusCode(), 201);
     }
