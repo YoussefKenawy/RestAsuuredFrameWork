@@ -21,6 +21,18 @@ public class RestAssuredUtilities {
                 .when()
                 .body(requestBody).log().all();
     }
+    public static RequestSpecification getRequestSpecification4(String endpoint, String token, Object requestBody,Map<String, Object> queryParam, Map<String, String> headers)
+    {
+        String baseurl = "https://api.dealapp.sa/staging";
+        return RestAssured.given()
+                .baseUri(baseurl + endpoint)
+                .queryParams(queryParam)
+                .headers(headers)
+                .auth()
+                .oauth2(token).log().all()
+                .when()
+                .body(requestBody).log().all();
+    }
     public static RequestSpecification getRequestSpecification2(String endpoint, String token, Map<String, String> headers)
     {
         String baseurl = "https://api.dealapp.sa/staging";
@@ -122,10 +134,27 @@ public class RestAssuredUtilities {
         printResponseLogInReport(response);
         return response;
     }
+    public static Response performPost(String endpoint, String token, Map<String, Object> requestBody, Map<String, Object> queryParam, Map<String, String> headers)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification4(endpoint, token, requestBody,queryParam, headers);
+        Response response = requestSpecification.post();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
+
 
     public static Response performDelete(String endpoint, String token, Map<String, Object> requestBody, Map<String, String> headers)
     {
         RequestSpecification requestSpecification = getRequestSpecification(endpoint, token, requestBody, headers);
+        Response response = requestSpecification.delete();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
+    public static Response performDelete(String endpoint, String token)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token);
         Response response = requestSpecification.delete();
         printRequestLogInReport(requestSpecification);
         printResponseLogInReport(response);

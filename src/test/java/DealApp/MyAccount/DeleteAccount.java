@@ -17,12 +17,11 @@ public class DeleteAccount extends RestAssuredUtilities
     }
 
 
-    @Test (dependsOnMethods = {"DealApp.MyAccount.Rea.reaEnterOTP","DealApp.MyAccount.Rea.getOTP","DealApp.MyAccount.Rea.reaRequestOTP","DealApp.MyAccount.Rea.reaRegister"})
+    @Test (dependsOnMethods = {"DealApp.MyAccount.Rea.reaEnterOTP","DealApp.MyAccount.Rea.getOTP","DealApp.MyAccount.Rea.reaRequestOTP","DealApp.MyAccount.Rea.reaRegister,DealApp.MyAccount.GetMyProfile.getMyProfile"})
     public  void deleteReaAccount()
     {
-        String endpoint="/user/skip";
-        Response response=performPost(endpoint,Rea.reaToken,sendHeaders());
+        String endpoint="/user/profile";
+        Response response=performDelete(endpoint,Rea.reaToken);
         Assert.assertEquals(response.statusCode(),200);
-        Assert.assertEquals(response.jsonPath().getString("data.status"),"DEACTIVATED");
     }
 }
