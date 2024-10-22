@@ -1,16 +1,13 @@
-package DealApp.MyAccount;
+package DealApp.MyAccount.REA;
 
 import DealApp.Requests.CreateRequest;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 
 import java.util.Map;
-
-import static org.testng.TestRunner.PriorityWeight.dependsOnMethods;
 
 public class MyClients extends RestAssuredUtilities
 {
@@ -57,11 +54,20 @@ public class MyClients extends RestAssuredUtilities
         Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdByClient);
     }
 
-    @Test ( dependsOnMethods ={ "DealApp.Requests.CreateRequest.createRequestByClient","DealApp.Requests.InteractWithRequests.activateRequests","DealApp.Requests.InteractWithRequests.activateRequests","DealApp.Requests.InteractWithRequests.Check_CALL_PHONE_Interaction_WithRequestsByRea"})
+    @Test ( dependsOnMethods ={ "DealApp.Requests.CreateRequest.createRequestByClient",
+            "DealApp.Requests.InteractWithRequests.activateRequests",
+            "DealApp.Requests.InteractWithRequests.activateRequests",
+            "DealApp.Requests.InteractWithRequests.Check_CALL_PHONE_Interaction_WithRequestsByRea",
+            "DealApp.MyAccount.REA.Rea.getOTP",
+            "DealApp.MyAccount.REA.Rea.reaRequestOTP",
+            "DealApp.MyAccount.REA.Rea.reaRegister",
+            "DealApp.MyAccount.REA.Rea.reaEnterOTP",
+            "DealApp.MyAccount.REA.Rea.authorizeWithNafaz"
+    })
     public void getCommunicatedRequestsOfPhone() throws InterruptedException {
         Thread.sleep(2000);
         String endpoint="/request";
-        Response response=performGet(endpoint, Tokens.getInstance().getReaToken(),sendQueryParamsForCommunicatedRequests());
+        Response response=performGet(endpoint, Rea.reaToken,sendQueryParamsForCommunicatedRequests());
         Assert.assertEquals(response.statusCode(),200);
         String addedRequestToFavorite=response.jsonPath().getString("data[0]._id");
         Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdByClient);

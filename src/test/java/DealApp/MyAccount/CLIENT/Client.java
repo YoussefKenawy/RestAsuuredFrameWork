@@ -1,4 +1,4 @@
-package DealApp.MyAccount;
+package DealApp.MyAccount.CLIENT;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
@@ -19,7 +19,7 @@ public class Client extends RestAssuredUtilities {
     static final int NUMBER_LENGTH = 7;
     static final Random RANDOM = new Random();
     static String phone;
-    static String clientToken;
+   public static String clientToken;
 
     public static String generateRandomKSAPhoneNumber() {
         StringBuilder phoneNumber = new StringBuilder(PREFIX);
@@ -93,11 +93,14 @@ public class Client extends RestAssuredUtilities {
     }
 
     @Test(dependsOnMethods = {"getOTP", "clientRequestOTP", "clientRegister", "clientEnterOTP"})
-    public void clientLogOut() {
+    public void clientLogOut() throws InterruptedException {
         String endpoint = "/user/logout";
         Response response = performPost(endpoint,clientToken,sendHeaders());
+        Thread.sleep(1000);
         Assert.assertEquals(response.statusCode(), 200);
+        Thread.sleep(1000);
 
     }
+
 }
 

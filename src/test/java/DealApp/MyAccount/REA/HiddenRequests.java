@@ -1,4 +1,4 @@
-package DealApp.MyAccount;
+package DealApp.MyAccount.REA;
 
 import DealApp.Requests.CreateRequest;
 import io.restassured.response.Response;
@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class HiddenRequests extends RestAssuredUtilities

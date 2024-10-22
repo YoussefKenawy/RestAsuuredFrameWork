@@ -13,6 +13,9 @@
             <package name="DealApp.Subscriptions"/>
             <package name="DealApp.AdsLicense"/>
             <package name="DealApp.MyAccount"/>
+            <package name="DealApp.MyAccount.REA"/>
+            <package name="DealApp.MyAccount.CLIENT"/>
+            <package name="DealApp.MyDeals"/>
 
 
         </packages>

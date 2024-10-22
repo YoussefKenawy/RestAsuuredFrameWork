@@ -1,5 +1,6 @@
 package DealApp.Requests;
 
+import DealApp.MyAccount.REA.Rea;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -32,21 +33,24 @@ public class InteractWithRequests extends RestAssuredUtilities {
 
     }
 
-    @Test (dependsOnMethods = "DealApp.Requests.CreateRequest.createRequestByClient")
-    public void Check_CALL_PHONE_Interaction_WithRequestsByRea()
-    {
+    @Test (dependsOnMethods = {
+            "DealApp.Requests.CreateRequest.createRequestByClient",
+            "DealApp.MyAccount.REA.Rea.getOTP",
+            "DealApp.MyAccount.REA.Rea.reaRequestOTP",
+            "DealApp.MyAccount.REA.Rea.reaRegister",
+            "DealApp.MyAccount.REA.Rea.reaEnterOTP",
+            "DealApp.MyAccount.REA.Rea.authorizeWithNafaz"
+    })
+    public void Check_CALL_PHONE_Interaction_WithRequestsByRea() throws InterruptedException {
+        Thread.sleep(10000);
         String endpoint = "/request/"+CreateRequest.requestIdByClient+"/interaction";
         String requestBody = "{\"type\":\"CALL_PHONE\"}";
-        Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
+        Response response = performPatch(endpoint,  Rea.reaToken, requestBody, sendHeaders());
         Assert.assertNotNull(response.jsonPath().getString("_id"), "should not be null ");
 
     }
-
-
-
     @Test (dependsOnMethods = "DealApp.Requests.CreateRequest.createRequestByClient")
-    public void Check_FAVORITE_Interaction_WithRequestsByRea()
-    {
+    public void Check_FAVORITE_Interaction_WithRequestsByRea(){
         String endpoint = "/request/"+CreateRequest.requestIdByClient+"/interaction";
         String requestBody = "{\"type\":\"FAVORITE\"}";
         Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());

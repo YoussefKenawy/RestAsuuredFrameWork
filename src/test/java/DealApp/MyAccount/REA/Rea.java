@@ -1,4 +1,4 @@
-package DealApp.MyAccount;
+package DealApp.MyAccount.REA;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,15 +15,13 @@ import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Random;
 
-import static utilities.JsonUtilitiles.getJsonDataAsMap;
-
 public class Rea extends RestAssuredUtilities {
     static String token;
     static final String PREFIX = "+96611";
     static final int NUMBER_LENGTH = 7;
     static final Random RANDOM = new Random();
     static String phone;
-    static String reaToken;
+    public static String reaToken;
     static final String ID_PREFIX = "11";
 
 
@@ -40,7 +38,7 @@ public class Rea extends RestAssuredUtilities {
         return generatedNumber;
     }
 
-    @Test
+    @Test(ignoreMissingDependencies = true)
     public void reaRegister() throws IOException {
         String endpoint = "/user/register";
 
@@ -70,7 +68,6 @@ public class Rea extends RestAssuredUtilities {
     @Test(dependsOnMethods = "reaRegister")
     public void reaRequestOTP() {
         String endpoint = "/user/login";
-        // Directly use the full phone number (including +)
         Map<String, Object> requestBody = Map.of("phone", phone);
         Response response = performPost(endpoint, requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 200);
@@ -137,6 +134,18 @@ public class Rea extends RestAssuredUtilities {
         Assert.assertEquals(response.statusCode(), 201);
         Assert.assertNotNull(response.jsonPath().getString("random"), "Random should no be null");
 
+    }
+
+    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaRegister", "reaEnterOTP","authorizeWithNafaz"})
+
+    public void authorizeWithFal() throws IOException
+    {
+        String endpoint = "/fal-licenses";
+        Map<String,Object> requestBody=Map.of(
+                "imageUrl","imageUrl:https://uploadsstaging.dealapp.sa/daf8c0dd-1b76-4502-9f08-fa3f35317725.webp");
+        Response response = performPost(endpoint, reaToken, requestBody,sendHeaders());
+        Assert.assertEquals(response.statusCode(), 201);
+        Assert.assertEquals(response.jsonPath().getString("status"), "PENDING");
 
     }
 }

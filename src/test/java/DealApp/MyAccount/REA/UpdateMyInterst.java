@@ -1,4 +1,4 @@
-package DealApp.MyAccount;
+package DealApp.MyAccount.REA;
 
 import io.restassured.response.Response;
 import org.testng.Assert;
