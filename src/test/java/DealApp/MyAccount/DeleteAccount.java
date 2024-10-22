@@ -17,7 +17,7 @@ public class DeleteAccount extends RestAssuredUtilities
     }
 
 
-    @Test (dependsOnMethods = {"DealApp.MyAccount.Rea.reaEnterOTP","DealApp.MyAccount.Rea.getOTP","DealApp.MyAccount.Rea.reaRequestOTP","DealApp.MyAccount.Rea.reaRegister,DealApp.MyAccount.GetMyProfile.getMyProfile"})
+    @Test (dependsOnMethods = {"DealApp.MyAccount.Rea.reaEnterOTP","DealApp.MyAccount.Rea.getOTP","DealApp.MyAccount.Rea.reaRequestOTP","DealApp.MyAccount.Rea.reaRegister"})
     public  void deleteReaAccount()
     {
         String endpoint="/user/profile";

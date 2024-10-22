@@ -7,17 +7,23 @@ import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 
 public class GetMyProfile extends RestAssuredUtilities {
-    @Test(dependsOnMethods = {"DealApp.MyAccount.Rea.getOTP","DealApp.MyAccount.Rea.reaRequestOTP", "DealApp.MyAccount.Rea.reaRegister", "DealApp.MyAccount.Rea.reaEnterOTP","DealApp.MyAccount.Rea.authorizeWithNafaz","DealApp.MyAccount.DeleteAccount.deleteReaAccount"})
+
+    @Test(dependsOnMethods = {"DealApp.MyAccount.Rea.getOTP", "DealApp.MyAccount.Rea.reaRequestOTP",
+            "DealApp.MyAccount.Rea.reaRegister", "DealApp.MyAccount.Rea.reaEnterOTP",
+            "DealApp.MyAccount.Rea.authorizeWithNafaz"})
     public void getMyProfile() throws InterruptedException {
         Thread.sleep(10000);
-        String endpoint="/user/profile";
-        Response response=performGet(endpoint,Rea.reaToken);
-        Assert.assertEquals(response.statusCode(),200);
-        Assert.assertTrue(response.jsonPath().getBoolean("data.isVerifiedByNafath"),"nafaz should be true");
+        String endpoint = "/user/profile";
+        Response response = performGet(endpoint, Rea.reaToken);
+        Assert.assertEquals(response.statusCode(), 200);
+        Assert.assertTrue(response.jsonPath().getBoolean("data.isVerifiedByNafath"), "Nafaz should be true");
+    }
 
-
-
-
-
+    @Test(dependsOnMethods = {"getMyProfile"})
+    public void deleteReaAccount() throws InterruptedException {
+        Thread.sleep(10000);
+        String deleteEndpoint = "/user/profile";
+        Response response = performDelete(deleteEndpoint, Rea.reaToken);
+        Assert.assertEquals(response.statusCode(), 200);
     }
 }
