@@ -4,7 +4,6 @@
     <listeners>
         <listener class-name="reporting.Setup"></listener>
     </listeners>
-
     <test name="DealAppTests" verbose="2" preserve-order="true">
         <packages>
             <package name="DealApp.MarketRequests"/>
@@ -16,64 +15,8 @@
             <package name="DealApp.MyAccount.REA"/>
             <package name="DealApp.MyAccount.CLIENT"/>
             <package name="DealApp.MyDeals"/>
-
-
+            <package name="DealApp.MyHomePage"/>
         </packages>
-
-
     </test>
 </suite>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!--  <package name="DealApp.Requests">
-          <include name="CreateRequest" />
-          <exclude name="OtherClass" />
-           </package>
-          -->
-
-
-
-
-
-
-        <!--
-            <classes>
-        <class name="DealApp.ADS.CreateAd"/>
-        <class name="DealApp.MarketRequests.CreateMarketingRequest"/>
-               <methods>
-                <include name="createRequestByRea"/>
-                <exclude name="createRequestByClient"/>
-            </methods>
-           </class>
-        <class name="DealApp.MarketRequests.ChangeStatusByAdmin"/>
-        <class name="DealApp.MarketRequests.Check_Interaction_WithMarketingRequst"/>
-        <class name="DealApp.Requests.InteractWithRequests"/>
-        <class name="DealApp.Requests.CreateRequest"/>
-        <class name="DealApp.ADS.UpdateAd"/>
-        <class name="DealApp.ADS.GetAnAd"/>
-        <class name="DealApp.ADS.GetAllAds"/>
-        <class name="DealApp.ADS.GetMostInteractiveAds"/>
-        <class name="DealApp.ADS.GetMyAds"/>
-        <class name="DealApp.ADS.GetAdsFromMap"/>
-        <class name="DealApp.Requests.UpdateRequests"/>
-        <class name="DealApp.Requests.UpgradeRequests"/>
-        <class name="DealApp.Requests.AdvancedSearchForRequests"/>
-        <class name="DealApp.Requests.GetAllRequests"/>
-        <class name="DealApp.Requests.GetMyRequests"/>
-        <class name="DealApp.Requests.GetRequestsOnMap"/>
-        <class name="DealApp.Requests.MostInteractiveRequests"/>
-        <class name="DealApp.Requests.GetSuitableAdsBasedOnMyRequests"/>
-            </classes>
-        -->
 
