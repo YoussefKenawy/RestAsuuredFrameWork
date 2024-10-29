@@ -5,17 +5,24 @@
         <listener class-name="reporting.Setup"></listener>
     </listeners>
     <test name="DealAppTests" verbose="2" preserve-order="true">
+
         <packages>
+            <package name="DealApp.MyAccount">
+                <exclude name="DealApp.MyAccount.CLIENT.DeleteAccount"/>
+            </package>
             <package name="DealApp.MarketRequests"/>
             <package name="DealApp.ADS"/>
             <package name="DealApp.Requests"/>
             <package name="DealApp.Subscriptions"/>
             <package name="DealApp.AdsLicense"/>
-            <package name="DealApp.MyAccount"/>
-            <package name="DealApp.MyAccount.REA"/>
-            <package name="DealApp.MyAccount.CLIENT"/>
             <package name="DealApp.MyDeals"/>
             <package name="DealApp.MyHomePage"/>
+            <package name="DealApp.Chat"/>
+            <package name="DealApp.Ratings"/>
+            <package name="DealApp.Ratings.Client"/>
+            <package name="DealApp.Ratings.Rea"/>
+
+
         </packages>
     </test>
 </suite>

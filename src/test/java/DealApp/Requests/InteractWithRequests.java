@@ -1,11 +1,14 @@
 package DealApp.Requests;
 
+import DealApp.MyAccount.CLIENT.Client;
 import DealApp.MyAccount.REA.Rea;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.RestAssuredUtilities;
 import utilities.Tokens;
+
+import javax.swing.event.CaretListener;
 
 import static utilities.JsonUtilitiles.getJsonDataAsMap;
 
@@ -127,6 +130,14 @@ public class InteractWithRequests extends RestAssuredUtilities {
         Response response = performPatch(endpoint, Tokens.getInstance().getClientToken(),requestBody,sendHeaders());
         // Assert.assertNotNull(response.jsonPath().getString("error.code"), "error.request.cantRefreshBeforeTwoDays");
     Assert.assertEquals(response.statusCode(),200);
+    }
+    @Test (dependsOnMethods = "DealApp.Requests.CreateRequest.createRequestByNewClient")
+    public void activateRequestsByNewClient() throws InterruptedException {
+        String endpoint = "/request/"+CreateRequest.requestIdByClient+"/activate";
+        Map<String,Object> requestBody=Map.of ("status","ACTIVE");
+        Response response = performPatch(endpoint, Client.clientToken,requestBody,sendHeaders());
+        // Assert.assertNotNull(response.jsonPath().getString("error.code"), "error.request.cantRefreshBeforeTwoDays");
+        Assert.assertEquals(response.statusCode(),200);
     }
 
 

@@ -33,6 +33,4 @@ public class GetMyProfileDataAsRea extends RestAssuredUtilities {
         Assert.assertNotNull(response.jsonPath().getString("data.createdAt"), "Joining date should not be null");
         Assert.assertEquals(response.jsonPath().getString("data.role"), "REAL_STATE_AGENT");
     }
-
-
 }

@@ -1,5 +1,6 @@
 package DealApp.Requests;
 
+import DealApp.MyAccount.CLIENT.Client;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -48,5 +49,6 @@ public class UpgradeRequests extends RestAssuredUtilities {
         Assert.assertNotNull(response.jsonPath().getString(" updatedAt"));
         Assert.assertEquals(response.statusCode(), 200);
     }
+
 }
 

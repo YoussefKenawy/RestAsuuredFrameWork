@@ -44,7 +44,9 @@ public class MyClients extends RestAssuredUtilities
         return queryParams;
     }
 
-    @Test ( dependsOnMethods ={ "DealApp.Requests.CreateRequest.createRequestByClient","DealApp.Requests.InteractWithRequests.activateRequests","DealApp.Requests.InteractWithRequests.Check_FAVORITE_Interaction_WithRequestsByRea"})
+    @Test ( dependsOnMethods ={ "DealApp.Requests.CreateRequest.createRequestByClient",
+            "DealApp.Requests.InteractWithRequests.activateRequests",
+            "DealApp.Requests.InteractWithRequests.Check_FAVORITE_Interaction_WithRequestsByRea"})
     public void getFavoriteRequests() throws InterruptedException {
         Thread.sleep(2000);
         String endpoint="/request";

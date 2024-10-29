@@ -1,5 +1,6 @@
 package DealApp.Requests;
 
+import DealApp.MyAccount.CLIENT.Client;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -30,6 +31,21 @@ public class CreateRequest extends RestAssuredUtilities {
         String endpoint = "/request";
         Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/CreateRequest.json");
         Response response = performPost(endpoint, Tokens.getInstance().getClientToken(), requestBody, sendHeaders());
+        Assert.assertEquals(response.statusCode(), 201);
+        requestIdByClient = response.jsonPath().getString("data._id");
+        Assert.assertNotNull(requestIdByClient, "id should not be null");
+    }
+    @Test (dependsOnMethods ={
+            "DealApp.MyAccount.CLIENT.Client.getOTP",
+            "DealApp.MyAccount.CLIENT.Client.clientRequestOTP",
+            "DealApp.MyAccount.CLIENT.Client.clientRegister",
+            "DealApp.MyAccount.CLIENT.Client.clientEnterOTP",
+    })
+    public void createRequestByNewClient() throws IOException
+    {
+        String endpoint = "/request";
+        Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/CreateRequest.json");
+        Response response = performPost(endpoint, Client.clientToken, requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 201);
         requestIdByClient = response.jsonPath().getString("data._id");
         Assert.assertNotNull(requestIdByClient, "id should not be null");

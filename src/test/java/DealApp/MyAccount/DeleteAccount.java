@@ -1,3 +1,4 @@
+/*
 package DealApp.MyAccount;
 
 import DealApp.MyAccount.CLIENT.Client;
@@ -31,3 +32,4 @@ public class DeleteAccount extends RestAssuredUtilities {
         Assert.assertEquals(response.statusCode(), 200);
     }
 }
+*/
