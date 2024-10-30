@@ -16,10 +16,15 @@ import java.io.IOException;
 import java.util.Map;
 
 public class InteractWithRequests extends RestAssuredUtilities {
-    @Test
+@Test (dependsOnMethods = {
+        "DealApp.MyAccount.REA.Rea.reaRegister",
+        "DealApp.MyAccount.REA.Rea.reaRequestOTP",
+        "DealApp.MyAccount.REA.Rea.getOTP",
+        "DealApp.MyAccount.REA.Rea.reaEnterOTP",
+        "DealApp.Requests.CreateRequest.createRequestByRea"})
     public void Check_chat_Interaction_WithRequests()
     {
-        String endpoint = "/request/66bd9757209005078880d88d/interaction";
+        String endpoint = "/request/"+CreateRequest.requestIdByRea+"/interaction";
         String requestBody = "{\"type\":\"CHAT\"}";
         Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
         Assert.assertNotNull(response.jsonPath().getString("_id"), "should not be null ");

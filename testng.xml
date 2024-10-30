@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="Regression">
     <listeners>
         <listener class-name="reporting.Setup"></listener>
     </listeners>
     <test name="DealAppTests" verbose="2" preserve-order="true">
-
         <packages>
-            <package name="DealApp.MyAccount">
-                <exclude name="DealApp.MyAccount.CLIENT.DeleteAccount"/>
-            </package>
-            <package name="DealApp.MarketRequests"/>
-            <package name="DealApp.ADS"/>
-            <package name="DealApp.Requests"/>
-            <package name="DealApp.Subscriptions"/>
-            <package name="DealApp.AdsLicense"/>
-            <package name="DealApp.MyDeals"/>
-            <package name="DealApp.MyHomePage"/>
             <package name="DealApp.Chat"/>
-            <package name="DealApp.Ratings"/>
+            <package name="DealApp.AdsLicense"/>
+            <package name="DealApp.Subscriptions"/>
+            <package name="DealApp.Requests"/>
             <package name="DealApp.Ratings.Client"/>
             <package name="DealApp.Ratings.Rea"/>
-
+            <package name="DealApp.MyDeals"/>
+            <package name="DealApp.MyHomePage"/>
+            <package name="DealApp.MyAccount.REA"/>
+            <package name="DealApp.MyHomePage.REA"/>
+            <package name="DealApp.ADS"/>
+            <package name="DealApp.MarketRequests"/>
+            <package name="DealApp.MyAccount.CLIENT"/>
+            <package name="DealApp.MyAccount.TermsAndConditions"/>
+            <package name="DealApp.MyHomePage.CLIENT"/>
 
         </packages>
     </test>

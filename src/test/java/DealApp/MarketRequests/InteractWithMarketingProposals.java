@@ -1,6 +1,5 @@
-package DealApp.MarketRequests.MarketingProposals;
+package DealApp.MarketRequests;
 
-import io.restassured.internal.proxy.RestAssuredProxySelector;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -11,16 +10,34 @@ import java.util.Map;
 
 public class InteractWithMarketingProposals extends RestAssuredUtilities
 {
-    @Test
+@Test(dependsOnMethods = {
+        "DealApp.MyAccount.REA.Rea.reaRegister",
+        "DealApp.MyAccount.REA.Rea.reaRequestOTP",
+        "DealApp.MyAccount.REA.Rea.getOTP",
+        "DealApp.MyAccount.REA.Rea.reaEnterOTP",
+        "DealApp.ADS.CreateAd.createAd",
+        "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest",
+        "DealApp.MarketRequests.ChangeStatusByAdmin.changeStatusByAdmin_ToApprove",
+        "DealApp.MarketRequests.CreateMarketingProposal.createMarketingProposal",
+})
     public void Reject_MarketingProposals()
     {
-        String endpoint="/marketing-requests/66788ef2f9a62f0f9a5b29c4/interaction";
+        String endpoint="/marketing-requests/"+ CreateMarketingRequest.marketRequestId+"/interaction";
         Map<String,Object>requestBody=Map.of("type","REJECT","rejectionReason","OTHER","otherRejectionReason","no more reasons.");
         Response response= performPatch(endpoint, Tokens.getInstance().getReaToken(),requestBody,sendHeaders());
         Assert.assertEquals(response.statusCode(),200);
         Assert.assertNotNull(response.jsonPath().getString("updatedAt"),"not null");
     }
-    @Test
+@Test(dependsOnMethods = {
+        "DealApp.MyAccount.REA.Rea.reaRegister",
+        "DealApp.MyAccount.REA.Rea.reaRequestOTP",
+        "DealApp.MyAccount.REA.Rea.getOTP",
+        "DealApp.MyAccount.REA.Rea.reaEnterOTP",
+        "DealApp.ADS.CreateAd.createAd",
+        "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest",
+        "DealApp.MarketRequests.ChangeStatusByAdmin.changeStatusByAdmin_ToApprove",
+        "DealApp.MarketRequests.CreateMarketingProposal.createMarketingProposal",
+})
     public void Read_MarketingProposals()
     {
         String endpoint="/marketing-requests/66788ef2f9a62f0f9a5b29c4/interaction";
@@ -30,7 +47,16 @@ public class InteractWithMarketingProposals extends RestAssuredUtilities
         Assert.assertNotNull(response.jsonPath().getString("type"),"READ");
         Assert.assertNotNull(response.jsonPath().getString("updatedAt"),"not null");
     }
-    @Test
+@Test(dependsOnMethods = {
+        "DealApp.MyAccount.REA.Rea.reaRegister",
+        "DealApp.MyAccount.REA.Rea.reaRequestOTP",
+        "DealApp.MyAccount.REA.Rea.getOTP",
+        "DealApp.MyAccount.REA.Rea.reaEnterOTP",
+        "DealApp.ADS.CreateAd.createAd",
+        "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest",
+        "DealApp.MarketRequests.ChangeStatusByAdmin.changeStatusByAdmin_ToApprove",
+        "DealApp.MarketRequests.CreateMarketingProposal.createMarketingProposal",
+})
     public void Chat_MarketingProposals()
     {
         String endpoint="/rooms";

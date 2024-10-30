@@ -23,12 +23,12 @@ public class Rea extends RestAssuredUtilities
     static final Random RANDOM = new Random();
     static String phone;
     public static String reaToken;
+    public static Boolean isReaCreated = false;
     public static String reaId;
 
     static final String ID_PREFIX = "11";
 
-
-    public static String generateRandomKSAPhoneNumber()
+    public String generateRandomKSAPhoneNumber()
         {
             StringBuilder phoneNumber = new StringBuilder(PREFIX);
 
@@ -43,29 +43,17 @@ public class Rea extends RestAssuredUtilities
             return generatedNumber;
         }
 
-    @Test(ignoreMissingDependencies = true)
+    @Test
     public void reaRegister() throws IOException
         {
             String endpoint = "/user/register";
-
-            // Step 1: Read JSON file as a string
             String requestBodyJson = new String(Files.readAllBytes(Paths.get("src/test/dealResources/stagingEnv/Users/reaRegistrationData.json")), StandardCharsets.UTF_8);
-
-
-            // Print the original request body for debugging
             System.out.println("Original Request Body: " + requestBodyJson);
-
-            // Step 3: Replace the phone number in the JSON string
             requestBodyJson = requestBodyJson.replace("\"phone\": \"+966011127452\"", "\"phone\": \"" + generateRandomKSAPhoneNumber() + "\"");
-            // Step 4: Convert JSON string to Map
             Map<String, Object> requestBody = new ObjectMapper().readValue(requestBodyJson, new TypeReference<Map<String, Object>>()
                 {
                 });
-
-            // Step 5: Perform the POST request
             Response response = performPost(endpoint, requestBody, sendHeaders());
-
-            // Assertions
             Assert.assertEquals(response.statusCode(), 201);
             Assert.assertEquals(response.jsonPath().getString("data.role"), "REAL_STATE_AGENT");
             phone = response.jsonPath().getString("data.phone");
@@ -73,7 +61,7 @@ public class Rea extends RestAssuredUtilities
         }
 
     @Test(dependsOnMethods = "reaRegister")
-    public void reaRequestOTP()
+    public void reaRequestOTP() throws IOException
         {
             String endpoint = "/user/login";
             Map<String, Object> requestBody = Map.of("phone", phone);
@@ -82,7 +70,7 @@ public class Rea extends RestAssuredUtilities
             Assert.assertEquals(response.jsonPath().getString("data.message"), "please verify with OTP sent to your phone");
         }
 
-    @Test(dependsOnMethods = {"reaRequestOTP", "reaRegister"})
+    @Test(dependsOnMethods = {"reaRequestOTP"})
     public void getOTP()
         {
             String endpoint = "/user/otp";
@@ -93,7 +81,7 @@ public class Rea extends RestAssuredUtilities
             Assert.assertNotNull(token, "OTP MUST NOT BE NULL");
         }
 
-    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaRegister"})
+    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP"})
     public void reaEnterOTP()
         {
             String endpoint = "/user/verify";
@@ -102,13 +90,14 @@ public class Rea extends RestAssuredUtilities
             Assert.assertEquals(response.statusCode(), 200);
             Assert.assertEquals(response.jsonPath().getString("data.role"), "REAL_STATE_AGENT");
             reaToken = response.getHeader("Authorization");
+            isReaCreated = true;
             reaId = response.jsonPath().getString("data._id");
             System.out.println(reaToken);
             System.out.println(reaId);
 
         }
 
-    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaRegister", "reaEnterOTP"})
+    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaEnterOTP"})
     public void reaLogOut()
         {
             String endpoint = "/user/logout";
@@ -117,7 +106,7 @@ public class Rea extends RestAssuredUtilities
 
         }
 
-    public static String generateRandomKSAIdentityNumber()
+    public String generateRandomKSAIdentityNumber()
         {
             StringBuilder id = new StringBuilder(ID_PREFIX);
 
@@ -137,8 +126,8 @@ public class Rea extends RestAssuredUtilities
             return queryParams;
         }
 
-    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaRegister", "reaEnterOTP"})
-    public void authorizeWithNafaz() throws IOException
+    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaEnterOTP"})
+    public void authorizeWithNafaz() throws IOException, InterruptedException
         {
             String requestBodyJson = new String(Files.readAllBytes(Paths.get("src/test/dealResources/stagingEnv/Users/nafazDataVerfication.json")), StandardCharsets.UTF_8);
             requestBodyJson = requestBodyJson.replace("\"nationalId\": \"1234567890\"", "\"nationalId\": \"" + generateRandomKSAIdentityNumber() + "\"");
@@ -150,13 +139,13 @@ public class Rea extends RestAssuredUtilities
             Response response = performPost(endpoint, reaToken, requestBody, sendQueryParams(), sendHeaders());
             Assert.assertEquals(response.statusCode(), 201);
             Assert.assertNotNull(response.jsonPath().getString("random"), "Random should no be null");
-
+            Thread.sleep(200);
         }
 
-    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaRegister", "reaEnterOTP", "authorizeWithNafaz"})
-
-    public void authorizeWithFal() throws IOException
+    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaEnterOTP", "authorizeWithNafaz"})
+    public void authorizeWithFal() throws IOException, InterruptedException
         {
+            Thread.sleep(3000);
             String endpoint = "/fal-licenses";
             Map<String, Object> requestBody = Map.of("imageUrl", "imageUrl:https://uploadsstaging.dealapp.sa/daf8c0dd-1b76-4502-9f08-fa3f35317725.webp");
             Response response = performPost(endpoint, reaToken, requestBody, sendHeaders());

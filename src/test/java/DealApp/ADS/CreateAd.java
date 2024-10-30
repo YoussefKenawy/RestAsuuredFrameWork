@@ -12,18 +12,16 @@ public class CreateAd extends RestAssuredUtilities
 {
     public static String adId;
     @Test (dependsOnMethods = {
-            "DealApp.MyAccount.REA.Rea.getOTP",
-            "DealApp.MyAccount.REA.Rea.reaRequestOTP",
             "DealApp.MyAccount.REA.Rea.reaRegister",
-            "DealApp.MyAccount.REA.Rea.reaEnterOTP",
-            "DealApp.MyAccount.REA.Rea.authorizeWithNafaz"
-    })
+            "DealApp.MyAccount.REA.Rea.reaRequestOTP",
+            "DealApp.MyAccount.REA.Rea.getOTP",
+            "DealApp.MyAccount.REA.Rea.reaEnterOTP"})
     public void createAd() throws IOException
     {
 
         String endpoint = "/ad";
         Map<String, Object> requestBody = getJsonDataAsMap("/Ads/CreateAd.json");
-        Response response = performPost(endpoint,Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
+        Response response = performPost(endpoint,Rea.reaToken, requestBody, sendHeaders());
         String _id = response.jsonPath().getString("data._id");
         Assert.assertNotNull(_id, "ID should not be null");
         CreateAd.adId = _id;

@@ -1,7 +1,6 @@
-package DealApp.MarketRequests.MarketingProposals;
+package DealApp.MarketRequests;
 
 import io.restassured.response.Response;
-import org.apache.http.protocol.ResponseServer;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.RestAssuredUtilities;

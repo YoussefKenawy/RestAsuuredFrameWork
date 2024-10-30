@@ -15,7 +15,12 @@ import java.util.Map;
 public class CreateRequest extends RestAssuredUtilities {
     public static String requestIdByRea;
     public static String requestIdByClient;
-    @Test
+    @Test (dependsOnMethods = {
+            "DealApp.MyAccount.REA.Rea.reaRegister",
+            "DealApp.MyAccount.REA.Rea.reaRequestOTP",
+            "DealApp.MyAccount.REA.Rea.getOTP",
+            "DealApp.MyAccount.REA.Rea.reaEnterOTP",
+            "DealApp.Requests.CreateRequest.createRequestByRea",})
     public void createRequestByRea() throws IOException
     {
         String endpoint = "/request";

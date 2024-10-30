@@ -23,6 +23,8 @@ public class Client extends RestAssuredUtilities
     static final Random RANDOM = new Random();
     static String phone;
     public static String clientToken;
+    public static  Boolean isClientCreated =false;
+
     public static String clientId;
 
 
@@ -40,9 +42,8 @@ public class Client extends RestAssuredUtilities
             System.out.println("Generated Random Phone Number: " + generatedNumber); // Debug statement
             return generatedNumber;
         }
-
-    @Test(ignoreMissingDependencies = true)
-    public void clientRegister() throws IOException
+@Test
+    public static void clientRegister() throws IOException
         {
             String endpoint = "/user/register";
 
@@ -70,7 +71,7 @@ public class Client extends RestAssuredUtilities
         }
 
     @Test(dependsOnMethods = "clientRegister")
-    public void clientRequestOTP()
+    public  void clientRequestOTP()
         {
             String endpoint = "/user/login";
             // Directly use the full phone number (including +)
@@ -81,7 +82,7 @@ public class Client extends RestAssuredUtilities
         }
 
     @Test(dependsOnMethods = {"clientRequestOTP", "clientRegister"})
-    public void getOTP()
+    public  void getOTP()
         {
             String endpoint = "/user/otp";
             Map<String, Object> requestBody = Map.of("phone", phone);
@@ -92,7 +93,7 @@ public class Client extends RestAssuredUtilities
         }
 
     @Test(dependsOnMethods = {"getOTP", "clientRequestOTP", "clientRegister"})
-    public void clientEnterOTP()
+    public  void clientEnterOTP()
         {
             String endpoint = "/user/verify";
             Map<String, Object> requestBody = Map.of("phone", phone, "token", token);
@@ -100,6 +101,7 @@ public class Client extends RestAssuredUtilities
             Assert.assertEquals(response.statusCode(), 200);
             Assert.assertEquals(response.jsonPath().getString("data.role"), "CLIENT");
             clientToken = response.getHeader("Authorization");
+            isClientCreated=true;
             clientId = response.jsonPath().getString("data._id");
             System.out.println(clientToken);
             System.out.println(clientId);
