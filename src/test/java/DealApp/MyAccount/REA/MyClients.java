@@ -44,8 +44,13 @@ public class MyClients extends RestAssuredUtilities
         return queryParams;
     }
 
-    @Test ( dependsOnMethods ={ "DealApp.Requests.CreateRequest.createRequestByClient",
-            "DealApp.Requests.InteractWithRequests.activateRequests",
+    @Test ( dependsOnMethods ={
+            "DealApp.MyAccount.CLIENT.Client.clientRegister",
+            "DealApp.MyAccount.CLIENT.Client.clientRequestOTP",
+            "DealApp.MyAccount.CLIENT.Client.getOTP",
+            "DealApp.MyAccount.CLIENT.Client.clientEnterOTP",
+            "DealApp.Requests.CreateRequest.createRequestByNewClient",
+            "DealApp.Requests.InteractWithRequests.activateRequestsByNewClient",
             "DealApp.Requests.InteractWithRequests.Check_FAVORITE_Interaction_WithRequestsByRea"})
     public void getFavoriteRequests() throws InterruptedException {
         Thread.sleep(2000);
@@ -56,25 +61,31 @@ public class MyClients extends RestAssuredUtilities
         Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdByClient);
     }
 
-    @Test ( dependsOnMethods ={ "DealApp.Requests.CreateRequest.createRequestByClient",
-            "DealApp.Requests.InteractWithRequests.activateRequests",
-            "DealApp.Requests.InteractWithRequests.activateRequests",
+    @Test ( dependsOnMethods ={
+            "DealApp.MyAccount.CLIENT.Client.clientRegister",
+            "DealApp.MyAccount.CLIENT.Client.clientRequestOTP",
+            "DealApp.MyAccount.CLIENT.Client.getOTP",
+            "DealApp.MyAccount.CLIENT.Client.clientEnterOTP",
+            "DealApp.Requests.CreateRequest.createRequestByNewClient",
+            "DealApp.Requests.InteractWithRequests.activateRequestsByNewClient",
             "DealApp.Requests.InteractWithRequests.Check_CALL_PHONE_Interaction_WithRequestsByRea",
-            "DealApp.MyAccount.REA.Rea.getOTP",
-            "DealApp.MyAccount.REA.Rea.reaRequestOTP",
-            "DealApp.MyAccount.REA.Rea.reaRegister",
-            "DealApp.MyAccount.REA.Rea.reaEnterOTP",
-            "DealApp.MyAccount.REA.Rea.authorizeWithNafaz"
+
     })
     public void getCommunicatedRequestsOfPhone() throws InterruptedException {
         Thread.sleep(2000);
         String endpoint="/request";
-        Response response=performGet(endpoint, Rea.reaToken,sendQueryParamsForCommunicatedRequests());
+        Response response=performGet(endpoint, Tokens.getInstance().getReaToken(),sendQueryParamsForCommunicatedRequests());
         Assert.assertEquals(response.statusCode(),200);
         String addedRequestToFavorite=response.jsonPath().getString("data[0]._id");
         Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdByClient);
     }
-    @Test ( dependsOnMethods ={ "DealApp.Requests.CreateRequest.createRequestByClient","DealApp.Requests.InteractWithRequests.activateRequests","DealApp.Requests.InteractWithRequests.activateRequests","DealApp.Requests.InteractWithRequests.Check_WHATSAPP_Interaction_WithRequestsByRea"})
+
+
+
+    @Test ( dependsOnMethods =
+            { "DealApp.Requests.CreateRequest.createRequestByClient",
+            "DealApp.Requests.InteractWithRequests.activateRequestsBySavedClient",
+            "DealApp.Requests.InteractWithRequests.Check_WHATSAPP_Interaction_WithRequestsByRea"})
     public void getCommunicatedRequestsOfWhatsapp() throws InterruptedException {
         Thread.sleep(2000);
         String endpoint="/request";
@@ -84,7 +95,15 @@ public class MyClients extends RestAssuredUtilities
         Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdByClient);
     }
 
-    @Test ( dependsOnMethods ={ "DealApp.Requests.CreateRequest.createRequestByClient","DealApp.Requests.InteractWithRequests.activateRequests","DealApp.Requests.InteractWithRequests.activateRequests","DealApp.Requests.InteractWithRequests.Check_READ_Interaction_WithRequests"})
+    @Test ( dependsOnMethods =
+            {
+            "DealApp.MyAccount.CLIENT.Client.clientRegister",
+            "DealApp.MyAccount.CLIENT.Client.clientRequestOTP",
+            "DealApp.MyAccount.CLIENT.Client.getOTP",
+            "DealApp.MyAccount.CLIENT.Client.clientEnterOTP",
+            "DealApp.Requests.CreateRequest.createRequestByNewClient",
+            "DealApp.Requests.InteractWithRequests.activateRequestsByNewClient",
+            "DealApp.Requests.InteractWithRequests.Check_READ_Interaction_WithRequests"})
     public void getReadRequests() throws InterruptedException {
         Thread.sleep(2000);
         String endpoint="/request";
@@ -93,6 +112,4 @@ public class MyClients extends RestAssuredUtilities
         String addedRequestToFavorite=response.jsonPath().getString("data[0]._id");
         Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdByClient);
     }
-
-
 }

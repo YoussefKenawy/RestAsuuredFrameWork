@@ -16,7 +16,7 @@ import static utilities.JsonUtilitiles.getJsonDataAsMap;
 public class CreateLicense extends RestAssuredUtilities {
     static String licenseId;
 
-    @Test(dependsOnMethods = "DealApp.ADS.CreateAd.createAd")
+    @Test(dependsOnMethods ="DealApp.ADS.CreateAd.createAdBySavedRea")
     public void addLicense()
     {
         String endpoint = "/ad-license-request";
@@ -25,11 +25,11 @@ public class CreateLicense extends RestAssuredUtilities {
         Assert.assertEquals(response.statusCode(), 201);
         Assert.assertNotNull(response.jsonPath().getString("createdAt"), "Created At must not be bull");
         licenseId = response.jsonPath().getString("_id");
-        Assert.assertNotNull(licenseId, "License Id At must not be bull");
+        Assert.assertNotNull(licenseId, "License ID  must not be bull");
         System.out.println(" ****************************Your ID IS ********************8:" +licenseId);
     }
 
-    @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAd", "DealApp.Subscriptions.SubscribeToPackage.createCoupon","addLicense"})
+    @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAdBySavedRea", "DealApp.Subscriptions.SubscribeToPackage.createCoupon","addLicense"})
     public void upgradeLicense()
     {
         System.out.println(" ****************************Your ID IS ********************8:" +licenseId);
@@ -42,7 +42,7 @@ public class CreateLicense extends RestAssuredUtilities {
         Assert.assertNotNull(response.jsonPath().getString("_id"), "License Id At must not be bull");
     }
 
-    @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAd", "DealApp.Subscriptions.SubscribeToPackage.createCoupon", "upgradeLicense","addLicense"})
+    @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAdBySavedRea", "DealApp.Subscriptions.SubscribeToPackage.createCoupon", "upgradeLicense","addLicense"})
     public void addLicenseForOwner() throws IOException
     {
         String endpoint = "/ad-license-request/" + licenseId;
@@ -52,7 +52,7 @@ public class CreateLicense extends RestAssuredUtilities {
         Assert.assertEquals(response.jsonPath().getString("status"), "IN_PROGRESS");
         Assert.assertNotNull(response.jsonPath().getString("advertiserRelation"), "OWNER");
     }
-    @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAd", "DealApp.Subscriptions.SubscribeToPackage.createCoupon", "upgradeLicense","addLicense"})
+    @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAdBySavedRea", "DealApp.Subscriptions.SubscribeToPackage.createCoupon", "upgradeLicense","addLicense"})
     public void addLicenseForAttorney() throws IOException
     {
         String endpoint = "/ad-license-request/" + licenseId;
@@ -63,7 +63,7 @@ public class CreateLicense extends RestAssuredUtilities {
         Assert.assertNotNull(response.jsonPath().getString("advertiserRelation"), "ATTORNEY");
     }
 
-    @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAd", "DealApp.Subscriptions.SubscribeToPackage.createCoupon", "upgradeLicense","addLicense"})
+    @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAdBySavedRea", "DealApp.Subscriptions.SubscribeToPackage.createCoupon", "upgradeLicense","addLicense"})
     public void addLicenseForEntity() throws IOException
     {
         String endpoint = "/ad-license-request/" + licenseId;

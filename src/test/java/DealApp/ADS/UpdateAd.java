@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Map;
 
 public class UpdateAd extends RestAssuredUtilities {
-    @Test(dependsOnMethods = "DealApp.ADS.CreateAd.createAd")
+    @Test(dependsOnMethods = "DealApp.ADS.CreateAd.createAdBySavedRea")
     public void updateAd() throws IOException
     {
         String endpoint = "/ad/"+CreateAd.adId;

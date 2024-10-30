@@ -126,7 +126,7 @@ public class Rea extends RestAssuredUtilities
             return queryParams;
         }
 
-    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaEnterOTP"})
+    @Test(dependsOnMethods = {"reaRegister","getOTP", "reaRequestOTP", "reaEnterOTP"})
     public void authorizeWithNafaz() throws IOException, InterruptedException
         {
             String requestBodyJson = new String(Files.readAllBytes(Paths.get("src/test/dealResources/stagingEnv/Users/nafazDataVerfication.json")), StandardCharsets.UTF_8);

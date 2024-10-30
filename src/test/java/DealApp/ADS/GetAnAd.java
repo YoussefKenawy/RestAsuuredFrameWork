@@ -8,7 +8,7 @@ import static DealApp.ADS.CreateAd.adId;
 
 public class GetAnAd extends RestAssuredUtilities {
 
-    @Test (dependsOnMethods = "DealApp.ADS.CreateAd.createAd")
+    @Test (dependsOnMethods = "DealApp.ADS.CreateAd.createAdBySavedRea")
     public void getAdById()
     {
         String endpoint = "/ad/"+ adId;

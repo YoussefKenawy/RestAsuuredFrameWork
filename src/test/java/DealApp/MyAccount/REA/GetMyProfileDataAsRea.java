@@ -16,7 +16,7 @@ public class GetMyProfileDataAsRea extends RestAssuredUtilities {
             "DealApp.MyAccount.REA.MyClients.getCommunicatedRequestsOfPhone",
             "DealApp.ADS.CreateAd.createAd",
             "DealApp.Requests.CreateRequest.createRequestByClient",
-            "DealApp.Requests.InteractWithRequests.activateRequests",
+            "DealApp.Requests.InteractWithRequests.activateRequestsBySavedClient",
             "DealApp.Requests.InteractWithRequests.Check_CALL_PHONE_Interaction_WithRequestsByRea"
 
     })

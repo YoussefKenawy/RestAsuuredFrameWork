@@ -13,14 +13,13 @@
             <package name="DealApp.Ratings.Client"/>
             <package name="DealApp.Ratings.Rea"/>
             <package name="DealApp.MyDeals"/>
-            <package name="DealApp.MyHomePage"/>
-            <package name="DealApp.MyAccount.REA"/>
             <package name="DealApp.MyHomePage.REA"/>
-            <package name="DealApp.ADS"/>
-            <package name="DealApp.MarketRequests"/>
+            <package name="DealApp.MyHomePage.CLIENT"/>
+            <package name="DealApp.MyAccount.REA"/>
             <package name="DealApp.MyAccount.CLIENT"/>
             <package name="DealApp.MyAccount.TermsAndConditions"/>
-            <package name="DealApp.MyHomePage.CLIENT"/>
+            <package name="DealApp.ADS"/>
+
 
         </packages>
     </test>

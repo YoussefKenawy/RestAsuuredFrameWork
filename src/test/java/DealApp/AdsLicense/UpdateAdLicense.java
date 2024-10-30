@@ -23,7 +23,7 @@ public class UpdateAdLicense extends RestAssuredUtilities {
         return phoneNumber.toString();
     }
 
-    @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAd", "DealApp.Subscriptions.SubscribeToPackage.createCoupon", "DealApp.AdsLicense.CreateLicense.addLicense", "DealApp.AdsLicense.CreateLicense.upgradeLicense", "DealApp.AdsLicense.CreateLicense.addLicenseForOwner"})
+    @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAdBySavedRea", "DealApp.Subscriptions.SubscribeToPackage.createCoupon", "DealApp.AdsLicense.CreateLicense.addLicense", "DealApp.AdsLicense.CreateLicense.upgradeLicense", "DealApp.AdsLicense.CreateLicense.addLicenseForOwner"})
     public void updateLicenseForOwner() throws IOException {
         String endpoint = "/ad-license-request/" + CreateLicense.licenseId;
         String requestBodyJson = new String(Files.readAllBytes(Paths.get("src/test/dealResources/stagingEnv/AdsLisence/addLicenseForOwner.json")), StandardCharsets.UTF_8);
@@ -36,6 +36,7 @@ public class UpdateAdLicense extends RestAssuredUtilities {
         Assert.assertEquals(response.statusCode(), 200);
         Assert.assertNotNull(response.jsonPath().getString("updatedAt"), "Updated At must not be bull");
     }
+@Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAdBySavedRea", "DealApp.Subscriptions.SubscribeToPackage.createCoupon", "DealApp.AdsLicense.CreateLicense.addLicense", "DealApp.AdsLicense.CreateLicense.upgradeLicense", "DealApp.AdsLicense.CreateLicense.addLicenseForAttorney"})
     public void updateLicenseForAttorney() throws IOException {
         String endpoint = "/ad-license-request/" + CreateLicense.licenseId;
         String requestBodyJson = new String(Files.readAllBytes(Paths.get("src/test/dealResources/stagingEnv/AdsLisence/addLicenseForAttorney.json")), StandardCharsets.UTF_8);
@@ -48,6 +49,8 @@ public class UpdateAdLicense extends RestAssuredUtilities {
         Assert.assertEquals(response.statusCode(), 200);
         Assert.assertNotNull(response.jsonPath().getString("updatedAt"), "Updated At must not be bull");
     }
+@Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAdBySavedRea", "DealApp.Subscriptions.SubscribeToPackage.createCoupon", "DealApp.AdsLicense.CreateLicense.addLicense", "DealApp.AdsLicense.CreateLicense.upgradeLicense", "DealApp.AdsLicense.CreateLicense.addLicenseForEntity"})
+
     public void updateLicenseForEntity() throws IOException {
         String endpoint = "/ad-license-request/" + CreateLicense.licenseId;
         String requestBodyJson = new String(Files.readAllBytes(Paths.get("src/test/dealResources/stagingEnv/AdsLisence/addLicenseForEntity.json")), StandardCharsets.UTF_8);

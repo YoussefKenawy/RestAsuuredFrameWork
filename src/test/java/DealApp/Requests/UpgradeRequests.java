@@ -21,11 +21,11 @@ public class UpgradeRequests extends RestAssuredUtilities {
     }
 
 
-    @Test (dependsOnMethods = "DealApp.Requests.CreateRequest.createRequestByRea")
+    @Test (dependsOnMethods = {"DealApp.Requests.CreateRequest.createRequestBySavedRea","DealApp.Requests.InteractWithRequests.activateRequestsBySavedRea"})
     public void upgradeReaRequest() throws IOException
     {
 
-        String endpoint = "/request/"+CreateRequest.requestIdByRea+ "/upgrade";
+        String endpoint = "/request/"+CreateRequest.requestIdByRea+"/upgrade";
         Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), sendRequestBodyForReaRequest(), sendHeaders());
         Assert.assertNotNull(response.jsonPath().getString(" updatedAt"));
         Assert.assertEquals(response.statusCode(), 200);
@@ -40,11 +40,11 @@ public class UpgradeRequests extends RestAssuredUtilities {
         );
         return requestBody;
     }
-    @Test (dependsOnMethods = "DealApp.Requests.CreateRequest.createRequestByClient")
+    @Test (dependsOnMethods = {"DealApp.Requests.CreateRequest.createRequestByClient","DealApp.Requests.InteractWithRequests.activateRequestsBySavedClient"})
     public void upgradeClientRequest() throws IOException
     {
 
-        String endpoint = "/request/"+CreateRequest.requestIdByClient+ "/upgrade";
+        String endpoint = "/request/"+CreateRequest.requestIdByClient+"/upgrade";
         Response response = performPatch(endpoint, Tokens.getInstance().getClientToken(), sendRequestBodyForClientRequest(), sendHeaders());
         Assert.assertNotNull(response.jsonPath().getString(" updatedAt"));
         Assert.assertEquals(response.statusCode(), 200);

@@ -27,7 +27,20 @@ public class CreateAd extends RestAssuredUtilities
         CreateAd.adId = _id;
         Assert.assertEquals(response.statusCode(), 201);
     }
+@Test
+public void createAdBySavedRea() throws IOException
+    {
+
+        String endpoint = "/ad";
+        Map<String, Object> requestBody = getJsonDataAsMap("/Ads/CreateAd.json");
+        Response response = performPost(endpoint,Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
+        String _id = response.jsonPath().getString("data._id");
+        Assert.assertNotNull(_id, "ID should not be null");
+        CreateAd.adId = _id;
+        Assert.assertEquals(response.statusCode(), 201);
+    }
 }
+
 
 
 

@@ -13,7 +13,7 @@ import static utilities.JsonUtilitiles.getJsonDataAsMap;
 
 public class UpdateRequests extends RestAssuredUtilities {
 
-    @Test (dependsOnMethods = "DealApp.Requests.CreateRequest.createRequestByRea")
+    @Test (dependsOnMethods = "DealApp.Requests.CreateRequest.createRequestBySavedRea")
     public void UpdateRequestByRea() throws IOException
     {
         String endpoint = "/request/"+CreateRequest.requestIdByRea+ "/update";

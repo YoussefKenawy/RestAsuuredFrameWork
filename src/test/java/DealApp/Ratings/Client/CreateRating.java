@@ -3,18 +3,18 @@ package DealApp.Ratings.Client;
 import DealApp.MyAccount.REA.Rea;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 public class CreateRating extends RestAssuredUtilities
     {
+    public static String reviewId;
+
     public int getRandomRatingValue()
         {
             Random random = new Random();
@@ -29,6 +29,7 @@ public class CreateRating extends RestAssuredUtilities
             Map<String, Object> requestBody = Map.of("reviewee", Rea.reaId, "note", "this is a note by API  Automation script by youssef test", "rating", getRandomRatingValue(), "services", List.of("AD"));
             Response response = performPost(endpoint, Tokens.getInstance().getClientToken(), requestBody, sendHeaders());
             Assert.assertEquals(response.statusCode(), 201);
+            reviewId = response.jsonPath().getString("_id");
             Assert.assertTrue(response.jsonPath().getList("services").contains("AD"));
         }
     }
