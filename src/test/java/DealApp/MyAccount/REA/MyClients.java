@@ -10,6 +10,8 @@ import utilities.Tokens;
 
 import java.util.Map;
 
+import static DealApp.Requests.CreateRequest.requestIdNewClient;
+import static DealApp.Requests.CreateRequest.requestIdSavedClient;
 import static utilities.RestAssuredUtilities.performGet;
 
 public class MyClients extends BaseTest
@@ -78,8 +80,8 @@ public class MyClients extends BaseTest
 
 
     @Test ( dependsOnMethods =
-            { "DealApp.Requests.CreateRequest.createRequestByClient",
-            "DealApp.Requests.InteractWithRequests.activateRequestsBySavedClient",
+            { "DealApp.Requests.CreateRequest.createRequestByNewClient",
+            "DealApp.Requests.InteractWithRequests.activateRequestsByNewClient",
             "DealApp.Requests.InteractWithRequests.Check_WHATSAPP_Interaction_WithRequestsByRea"})
     public void getCommunicatedRequestsOfWhatsapp() throws InterruptedException {
         Thread.sleep(2000);
@@ -87,7 +89,7 @@ public class MyClients extends BaseTest
         Response response=performGet(endpoint, Tokens.getInstance().getReaToken(),sendQueryParamsForCommunicatedRequests());
         Assert.assertEquals(response.statusCode(),200);
         String addedRequestToFavorite=response.jsonPath().getString("data[0]._id");
-        Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdSavedClient);
+        Assert.assertEquals(addedRequestToFavorite, requestIdNewClient);
     }
 
     @Test ( dependsOnMethods =
@@ -101,6 +103,6 @@ public class MyClients extends BaseTest
         Response response=performGet(endpoint, Tokens.getInstance().getReaToken(),sendQueryParamsForReadRequests());
         Assert.assertEquals(response.statusCode(),200);
         String addedRequestToFavorite=response.jsonPath().getString("data[0]._id");
-        Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdSavedClient);
+        Assert.assertEquals(addedRequestToFavorite, requestIdNewClient);
     }
 }

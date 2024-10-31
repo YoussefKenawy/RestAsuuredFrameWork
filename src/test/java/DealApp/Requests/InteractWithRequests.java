@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Map;
 
+import static DealApp.Requests.CreateRequest.*;
 import static utilities.RestAssuredUtilities.*;
 
 public class InteractWithRequests extends BaseTest
@@ -19,7 +20,7 @@ public class InteractWithRequests extends BaseTest
     @Test (dependsOnMethods = {"DealApp.Requests.CreateRequest.createRequestsByNewRea"})
     public void activateRequestsByNewRea() throws InterruptedException
         {
-            String endpoint = "/request/" + CreateRequest.requestIdByNewRea + "/activate";
+            String endpoint = "/request/" + requestIdByNewRea + "/activate";
             Map<String, Object> requestBody = Map.of("status", "ACTIVE");
             Response response = performPatch(endpoint,newReaToken, requestBody, sendHeaders());
             Assert.assertEquals(response.statusCode(), 200);
@@ -27,7 +28,7 @@ public class InteractWithRequests extends BaseTest
     @Test (dependsOnMethods ={"DealApp.Requests.CreateRequest.createRequestByNewClient"})
     public void activateRequestsByNewClient() throws InterruptedException
         {
-            String endpoint = "/request/" + CreateRequest.requestIdNewClient + "/activate";
+            String endpoint = "/request/" + requestIdNewClient + "/activate";
             Map<String, Object> requestBody = Map.of("status", "ACTIVE");
             Response response = performPatch(endpoint, newClientToken, requestBody, sendHeaders());
             // Assert.assertNotNull(response.jsonPath().getString("error.code"), "error.request.cantRefreshBeforeTwoDays");
@@ -37,7 +38,7 @@ public class InteractWithRequests extends BaseTest
             "DealApp.Requests.CreateRequest.createRequestByClient",})
     public void activateRequestsBySavedClient() throws InterruptedException
         {
-            String endpoint = "/request/" + CreateRequest.requestIdSavedClient + "/activate";
+            String endpoint = "/request/" + requestIdSavedClient + "/activate";
             Map<String, Object> requestBody = Map.of("status", "ACTIVE");
             Response response = performPatch(endpoint,Tokens.getInstance().getClientToken(),requestBody, sendHeaders());
             Assert.assertEquals(response.statusCode(), 200);
@@ -55,12 +56,12 @@ public class InteractWithRequests extends BaseTest
 
     @Test(dependsOnMethods = {
             "DealApp.Requests.CreateRequest.createRequestBySavedRea",
-            "activateRequestsByNewRea",
+            "activateRequestsBySavedRea",
 
     })
     public void Check_chat_Interaction_WithRequests()
         {
-            String endpoint = "/request/" + CreateRequest.requestIdByNewRea + "/interaction";
+            String endpoint = "/request/" +requestIdBySavedRea + "/interaction";
             String requestBody = "{\"type\":\"CHAT\"}";
             Response response = performPatch(endpoint, newReaToken, requestBody, sendHeaders());
             Assert.assertNotNull(response.jsonPath().getString("_id"), "should not be null ");
@@ -73,10 +74,11 @@ public class InteractWithRequests extends BaseTest
     public void Check_WHATSAPP_Interaction_WithRequestsByRea() throws InterruptedException
         {
             Thread.sleep(2000);
-            String endpoint = "/request/" + CreateRequest.requestIdSavedClient + "/interaction";
+            String endpoint = "/request/" + requestIdNewClient + "/interaction";
             String requestBody = "{\"type\":\"WHATSAPP\"}";
             Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
             Assert.assertNotNull(response.jsonPath().getString("_id"), "should not be null ");
+            System.out.println("Request id for saved client is : when before interact with whatsApp Response "+requestIdSavedClient);
 
         }
 
@@ -86,7 +88,7 @@ public class InteractWithRequests extends BaseTest
     public void Check_CALL_PHONE_Interaction_WithRequestsByRea() throws InterruptedException
         {
             Thread.sleep(10000);
-            String endpoint = "/request/" + CreateRequest.requestIdBySavedRea + "/interaction";
+            String endpoint = "/request/" + requestIdNewClient + "/interaction";
             String requestBody = "{\"type\":\"CALL_PHONE\"}";
             Response response = performPatch(endpoint,Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
             Assert.assertNotNull(response.jsonPath().getString("_id"), "should not be null ");
@@ -98,7 +100,7 @@ public class InteractWithRequests extends BaseTest
             "activateRequestsByNewClient"})
     public void Check_FAVORITE_Interaction_WithRequestsByRea()
         {
-            String endpoint = "/request/" + CreateRequest.requestIdSavedClient + "/interaction";
+            String endpoint = "/request/" + requestIdNewClient + "/interaction";
             String requestBody = "{\"type\":\"FAVORITE\"}";
             Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
             Assert.assertNotNull(response.jsonPath().getString("_id"), "should not be null ");
@@ -111,7 +113,7 @@ public class InteractWithRequests extends BaseTest
     })
     public void Check_READ_Interaction_WithRequests()
         {
-            String endpoint = "/request/" + CreateRequest.requestIdSavedClient + "/interaction";
+            String endpoint = "/request/" + requestIdNewClient + "/interaction";
             String requestBody = "{\"type\":\"READ\"}";
             Response response = performPatch(endpoint,Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
             Assert.assertNotNull(response.jsonPath().getString("_id"), "should not be null ");
@@ -124,7 +126,7 @@ public class InteractWithRequests extends BaseTest
     })
     public void Check_ACCEPT_Interaction_WithRequests()
         {
-            String endpoint = "/request/" + CreateRequest.requestIdByNewRea + "/interaction";
+            String endpoint = "/request/" + requestIdByNewRea + "/interaction";
             String requestBody = "{\"type\":\"ACCEPT\"}";
             Response response = performPatch(endpoint, newReaToken, requestBody, sendHeaders());
             Assert.assertNotNull(response.jsonPath().getString("_id"), "should not be null ");
@@ -136,7 +138,7 @@ public class InteractWithRequests extends BaseTest
             "activateRequestsBySavedClient"})
     public void Check_Hide_Requests()
         {
-            String endpoint = "/request/" + CreateRequest.requestIdSavedClient + "/interaction";
+            String endpoint = "/request/" +requestIdSavedClient + "/interaction";
             String requestBody = "{\"type\":\"REJECT\"}";
             Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
             Assert.assertNotNull(response.jsonPath().getString("_id"), "should not be null ");
@@ -162,9 +164,9 @@ public class InteractWithRequests extends BaseTest
             String endpoint = "/report";
             String requestBodyJson = new String(Files.readAllBytes(Paths.get("src/test/dealResources/stagingEnv/PropertyRequests/ReportRequest.json")), StandardCharsets.UTF_8);
             // Replace the static adId in the JSON string with the dynamic adId from CreateAd
-            requestBodyJson = requestBodyJson.replace("\"request\": \"66bd9757209005078880d88d\"", "\"request\": \"" + CreateRequest.requestIdByNewRea + "\"");
+            requestBodyJson = requestBodyJson.replace("\"request\": \"66bd9757209005078880d88d\"", "\"request\": \"" + requestIdByNewRea + "\"");
             Map<String, Object> requestBody = new ObjectMapper().readValue(requestBodyJson, new TypeReference<Map<String, Object>>(){});
-            requestBody.put("request", String.valueOf(CreateRequest.requestIdByNewRea));
+            requestBody.put("request", String.valueOf(requestIdByNewRea));
             Response response = performPost(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());;
             Assert.assertNotNull(response.jsonPath().getString("_id"),"report endpoint should return report id and id should not be null ");
 

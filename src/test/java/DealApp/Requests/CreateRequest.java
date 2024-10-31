@@ -52,6 +52,8 @@ public void createRequestsByNewRea() throws IOException
         Assert.assertEquals(response.statusCode(), 201);
         requestIdSavedClient = response.jsonPath().getString("data._id");
         Assert.assertNotNull(requestIdSavedClient, "id should not be null");
+        System.out.println("Request id for saved client is : when from create request for saved client  Response "+requestIdSavedClient);
+
     }
     @Test
     public void createRequestByNewClient() throws IOException
@@ -60,7 +62,7 @@ public void createRequestsByNewRea() throws IOException
         Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/CreateRequest.json");
         Response response = performPost(endpoint, newClientToken, requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 201);
-      requestIdNewClient = response.jsonPath().getString("data._id");
+        requestIdNewClient = response.jsonPath().getString("data._id");
         Assert.assertNotNull(requestIdNewClient, "id should not be null");
     }
 

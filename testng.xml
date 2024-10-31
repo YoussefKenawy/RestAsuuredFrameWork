@@ -9,8 +9,22 @@
             <class name="DealApp.ADS.CreateAd">
                 <methods>
                     <include name="createAd"/>
+                    <include name="createAdBySavedRea"/>
+
                 </methods>
             </class>
+            <class name="DealApp.AdsLicense.CreateLicense"/>
+            <class name="DealApp.AdsLicense.UpdateAdLicense"/>
+            <class name="DealApp.ADS.GetAdsFromMap"/>
+            <class name="DealApp.ADS.GetAllAds"/>
+            <class name="DealApp.ADS.GetAnAd"/>
+            <class name="DealApp.ADS.GetDevelopersAds"/>
+            <class name="DealApp.ADS.GetMostInteractiveAds"/>
+            <class name="DealApp.ADS.GetMyAds"/>
+            <class name="DealApp.ADS.InteractionsWithAds"/>
+            <class name="DealApp.ADS.UpdateAd"/>
+
+
             <class name="DealApp.MarketRequests.CreateMarketingRequest"/>
             <class name="DealApp.MarketRequests.ChangeStatusByAdmin">
             <methods>
@@ -22,6 +36,51 @@
             <class name="DealApp.MarketRequests.DeleteMarketingProposal"/>
             <class name="DealApp.MarketRequests.InteractWithMarketingProposals"/>
             <class name="DealApp.MarketRequests.GetAllProposalsForMarketingRequest"/>
+            <class name="DealApp.MarketRequests.Check_Interaction_WithMarketingRequst"/>
+            <class name="DealApp.Requests.CreateRequest"/>
+            <class name="DealApp.Requests.InteractWithRequests"/>
+            <class name="DealApp.Requests.AdvancedSearchForRequests"/>
+            <class name="DealApp.Requests.GetAllRequests"/>
+            <class name="DealApp.Requests.GetInterestedDevelopers"/>
+            <class name="DealApp.Requests.GetInterstedRequests"/>
+            <class name="DealApp.Requests.GetMyRequests"/>
+            <class name="DealApp.Requests.GetRequestsOnMap"/>
+            <class name="DealApp.Requests.GetSuitableAdsBasedOnMyRequests"/>
+            <class name="DealApp.Requests.MostInteractiveRequests"/>
+
+            <class name="DealApp.Requests.UpdateRequests"/>
+            <class name="DealApp.Requests.UpgradeRequests"/>
+            <class name="DealApp.Subscriptions.SubscribeToPackage"/>
+            <class name="DealApp.Subscriptions.GetMYSubscriptions"/>
+            <class name="DealApp.Subscriptions.CancelAutoRenewal"/>
+            <class name="DealApp.Subscriptions.GetAllActiveSubscriptions"/>
+            <class name="DealApp.MyAccount.TermsAndConditions"/>
+            <class name="DealApp.MyAccount.CLIENT.EditOnProfileDataAsClient"/>
+            <class name="DealApp.MyAccount.CLIENT.GetMyProfileDataAsClient"/>
+            <class name="DealApp.MyAccount.REA.MyClients"/>
+            <class name="DealApp.MyAccount.REA.EditOnProfileDataAsRea"/>
+            <class name="DealApp.MyAccount.REA.GetMyProfileDataAsRea"/>
+            <class name="DealApp.MyAccount.REA.HiddenRequests"/>
+            <class name="DealApp.MyAccount.REA.UpdateMyInterst"/>
+            <class name="DealApp.MyDeals.PostMyDeal"/>
+            <class name="DealApp.MyDeals.GetMyDeals"/>
+            <class name="DealApp.MyHomePage.REA.GetBannars"/>
+            <class name="DealApp.MyHomePage.REA.ReaNearToYou"/>
+            <class name="DealApp.MyHomePage.REA.StatsHomePage"/>
+            <class name="DealApp.MyHomePage.CLIENT.GetNearestAds"/>
+            <class name="DealApp.MyHomePage.CLIENT.GetSuitableAds"/>
+            <class name="DealApp.Chat.CreateNewChatRoom"/>
+            <class name="DealApp.Chat.AddChatSearchRecord"/>
+            <class name="DealApp.Chat.LatestSearchResults"/>
+            <class name="DealApp.Chat.SearchInChat"/>
+            <class name="DealApp.Chat.ListAllActiveRooms"/>
+            <class name="DealApp.Chat.ListRoomMessages"/>
+            <class name="DealApp.Chat.PinRoom"/>
+
+
+
+
+
 
         </classes>
     </test>
