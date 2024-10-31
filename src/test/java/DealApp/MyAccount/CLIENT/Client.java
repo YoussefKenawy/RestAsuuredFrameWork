@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.RestAssuredUtilities;
 import utilities.Tokens;
@@ -23,11 +25,8 @@ public class Client extends RestAssuredUtilities
     static final Random RANDOM = new Random();
     static String phone;
     public static String clientToken;
-    public static  Boolean isClientCreated =false;
-
+    public static Boolean isClientCreated = false;
     public static String clientId;
-
-
     public static String generateRandomKSAPhoneNumber()
         {
             StringBuilder phoneNumber = new StringBuilder(PREFIX);
@@ -42,47 +41,38 @@ public class Client extends RestAssuredUtilities
             System.out.println("Generated Random Phone Number: " + generatedNumber); // Debug statement
             return generatedNumber;
         }
-@Test
-    public static void clientRegister() throws IOException
+
+    public  String clientHelperMethod() throws IOException
+        {
+            clientRegister();
+            clientRequestOTP();
+            getOTP();
+            return clientEnterOTP();
+        }
+
+    public void clientRegister() throws IOException
         {
             String endpoint = "/user/register";
-
-            // Step 1: Read JSON file as a string
             String requestBodyJson = new String(Files.readAllBytes(Paths.get("src/test/dealResources/stagingEnv/Users/clientRegistrationData.json")), StandardCharsets.UTF_8);
-
-
-            // Print the original request body for debugging
             System.out.println("Original Request Body: " + requestBodyJson);
-
-            // Step 3: Replace the phone number in the JSON string
             requestBodyJson = requestBodyJson.replace("\"phone\": \"+966011127452\"", "\"phone\": \"" + generateRandomKSAPhoneNumber() + "\"");
-            // Step 4: Convert JSON string to Map
-            Map<String, Object> requestBody = new ObjectMapper().readValue(requestBodyJson, new TypeReference<Map<String, Object>>()
-                {
-                });
-
-            // Step 5: Perform the POST request
+            Map<String, Object> requestBody = new ObjectMapper().readValue(requestBodyJson, new TypeReference<Map<String, Object>>() {});
             Response response = performPost(endpoint, requestBody, sendHeaders());
-
-            // Assertions
             Assert.assertEquals(response.statusCode(), 201);
             Assert.assertEquals(response.jsonPath().getString("data.role"), "CLIENT");
             phone = response.jsonPath().getString("data.phone");
         }
 
-    @Test(dependsOnMethods = "clientRegister")
-    public  void clientRequestOTP()
+    public void clientRequestOTP()
         {
             String endpoint = "/user/login";
-            // Directly use the full phone number (including +)
             Map<String, Object> requestBody = Map.of("phone", phone);
             Response response = performPost(endpoint, requestBody, sendHeaders());
             Assert.assertEquals(response.statusCode(), 200);
             Assert.assertEquals(response.jsonPath().getString("data.message"), "please verify with OTP sent to your phone");
         }
 
-    @Test(dependsOnMethods = {"clientRequestOTP", "clientRegister"})
-    public  void getOTP()
+    public void getOTP()
         {
             String endpoint = "/user/otp";
             Map<String, Object> requestBody = Map.of("phone", phone);
@@ -92,22 +82,21 @@ public class Client extends RestAssuredUtilities
             Assert.assertNotNull(token, "OTP MUST NOT BE NULL");
         }
 
-    @Test(dependsOnMethods = {"getOTP", "clientRequestOTP", "clientRegister"})
-    public  void clientEnterOTP()
+    public String clientEnterOTP()
         {
             String endpoint = "/user/verify";
             Map<String, Object> requestBody = Map.of("phone", phone, "token", token);
             Response response = performPost(endpoint, requestBody, sendHeaders());
             Assert.assertEquals(response.statusCode(), 200);
             Assert.assertEquals(response.jsonPath().getString("data.role"), "CLIENT");
-            clientToken = response.getHeader("Authorization");
-            isClientCreated=true;
+            isClientCreated = true;
             clientId = response.jsonPath().getString("data._id");
             System.out.println(clientToken);
             System.out.println(clientId);
+            return clientToken = response.getHeader("Authorization");
         }
 
-    @Test(dependsOnMethods = {"getOTP", "clientRequestOTP", "clientRegister", "clientEnterOTP"})
+
     public void clientLogOut() throws InterruptedException
         {
             String endpoint = "/user/logout";
@@ -115,8 +104,12 @@ public class Client extends RestAssuredUtilities
             Thread.sleep(1000);
             Assert.assertEquals(response.statusCode(), 200);
             Thread.sleep(1000);
-
         }
-
+    public void deleteUser()
+        {
+            String endpoint="/user/"+clientEnterOTP();
+            Response response=performDelete(endpoint, Tokens.getInstance().getAdminToken());
+            Assert.assertEquals(response.statusCode(),200);
+        }
     }
 

@@ -1,4 +1,5 @@
 package DealApp.MarketRequests;
+import DealApp.BaseTest;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -6,9 +7,15 @@ import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 import java.util.Map;
 
-public class ChangeStatusByAdmin extends RestAssuredUtilities {
+import static utilities.RestAssuredUtilities.performPatch;
+import static utilities.RestAssuredUtilities.sendHeaders;
 
-    @Test(dependsOnMethods ={ "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest","DealApp.ADS.CreateAd.createAd"})
+public class ChangeStatusByAdmin extends BaseTest
+    {
+
+    @Test( priority = 1, dependsOnMethods ={
+            "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest",
+            "DealApp.ADS.CreateAd.createAd"})
     public void changeStatusByAdmin_ToApprove()
     {
         System.out.println(CreateMarketingRequest.marketRequestId);
@@ -19,7 +26,7 @@ public class ChangeStatusByAdmin extends RestAssuredUtilities {
         Assert.assertNotNull(response.jsonPath().getString("updatedAt"), "not null");
     }
 
-    @Test(dependsOnMethods = "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest")
+    @Test( priority = 2, dependsOnMethods = "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest")
     public void changeStatusByAdmin_ToClosed()
     {
         String endpoint = "/marketing-requests/admin/" + CreateMarketingRequest.marketRequestId;
@@ -29,7 +36,7 @@ public class ChangeStatusByAdmin extends RestAssuredUtilities {
         Assert.assertNotNull(response.jsonPath().getString("updatedAt"), "not null");
     }
 
-    @Test(dependsOnMethods = "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest")
+    @Test ( priority = 3, dependsOnMethods = "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest")
     public void changeStatusByAdmin_ToReadyForReview()
     {
         String endpoint = "/marketing-requests/admin/" + CreateMarketingRequest.marketRequestId;

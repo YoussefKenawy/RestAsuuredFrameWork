@@ -1,6 +1,7 @@
 package DealApp.MarketRequests;
 
 import DealApp.ADS.CreateAd;
+import DealApp.BaseTest;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
@@ -16,15 +17,12 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 import static DealApp.MarketRequests.CreateMarketingRequest.marketRequestId;
+import static utilities.RestAssuredUtilities.sendHeaders;
 
-public class CreateMarketingProposal extends RestAssuredUtilities
+public class CreateMarketingProposal extends BaseTest
     {
     public static String mkProposalID;
     @Test(dependsOnMethods = {
-            "DealApp.MyAccount.REA.Rea.reaRegister",
-            "DealApp.MyAccount.REA.Rea.reaRequestOTP",
-            "DealApp.MyAccount.REA.Rea.getOTP",
-            "DealApp.MyAccount.REA.Rea.reaEnterOTP",
             "DealApp.ADS.CreateAd.createAd",
             "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest",
             "DealApp.MarketRequests.ChangeStatusByAdmin.changeStatusByAdmin_ToApprove"

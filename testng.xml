@@ -5,23 +5,24 @@
         <listener class-name="reporting.Setup"></listener>
     </listeners>
     <test name="DealAppTests" verbose="2" preserve-order="true">
-        <packages>
-            <package name="DealApp.Chat"/>
-            <package name="DealApp.AdsLicense"/>
-            <package name="DealApp.Subscriptions"/>
-            <package name="DealApp.Requests"/>
-            <package name="DealApp.Ratings.Client"/>
-            <package name="DealApp.Ratings.Rea"/>
-            <package name="DealApp.MyDeals"/>
-            <package name="DealApp.MyHomePage.REA"/>
-            <package name="DealApp.MyHomePage.CLIENT"/>
-            <package name="DealApp.MyAccount.REA"/>
-            <package name="DealApp.MyAccount.CLIENT"/>
-            <package name="DealApp.MyAccount.TermsAndConditions"/>
-            <package name="DealApp.ADS"/>
+        <classes>
+            <class name="DealApp.ADS.CreateAd">
+                <methods>
+                    <include name="createAd"/>
+                </methods>
+            </class>
+            <class name="DealApp.MarketRequests.CreateMarketingRequest"/>
+            <class name="DealApp.MarketRequests.ChangeStatusByAdmin">
+            <methods>
+                <include name="changeStatusByAdmin_ToApprove"/>
+            </methods>
+        </class>
+        <class name="DealApp.MarketRequests.CreateMarketingProposal"/>
+            <class name="DealApp.MarketRequests.UpdateMarketingProposal"/>
+            <class name="DealApp.MarketRequests.DeleteMarketingProposal"/>
+            <class name="DealApp.MarketRequests.InteractWithMarketingProposals"/>
+            <class name="DealApp.MarketRequests.GetAllProposalsForMarketingRequest"/>
 
-
-        </packages>
+        </classes>
     </test>
 </suite>
-

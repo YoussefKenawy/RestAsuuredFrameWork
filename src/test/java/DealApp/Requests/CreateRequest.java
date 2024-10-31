@@ -1,5 +1,6 @@
 package DealApp.Requests;
 
+import DealApp.BaseTest;
 import DealApp.MyAccount.CLIENT.Client;
 import DealApp.MyAccount.REA.Rea;
 import io.restassured.response.Response;
@@ -9,13 +10,18 @@ import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 
 import static utilities.JsonUtilitiles.getJsonDataAsMap;
+import static utilities.RestAssuredUtilities.performPost;
+import static utilities.RestAssuredUtilities.sendHeaders;
 
 import java.io.IOException;
 import java.util.Map;
 
-public class CreateRequest extends RestAssuredUtilities {
-    public static String requestIdByRea;
-    public static String requestIdByClient;
+public class CreateRequest extends BaseTest
+    {
+    public static String requestIdByNewRea;
+    public static String requestIdNewClient;
+    public static String requestIdBySavedRea;
+    public static String requestIdSavedClient;
     @Test
     public void createRequestBySavedRea() throws IOException
     {
@@ -23,23 +29,19 @@ public class CreateRequest extends RestAssuredUtilities {
         Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/CreateRequest.json");
         Response response = performPost(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 201);
-        requestIdByRea = response.jsonPath().getString("data._id");
-        Assert.assertNotNull((requestIdByRea),"id should not be null");
+        requestIdBySavedRea = response.jsonPath().getString("data._id");
+        Assert.assertNotNull((requestIdBySavedRea),"id should not be null");
     }
-@Test (dependsOnMethods = {
-        "DealApp.MyAccount.REA.Rea.reaRegister",
-        "DealApp.MyAccount.REA.Rea.reaRequestOTP",
-        "DealApp.MyAccount.REA.Rea.getOTP",
-        "DealApp.MyAccount.REA.Rea.reaEnterOTP",
-})
+@Test
 public void createRequestsByNewRea() throws IOException
     {
         String endpoint = "/request";
         Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/CreateRequest.json");
-        Response response = performPost(endpoint, Rea.reaToken, requestBody, sendHeaders());
+        Response response = performPost(endpoint,newReaToken, requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 201);
-        requestIdByRea = response.jsonPath().getString("data._id");
-        Assert.assertNotNull((requestIdByRea),"id should not be null");
+        requestIdByNewRea = response.jsonPath().getString("data._id");
+        Assert.assertNotNull((requestIdByNewRea),"id should not be null");
+
     }
     @Test
     public void createRequestByClient() throws IOException
@@ -48,23 +50,18 @@ public void createRequestsByNewRea() throws IOException
         Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/CreateRequest.json");
         Response response = performPost(endpoint, Tokens.getInstance().getClientToken(), requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 201);
-        requestIdByClient = response.jsonPath().getString("data._id");
-        Assert.assertNotNull(requestIdByClient, "id should not be null");
+        requestIdSavedClient = response.jsonPath().getString("data._id");
+        Assert.assertNotNull(requestIdSavedClient, "id should not be null");
     }
-    @Test (dependsOnMethods ={
-            "DealApp.MyAccount.CLIENT.Client.getOTP",
-            "DealApp.MyAccount.CLIENT.Client.clientRequestOTP",
-            "DealApp.MyAccount.CLIENT.Client.clientRegister",
-            "DealApp.MyAccount.CLIENT.Client.clientEnterOTP",
-    })
+    @Test
     public void createRequestByNewClient() throws IOException
     {
         String endpoint = "/request";
         Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/CreateRequest.json");
-        Response response = performPost(endpoint, Client.clientToken, requestBody, sendHeaders());
+        Response response = performPost(endpoint, newClientToken, requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 201);
-        requestIdByClient = response.jsonPath().getString("data._id");
-        Assert.assertNotNull(requestIdByClient, "id should not be null");
+      requestIdNewClient = response.jsonPath().getString("data._id");
+        Assert.assertNotNull(requestIdNewClient, "id should not be null");
     }
 
 }

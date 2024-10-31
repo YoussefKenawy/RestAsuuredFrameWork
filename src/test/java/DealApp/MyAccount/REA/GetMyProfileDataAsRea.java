@@ -1,24 +1,22 @@
 package DealApp.MyAccount.REA;
+import DealApp.BaseTest;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 
-public class GetMyProfileDataAsRea extends RestAssuredUtilities {
+import static utilities.RestAssuredUtilities.performGet;
+
+public class GetMyProfileDataAsRea extends BaseTest
+    {
 
     @Test(dependsOnMethods = {
-            "DealApp.MyAccount.REA.Rea.getOTP",
-            "DealApp.MyAccount.REA.Rea.reaRequestOTP",
-            "DealApp.MyAccount.REA.Rea.reaRegister",
-            "DealApp.MyAccount.REA.Rea.reaEnterOTP",
-            "DealApp.MyAccount.REA.Rea.authorizeWithNafaz",
             "DealApp.MyAccount.REA.MyClients.getCommunicatedRequestsOfPhone",
             "DealApp.ADS.CreateAd.createAd",
             "DealApp.Requests.CreateRequest.createRequestByClient",
             "DealApp.Requests.InteractWithRequests.activateRequestsBySavedClient",
             "DealApp.Requests.InteractWithRequests.Check_CALL_PHONE_Interaction_WithRequestsByRea"
-
     })
 
     public void getMyProfile() throws InterruptedException {

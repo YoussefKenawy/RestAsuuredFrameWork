@@ -1,26 +1,29 @@
 package DealApp.Ratings.Rea;
 
+import DealApp.BaseTest;
 import DealApp.MyAccount.REA.Rea;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utilities.RestAssuredUtilities;
 import utilities.Tokens;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import static utilities.RestAssuredUtilities.performPost;
 
-public class RateOtherRea extends RestAssuredUtilities
+import static utilities.RestAssuredUtilities.sendHeaders;
+
+public class RateOtherRea extends BaseTest
     {
-      public  static String reviewId;
+
+    public  static String reviewId;
     public int getRandomRatingValue()
         {
             Random random = new Random();
             return random.nextInt(5) + 1; // Generates a random integer from 1 to 5
         }
 
-    @Test(dependsOnMethods = {"DealApp.MyAccount.REA.Rea.reaRegister", "DealApp.MyAccount.REA.Rea.reaRequestOTP", "DealApp.MyAccount.REA.Rea.getOTP", "DealApp.MyAccount.REA.Rea.reaEnterOTP"})
+    @Test
     public void rateOtherRea()
         {
             String endpoint = "/user-reviews";

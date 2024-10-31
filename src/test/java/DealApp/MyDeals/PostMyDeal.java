@@ -1,5 +1,6 @@
 package DealApp.MyDeals;
 
+import DealApp.BaseTest;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,11 +11,14 @@ import java.io.IOException;
 import java.util.Map;
 
 import static utilities.JsonUtilitiles.getJsonDataAsMap;
+import static utilities.RestAssuredUtilities.performPost;
+import static utilities.RestAssuredUtilities.sendHeaders;
 
-public class PostMyDeal extends RestAssuredUtilities {
+public class PostMyDeal extends BaseTest
+    {
     public static String myDealsId;
 
-    @Test(dependsOnMethods = {"DealApp.MyAccount.REA.Rea.getOTP", "DealApp.MyAccount.REA.Rea.reaRequestOTP", "DealApp.MyAccount.REA.Rea.reaRegister", "DealApp.MyAccount.REA.Rea.reaEnterOTP", "DealApp.MyAccount.REA.Rea.authorizeWithNafaz"})
+    @Test
     public void postMyDeal() throws IOException {
         String endpoint = "/closed-deals";
         Map<String, Object> requestBody = getJsonDataAsMap("/MyAccount/MyDeals/CreateMyDeals.json");

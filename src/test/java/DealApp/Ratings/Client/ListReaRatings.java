@@ -1,8 +1,10 @@
 package DealApp.Ratings.Client;
 
+import DealApp.BaseTest;
 import DealApp.MyAccount.REA.Rea;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utilities.RestAssuredUtilities;
 import utilities.Tokens;
@@ -10,11 +12,13 @@ import utilities.Tokens;
 import java.util.List;
 import java.util.Map;
 
-public class ListReaRatings extends RestAssuredUtilities
-    {
-    @Test(dependsOnMethods = {"DealApp.MyAccount.REA.Rea.reaRegister", "DealApp.MyAccount.REA.Rea.reaRequestOTP", "DealApp.MyAccount.REA.Rea.getOTP", "DealApp.MyAccount.REA.Rea.reaEnterOTP", "DealApp.Ratings.Client.CreateRating.createRating"
+import static utilities.RestAssuredUtilities.performGet;
 
-    })
+public class ListReaRatings extends BaseTest
+    {
+
+
+    @Test(dependsOnMethods = {"DealApp.Ratings.Client.CreateRating.createRating"})
     public void listReaRatingsDefaultOrder()
         {
             Map<String, Object> sendQueryParam = Map.of("reviewee", Rea.reaId);
@@ -24,9 +28,7 @@ public class ListReaRatings extends RestAssuredUtilities
             Assert.assertEquals(response.jsonPath().get("data[0].reviewer._id"), "64884aafeab003eb526fbdca");
         }
 
-    @Test(dependsOnMethods = {"DealApp.MyAccount.REA.Rea.reaRegister", "DealApp.MyAccount.REA.Rea.reaRequestOTP", "DealApp.MyAccount.REA.Rea.getOTP", "DealApp.MyAccount.REA.Rea.reaEnterOTP", "DealApp.Ratings.Client.CreateRating.createRating"
-
-    })
+    @Test(dependsOnMethods = {"DealApp.Ratings.Client.CreateRating.createRating"})
     public void listReaRatingsFromHighestToLowest()
         {
             Map<String, Object> sendQueryParam = Map.of("reviewee", Rea.reaId, "sortBy", "rating", "sort", "-1");
@@ -50,9 +52,7 @@ public class ListReaRatings extends RestAssuredUtilities
             Assert.assertEquals(response.jsonPath().get("data[0].reviewer._id"), "64884aafeab003eb526fbdca");
         }
 
-    @Test(dependsOnMethods = {"DealApp.MyAccount.REA.Rea.reaRegister", "DealApp.MyAccount.REA.Rea.reaRequestOTP", "DealApp.MyAccount.REA.Rea.getOTP", "DealApp.MyAccount.REA.Rea.reaEnterOTP", "DealApp.Ratings.Client.CreateRating.createRating"
-
-    })
+    @Test(dependsOnMethods =  "DealApp.Ratings.Client.CreateRating.createRating")
     public void listReaRatingsFromLowestToHighest()
         {
             Map<String, Object> sendQueryParam = Map.of("reviewee", Rea.reaId, "sortBy", "rating", "sort", "1");
@@ -76,9 +76,7 @@ public class ListReaRatings extends RestAssuredUtilities
             Assert.assertEquals(response.jsonPath().get("data[0].reviewer._id"), "64884aafeab003eb526fbdca");
         }
 
-    @Test(dependsOnMethods = {"DealApp.MyAccount.REA.Rea.reaRegister", "DealApp.MyAccount.REA.Rea.reaRequestOTP", "DealApp.MyAccount.REA.Rea.getOTP", "DealApp.MyAccount.REA.Rea.reaEnterOTP", "DealApp.Ratings.Client.CreateRating.createRating"
-
-    })
+    @Test(dependsOnMethods =  "DealApp.Ratings.Client.CreateRating.createRating")
     public void listReaRatingsFromNewestToOldest()
         {
             Map<String, Object> sendQueryParam = Map.of("reviewee", Rea.reaId, "sortBy", "createdAt", "sort", "-1");
@@ -102,9 +100,7 @@ public class ListReaRatings extends RestAssuredUtilities
             Assert.assertEquals(response.jsonPath().get("data[0].reviewer._id"), "64884aafeab003eb526fbdca");
         }
 
-    @Test(dependsOnMethods = {"DealApp.MyAccount.REA.Rea.reaRegister", "DealApp.MyAccount.REA.Rea.reaRequestOTP", "DealApp.MyAccount.REA.Rea.getOTP", "DealApp.MyAccount.REA.Rea.reaEnterOTP", "DealApp.Ratings.Client.CreateRating.createRating"
-
-    })
+    @Test(dependsOnMethods =  "DealApp.Ratings.Client.CreateRating.createRating")
     public void listReaRatingsFromOldestToNewest()
         {
             Map<String, Object> sendQueryParam = Map.of("reviewee", Rea.reaId, "sortBy", "createdAt", "sort", "1");

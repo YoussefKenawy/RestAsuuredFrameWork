@@ -1,20 +1,16 @@
 package DealApp.MarketRequests;
-
+import DealApp.BaseTest;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utilities.RestAssuredUtilities;
 import utilities.Tokens;
-
 import java.util.Map;
+import static utilities.RestAssuredUtilities.*;
 
-public class InteractWithMarketingProposals extends RestAssuredUtilities
+public class InteractWithMarketingProposals extends BaseTest
 {
 @Test(dependsOnMethods = {
-        "DealApp.MyAccount.REA.Rea.reaRegister",
-        "DealApp.MyAccount.REA.Rea.reaRequestOTP",
-        "DealApp.MyAccount.REA.Rea.getOTP",
-        "DealApp.MyAccount.REA.Rea.reaEnterOTP",
+
         "DealApp.ADS.CreateAd.createAd",
         "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest",
         "DealApp.MarketRequests.ChangeStatusByAdmin.changeStatusByAdmin_ToApprove",
@@ -29,10 +25,6 @@ public class InteractWithMarketingProposals extends RestAssuredUtilities
         Assert.assertNotNull(response.jsonPath().getString("updatedAt"),"not null");
     }
 @Test(dependsOnMethods = {
-        "DealApp.MyAccount.REA.Rea.reaRegister",
-        "DealApp.MyAccount.REA.Rea.reaRequestOTP",
-        "DealApp.MyAccount.REA.Rea.getOTP",
-        "DealApp.MyAccount.REA.Rea.reaEnterOTP",
         "DealApp.ADS.CreateAd.createAd",
         "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest",
         "DealApp.MarketRequests.ChangeStatusByAdmin.changeStatusByAdmin_ToApprove",
@@ -48,10 +40,6 @@ public class InteractWithMarketingProposals extends RestAssuredUtilities
         Assert.assertNotNull(response.jsonPath().getString("updatedAt"),"not null");
     }
 @Test(dependsOnMethods = {
-        "DealApp.MyAccount.REA.Rea.reaRegister",
-        "DealApp.MyAccount.REA.Rea.reaRequestOTP",
-        "DealApp.MyAccount.REA.Rea.getOTP",
-        "DealApp.MyAccount.REA.Rea.reaEnterOTP",
         "DealApp.ADS.CreateAd.createAd",
         "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest",
         "DealApp.MarketRequests.ChangeStatusByAdmin.changeStatusByAdmin_ToApprove",

@@ -1,5 +1,6 @@
 package DealApp.ADS;
 
+import DealApp.BaseTest;
 import DealApp.MyAccount.REA.Rea;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -8,23 +9,23 @@ import utilities.*;
 import java.io.IOException;
 import java.util.Map;
 import static utilities.JsonUtilitiles.getJsonDataAsMap;
-public class CreateAd extends RestAssuredUtilities
+import static utilities.RestAssuredUtilities.performPost;
+import static utilities.RestAssuredUtilities.sendHeaders;
+
+public class CreateAd extends BaseTest
 {
-    public static String adId;
-    @Test (dependsOnMethods = {
-            "DealApp.MyAccount.REA.Rea.reaRegister",
-            "DealApp.MyAccount.REA.Rea.reaRequestOTP",
-            "DealApp.MyAccount.REA.Rea.getOTP",
-            "DealApp.MyAccount.REA.Rea.reaEnterOTP"})
+    public static String adIDByNewRea;
+public static String adId;
+
+@Test
     public void createAd() throws IOException
     {
 
         String endpoint = "/ad";
         Map<String, Object> requestBody = getJsonDataAsMap("/Ads/CreateAd.json");
-        Response response = performPost(endpoint,Rea.reaToken, requestBody, sendHeaders());
-        String _id = response.jsonPath().getString("data._id");
-        Assert.assertNotNull(_id, "ID should not be null");
-        CreateAd.adId = _id;
+        Response response = performPost(endpoint,newReaToken, requestBody, sendHeaders());
+        adIDByNewRea= response.jsonPath().getString("data._id");
+        Assert.assertNotNull(adIDByNewRea, "ID should not be null");
         Assert.assertEquals(response.statusCode(), 201);
     }
 @Test

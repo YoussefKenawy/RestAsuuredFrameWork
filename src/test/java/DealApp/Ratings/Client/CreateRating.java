@@ -1,5 +1,6 @@
 package DealApp.Ratings.Client;
 
+import DealApp.BaseTest;
 import DealApp.MyAccount.REA.Rea;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -11,7 +12,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class CreateRating extends RestAssuredUtilities
+import static utilities.RestAssuredUtilities.performPost;
+import static utilities.RestAssuredUtilities.sendHeaders;
+
+public class CreateRating extends BaseTest
     {
     public static String reviewId;
 
@@ -22,8 +26,8 @@ public class CreateRating extends RestAssuredUtilities
         }
 
 
-    @Test(dependsOnMethods = {"DealApp.MyAccount.REA.Rea.reaRegister", "DealApp.MyAccount.REA.Rea.reaRequestOTP", "DealApp.MyAccount.REA.Rea.getOTP", "DealApp.MyAccount.REA.Rea.reaEnterOTP"})
-    public void createRating()
+    @Test
+    public  void createRating()
         {
             String endpoint = "/user-reviews";
             Map<String, Object> requestBody = Map.of("reviewee", Rea.reaId, "note", "this is a note by API  Automation script by youssef test", "rating", getRandomRatingValue(), "services", List.of("AD"));

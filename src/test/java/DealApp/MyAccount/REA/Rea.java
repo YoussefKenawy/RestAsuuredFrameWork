@@ -4,7 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+import org.yaml.snakeyaml.tokens.Token;
 import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 
@@ -43,7 +44,14 @@ public class Rea extends RestAssuredUtilities
             return generatedNumber;
         }
 
-    @Test
+    public  String reaHelperMethod() throws IOException
+        {
+            reaRegister();
+            reaRequestOTP();
+            getOTP();
+            return reaEnterOTP();
+        }
+
     public void reaRegister() throws IOException
         {
             String endpoint = "/user/register";
@@ -60,7 +68,7 @@ public class Rea extends RestAssuredUtilities
             System.out.println("Phone number from registration body is" + phone);// Use the randomly generated phone number directly
         }
 
-    @Test(dependsOnMethods = "reaRegister")
+
     public void reaRequestOTP() throws IOException
         {
             String endpoint = "/user/login";
@@ -70,7 +78,7 @@ public class Rea extends RestAssuredUtilities
             Assert.assertEquals(response.jsonPath().getString("data.message"), "please verify with OTP sent to your phone");
         }
 
-    @Test(dependsOnMethods = {"reaRequestOTP"})
+
     public void getOTP()
         {
             String endpoint = "/user/otp";
@@ -81,23 +89,23 @@ public class Rea extends RestAssuredUtilities
             Assert.assertNotNull(token, "OTP MUST NOT BE NULL");
         }
 
-    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP"})
-    public void reaEnterOTP()
+
+    public String reaEnterOTP()
         {
             String endpoint = "/user/verify";
             Map<String, Object> requestBody = Map.of("phone", phone, "token", token);
             Response response = performPost(endpoint, requestBody, sendHeaders());
             Assert.assertEquals(response.statusCode(), 200);
             Assert.assertEquals(response.jsonPath().getString("data.role"), "REAL_STATE_AGENT");
-            reaToken = response.getHeader("Authorization");
             isReaCreated = true;
             reaId = response.jsonPath().getString("data._id");
             System.out.println(reaToken);
             System.out.println(reaId);
+            return reaToken = response.getHeader("Authorization");
 
         }
 
-    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaEnterOTP"})
+
     public void reaLogOut()
         {
             String endpoint = "/user/logout";
@@ -126,7 +134,7 @@ public class Rea extends RestAssuredUtilities
             return queryParams;
         }
 
-    @Test(dependsOnMethods = {"reaRegister","getOTP", "reaRequestOTP", "reaEnterOTP"})
+
     public void authorizeWithNafaz() throws IOException, InterruptedException
         {
             String requestBodyJson = new String(Files.readAllBytes(Paths.get("src/test/dealResources/stagingEnv/Users/nafazDataVerfication.json")), StandardCharsets.UTF_8);
@@ -139,13 +147,21 @@ public class Rea extends RestAssuredUtilities
             Response response = performPost(endpoint, reaToken, requestBody, sendQueryParams(), sendHeaders());
             Assert.assertEquals(response.statusCode(), 201);
             Assert.assertNotNull(response.jsonPath().getString("random"), "Random should no be null");
-            Thread.sleep(200);
+            Thread.sleep(7000);
         }
 
-    @Test(dependsOnMethods = {"getOTP", "reaRequestOTP", "reaEnterOTP", "authorizeWithNafaz"})
+    @AfterClass
+    public void deleteUser()
+        {
+            String endpoint="/user/"+reaId;
+            Response response=performDelete(endpoint, Tokens.getInstance().getAdminToken());
+            Assert.assertEquals(response.statusCode(),200);
+        }
+
+
     public void authorizeWithFal() throws IOException, InterruptedException
         {
-            Thread.sleep(3000);
+            Thread.sleep(10000);
             String endpoint = "/fal-licenses";
             Map<String, Object> requestBody = Map.of("imageUrl", "imageUrl:https://uploadsstaging.dealapp.sa/daf8c0dd-1b76-4502-9f08-fa3f35317725.webp");
             Response response = performPost(endpoint, reaToken, requestBody, sendHeaders());

@@ -1,5 +1,6 @@
 package DealApp.MyAccount.REA;
 
+import DealApp.BaseTest;
 import DealApp.Requests.CreateRequest;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -9,7 +10,9 @@ import utilities.Tokens;
 
 import java.util.Map;
 
-public class MyClients extends RestAssuredUtilities
+import static utilities.RestAssuredUtilities.performGet;
+
+public class MyClients extends BaseTest
 {
     public static Map<String, Object> sendQueryParamsForFavoriteRequests()
     {
@@ -45,10 +48,6 @@ public class MyClients extends RestAssuredUtilities
     }
 
     @Test ( dependsOnMethods ={
-            "DealApp.MyAccount.CLIENT.Client.clientRegister",
-            "DealApp.MyAccount.CLIENT.Client.clientRequestOTP",
-            "DealApp.MyAccount.CLIENT.Client.getOTP",
-            "DealApp.MyAccount.CLIENT.Client.clientEnterOTP",
             "DealApp.Requests.CreateRequest.createRequestByNewClient",
             "DealApp.Requests.InteractWithRequests.activateRequestsByNewClient",
             "DealApp.Requests.InteractWithRequests.Check_FAVORITE_Interaction_WithRequestsByRea"})
@@ -58,14 +57,10 @@ public class MyClients extends RestAssuredUtilities
         Response response=performGet(endpoint, Tokens.getInstance().getReaToken(),sendQueryParamsForFavoriteRequests());
         Assert.assertEquals(response.statusCode(),200);
         String addedRequestToFavorite=response.jsonPath().getString("data[0]._id");
-        Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdByClient);
+        Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdNewClient);
     }
 
     @Test ( dependsOnMethods ={
-            "DealApp.MyAccount.CLIENT.Client.clientRegister",
-            "DealApp.MyAccount.CLIENT.Client.clientRequestOTP",
-            "DealApp.MyAccount.CLIENT.Client.getOTP",
-            "DealApp.MyAccount.CLIENT.Client.clientEnterOTP",
             "DealApp.Requests.CreateRequest.createRequestByNewClient",
             "DealApp.Requests.InteractWithRequests.activateRequestsByNewClient",
             "DealApp.Requests.InteractWithRequests.Check_CALL_PHONE_Interaction_WithRequestsByRea",
@@ -77,7 +72,7 @@ public class MyClients extends RestAssuredUtilities
         Response response=performGet(endpoint, Tokens.getInstance().getReaToken(),sendQueryParamsForCommunicatedRequests());
         Assert.assertEquals(response.statusCode(),200);
         String addedRequestToFavorite=response.jsonPath().getString("data[0]._id");
-        Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdByClient);
+        Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdNewClient);
     }
 
 
@@ -92,15 +87,11 @@ public class MyClients extends RestAssuredUtilities
         Response response=performGet(endpoint, Tokens.getInstance().getReaToken(),sendQueryParamsForCommunicatedRequests());
         Assert.assertEquals(response.statusCode(),200);
         String addedRequestToFavorite=response.jsonPath().getString("data[0]._id");
-        Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdByClient);
+        Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdSavedClient);
     }
 
     @Test ( dependsOnMethods =
             {
-            "DealApp.MyAccount.CLIENT.Client.clientRegister",
-            "DealApp.MyAccount.CLIENT.Client.clientRequestOTP",
-            "DealApp.MyAccount.CLIENT.Client.getOTP",
-            "DealApp.MyAccount.CLIENT.Client.clientEnterOTP",
             "DealApp.Requests.CreateRequest.createRequestByNewClient",
             "DealApp.Requests.InteractWithRequests.activateRequestsByNewClient",
             "DealApp.Requests.InteractWithRequests.Check_READ_Interaction_WithRequests"})
@@ -110,6 +101,6 @@ public class MyClients extends RestAssuredUtilities
         Response response=performGet(endpoint, Tokens.getInstance().getReaToken(),sendQueryParamsForReadRequests());
         Assert.assertEquals(response.statusCode(),200);
         String addedRequestToFavorite=response.jsonPath().getString("data[0]._id");
-        Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdByClient);
+        Assert.assertEquals(addedRequestToFavorite, CreateRequest.requestIdSavedClient);
     }
 }
