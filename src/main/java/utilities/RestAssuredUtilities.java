@@ -208,6 +208,14 @@ public class RestAssuredUtilities {
         printResponseLogInReport(response);
         return response;
     }
+public static Response performPatch(String endpoint, String token, Object requestBody, Map<String, String> headers)
+    {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, token, requestBody, headers);
+        Response response = requestSpecification.patch();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
 
     public static Response performPatch(String endpoint, String token)
     {

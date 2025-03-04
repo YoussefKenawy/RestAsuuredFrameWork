@@ -117,7 +117,7 @@ public class Rea extends RestAssuredUtilities
         {
             StringBuilder id = new StringBuilder(ID_PREFIX);
 
-            for (int i = 1; i <= NUMBER_LENGTH; i++)
+            for (int i = 0; i <= NUMBER_LENGTH; i++)
                 {
                     int randomDigit = RANDOM.nextInt(10);
                     id.append(randomDigit);
