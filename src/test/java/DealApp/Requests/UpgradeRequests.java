@@ -14,7 +14,7 @@ public class UpgradeRequests extends RestAssuredUtilities {
     public static Map<String, Object> sendRequestBodyForReaRequest()
     {
         Map<String, Object> requestBody = Map.of(
-                "cardId", "66f3c96214fc6e57c344aaac",
+                "paymentMethod", "LOYALTY_CREDIT",
                 "requestType", "SERIOUS"
         );
         return requestBody;
@@ -35,7 +35,7 @@ public class UpgradeRequests extends RestAssuredUtilities {
     public static Map<String, Object> sendRequestBodyForClientRequest()
     {
         Map<String, Object> requestBody = Map.of(
-                "cardId", "66f42e2612c3a072aa5a5c63",
+                "coupon", "Marwan",
                 "requestType", "SERIOUS"
         );
         return requestBody;

@@ -9,6 +9,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.RestAssuredUtilities;
+import utilities.Tokens;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -25,7 +26,7 @@ public class CreateMarketingRequest extends BaseTest
     {
     public static String marketRequestId;
 
-    @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAd"})
+    @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAdBySavedRea"})
     public void addMarketRequest() throws IOException
         {
             String endpoint = "/marketing-requests";
@@ -36,8 +37,8 @@ public class CreateMarketingRequest extends BaseTest
                 {
                 });
 
-            requestBody.put("adId", String.valueOf(adIDByNewRea));
-            Response response = RestAssuredUtilities.performPost(endpoint, newReaToken, requestBody, sendHeaders());
+            requestBody.put("adId", String.valueOf(adId));
+            Response response = RestAssuredUtilities.performPost(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
             Assert.assertEquals(response.getStatusCode(), 201);
             Assert.assertEquals(response.getStatusLine(), "HTTP/1.1 201 Created");
             Assert.assertNotNull(response.jsonPath().getString("_id"), "not null ");

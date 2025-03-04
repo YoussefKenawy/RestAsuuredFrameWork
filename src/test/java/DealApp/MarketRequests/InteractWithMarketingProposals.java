@@ -20,7 +20,7 @@ public class InteractWithMarketingProposals extends BaseTest
     {
         String endpoint="/marketing-requests/"+ CreateMarketingRequest.marketRequestId+"/interaction";
         Map<String,Object>requestBody=Map.of("type","REJECT","rejectionReason","OTHER","otherRejectionReason","no more reasons.");
-        Response response= performPatch(endpoint, Tokens.getInstance().getReaToken(),requestBody,sendHeaders());
+        Response response= performPatch(endpoint, newReaToken,requestBody,sendHeaders());
         Assert.assertEquals(response.statusCode(),200);
         Assert.assertNotNull(response.jsonPath().getString("updatedAt"),"not null");
     }

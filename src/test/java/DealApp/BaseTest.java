@@ -58,7 +58,7 @@ public class BaseTest
     @AfterSuite
     public void accountsTearDown()
         {
-            if (reaInstance != null && Rea.isReaCreated != null)
+          if (reaInstance != null && Rea.isReaCreated != null)
                 {
                     reaTearDown();
                 }

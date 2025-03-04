@@ -16,7 +16,7 @@ import static utilities.RestAssuredUtilities.sendHeaders;
 public class UpdateMarketingProposal extends BaseTest
 {
 @Test(dependsOnMethods = {
-        "DealApp.ADS.CreateAd.createAd",
+        "DealApp.ADS.CreateAd.createAdBySavedRea",
         "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest",
         "DealApp.MarketRequests.ChangeStatusByAdmin.changeStatusByAdmin_ToApprove",
         "DealApp.MarketRequests.CreateMarketingProposal.createMarketingProposal",

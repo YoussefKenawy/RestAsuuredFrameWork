@@ -15,7 +15,7 @@ public class ChangeStatusByAdmin extends BaseTest
 
     @Test( priority = 1, dependsOnMethods ={
             "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest",
-            "DealApp.ADS.CreateAd.createAd"})
+            "DealApp.ADS.CreateAd.createAdBySavedRea"})
     public void changeStatusByAdmin_ToApprove()
     {
         System.out.println(CreateMarketingRequest.marketRequestId);

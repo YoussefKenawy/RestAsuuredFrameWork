@@ -23,15 +23,14 @@
             <class name="DealApp.ADS.GetMyAds"/>
             <class name="DealApp.ADS.InteractionsWithAds"/>
             <class name="DealApp.ADS.UpdateAd"/>
-
-
             <class name="DealApp.MarketRequests.CreateMarketingRequest"/>
             <class name="DealApp.MarketRequests.ChangeStatusByAdmin">
             <methods>
                 <include name="changeStatusByAdmin_ToApprove"/>
             </methods>
-        </class>
-        <class name="DealApp.MarketRequests.CreateMarketingProposal"/>
+            </class>
+            <class name="DealApp.MarketRequests.GetMarketRequests"/>
+            <class name="DealApp.MarketRequests.CreateMarketingProposal"/>
             <class name="DealApp.MarketRequests.UpdateMarketingProposal"/>
             <class name="DealApp.MarketRequests.DeleteMarketingProposal"/>
             <class name="DealApp.MarketRequests.InteractWithMarketingProposals"/>
@@ -47,7 +46,6 @@
             <class name="DealApp.Requests.GetRequestsOnMap"/>
             <class name="DealApp.Requests.GetSuitableAdsBasedOnMyRequests"/>
             <class name="DealApp.Requests.MostInteractiveRequests"/>
-
             <class name="DealApp.Requests.UpdateRequests"/>
             <class name="DealApp.Requests.UpgradeRequests"/>
             <class name="DealApp.Subscriptions.SubscribeToPackage"/>
@@ -76,12 +74,12 @@
             <class name="DealApp.Chat.ListAllActiveRooms"/>
             <class name="DealApp.Chat.ListRoomMessages"/>
             <class name="DealApp.Chat.PinRoom"/>
-
-
-
-
-
-
+            <class name="DealApp.DealOpportiunities.CreateDeveloperAgentCompany"/>
+            <class name="DealApp.DealOpportiunities.CreateNewProject"/>
+            <class name="DealApp.DealOpportiunities.AddUnitIntoProject"/>
+            <class name="DealApp.DealOpportiunities.ShowProjectInDealOpportunities"/>
+            <class name="DealApp.DealOpportiunities.DealOpportunitiesFeature"/>
+            <class name="DealApp.DealOpportiunities.DeleteDeveloperAgentCompany"/>
         </classes>
     </test>
 </suite>

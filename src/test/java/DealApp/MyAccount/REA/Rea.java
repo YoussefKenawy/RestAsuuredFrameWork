@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import org.yaml.snakeyaml.tokens.Token;
 import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 
@@ -149,15 +148,6 @@ public class Rea extends RestAssuredUtilities
             Assert.assertNotNull(response.jsonPath().getString("random"), "Random should no be null");
             Thread.sleep(7000);
         }
-
-    @AfterClass
-    public void deleteUser()
-        {
-            String endpoint="/user/"+reaId;
-            Response response=performDelete(endpoint, Tokens.getInstance().getAdminToken());
-            Assert.assertEquals(response.statusCode(),200);
-        }
-
 
     public void authorizeWithFal() throws IOException, InterruptedException
         {

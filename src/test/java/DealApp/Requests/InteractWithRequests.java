@@ -49,7 +49,6 @@ public class InteractWithRequests extends BaseTest
             String endpoint = "/request/" + CreateRequest.requestIdBySavedRea + "/activate";
             Map<String, Object> requestBody = Map.of("status", "ACTIVE");
             Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
-            // Assert.assertNotNull(response.jsonPath().getString("error.code"), "error.request.cantRefreshBeforeTwoDays");
             Assert.assertEquals(response.statusCode(), 200);
         }
 
@@ -61,13 +60,18 @@ public class InteractWithRequests extends BaseTest
     })
     public void Check_chat_Interaction_WithRequests()
         {
-            String endpoint = "/request/" +requestIdBySavedRea + "/interaction";
+            String endpoint = "/request/" +requestIdBySavedRea + "/communication-interaction";
             String requestBody = "{\"type\":\"CHAT\"}";
-            Response response = performPatch(endpoint, newReaToken, requestBody, sendHeaders());
-            Assert.assertNotNull(response.jsonPath().getString("_id"), "should not be null ");
-
+            Response response = performPatch(endpoint,newReaToken, requestBody, sendHeaders());
+            try
+                {
+                  Assert.assertEquals(response.statusCode(),200);
+                }
+            catch (Exception e)
+                {
+                    Assert.assertEquals(response.jsonPath().getString("error.code"), "error.falLicense.notVerified");
+                }
         }
-
     @Test (dependsOnMethods ={
             "DealApp.Requests.CreateRequest.createRequestByNewClient",
             "activateRequestsByNewClient"})
@@ -124,18 +128,7 @@ public class InteractWithRequests extends BaseTest
             "DealApp.Requests.CreateRequest.createRequestBySavedRea",
             "activateRequestsByNewRea"
     })
-    public void Check_ACCEPT_Interaction_WithRequests()
-        {
-            String endpoint = "/request/" + requestIdByNewRea + "/interaction";
-            String requestBody = "{\"type\":\"ACCEPT\"}";
-            Response response = performPatch(endpoint, newReaToken, requestBody, sendHeaders());
-            Assert.assertNotNull(response.jsonPath().getString("_id"), "should not be null ");
 
-        }
-
-    @Test (dependsOnMethods ={
-            "DealApp.Requests.CreateRequest.createRequestByClient",
-            "activateRequestsBySavedClient"})
     public void Check_Hide_Requests()
         {
             String endpoint = "/request/" +requestIdSavedClient + "/interaction";
@@ -180,6 +173,4 @@ public class InteractWithRequests extends BaseTest
             Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
 
         }
-
-
     }

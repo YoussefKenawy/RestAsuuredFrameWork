@@ -1,0 +1,30 @@
+{
+  "name": "AutomationProjecTByYoussef",
+  "city": "5dd49005af8af4002cbfb706",
+  "district": "5dd490b6bc2e91004242ef2c",
+
+
+  "price": 30000,
+  "details": "project details ",
+  "media": {
+    "main": {
+      "url": "https://d3r3my41ffsjer.cloudfront.net/9400e98a-4fd1-4949-a175-05552b961823-image.png",
+      "description": "image description"
+    }
+  },
+  "developerAgent": "123",
+  "dealCommissionPercentage": 10,
+  "agentCommissionPercentage":10,
+  "totalCommissionPercentage":20,
+
+  "location": {
+
+    "type": "PRECISE"
+  },
+  "emails": [
+    {
+      "value": "ypussef2@gmail.com",
+      "active": true
+    }
+  ]
+}

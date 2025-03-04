@@ -23,7 +23,7 @@ public class CreateMarketingProposal extends BaseTest
     {
     public static String mkProposalID;
     @Test(dependsOnMethods = {
-            "DealApp.ADS.CreateAd.createAd",
+            "DealApp.ADS.CreateAd.createAdBySavedRea",
             "DealApp.MarketRequests.CreateMarketingRequest.addMarketRequest",
             "DealApp.MarketRequests.ChangeStatusByAdmin.changeStatusByAdmin_ToApprove"
     })
@@ -35,7 +35,7 @@ public class CreateMarketingProposal extends BaseTest
             Map<String, Object> requestBody = new ObjectMapper().readValue(requestBodyJson, new TypeReference<Map<String, Object>>() {});
             String endpoint = "/marketing-proposals";
             requestBody.put("marketingRequest", String.valueOf(marketRequestId));
-            Response response = RestAssuredUtilities.performPost(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
+            Response response = RestAssuredUtilities.performPost(endpoint, newReaToken, requestBody, sendHeaders());
             Assert.assertEquals(response.getStatusCode(), 201);
             Assert.assertEquals(response.jsonPath().getString("status"), "PENDING");
             mkProposalID = response.jsonPath().getString("_id");
