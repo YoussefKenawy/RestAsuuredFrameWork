@@ -1,12 +1,9 @@
 package DealApp.Requests;
-
 import DealApp.BaseTest;
-import DealApp.MyAccount.CLIENT.Client;
-import DealApp.MyAccount.REA.Rea;
+import LoyaltySystem.PrepareLoyaltySettings.setLoyltyActions;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 
 import static utilities.JsonUtilitiles.getJsonDataAsMap;
@@ -23,7 +20,7 @@ public class CreateRequest extends BaseTest
     public static String requestIdBySavedRea;
     public static String requestIdSavedClient;
     @Test
-    public void createRequestBySavedRea() throws IOException
+    public static void createRequestBySavedRea() throws IOException
     {
         String endpoint = "/request";
         Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/CreateRequest.json");

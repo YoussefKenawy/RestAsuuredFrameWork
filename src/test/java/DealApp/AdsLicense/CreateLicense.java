@@ -12,10 +12,11 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.UUID;
 
+import static DealApp.ADS.CreateAd.adId;
 import static utilities.JsonUtilitiles.getJsonDataAsMap;
 
 public class CreateLicense extends RestAssuredUtilities {
-    static String licenseId;
+    public static String licenseId;
 public static String uniqueCouponText;
 
 public static Map<String, Object> createDynamicCoupon()
@@ -41,21 +42,28 @@ public static void createCoupon()
         Assert.assertEquals(response.statusCode(), 201);
 
     }
+@Test(dependsOnMethods ="DealApp.ADS.CreateAd.createAdBySavedRea")
+public void publishAdToAdmin()
+    {
+        Map<String, Object> requestBody = Map.of("adLicenseNumber", "7100000031", "advertiserId","1034758704","idType","CITIZEN","published",true);
+        Response response=  performPut("/ad/"+ adId,Tokens.getInstance().getReaToken(), requestBody,sendHeaders());
+Assert.assertEquals(response.statusCode(),200);
+    }
     @Test(dependsOnMethods ="DealApp.ADS.CreateAd.createAdBySavedRea")
-    public void addLicense()
+    public static void addLicense()
     {
         String endpoint = "/ad-license-request";
-        Map<String, Object> requestBody = Map.of("adId", CreateAd.adId);
+        Map<String, Object> requestBody = Map.of("adId", adId);
         Response response = performPost(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 201);
         Assert.assertNotNull(response.jsonPath().getString("createdAt"), "Created At must not be bull");
         licenseId = response.jsonPath().getString("_id");
         Assert.assertNotNull(licenseId, "License ID  must not be bull");
-        System.out.println(" ****************************Your ID IS ********************8:" +licenseId);
+        System.out.println(" ****************************Your ID IS ********************:" +licenseId);
     }
 
     @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAdBySavedRea","addLicense"})
-    public void upgradeLicense()
+    public  static void upgradeLicense()
     {
         createCoupon();
         System.out.println(" ****************************Your ID IS ********************8:" +licenseId);
@@ -69,7 +77,7 @@ public static void createCoupon()
     }
 
     @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAdBySavedRea", "upgradeLicense","addLicense"})
-    public void addLicenseForOwner() throws IOException
+    public static void addLicenseForOwner() throws IOException
     {
         String endpoint = "/ad-license-request/" + licenseId;
         Map<String, Object> requestBody = getJsonDataAsMap("/AdsLisence/addLicenseForOwner.json");
@@ -79,7 +87,7 @@ public static void createCoupon()
         Assert.assertNotNull(response.jsonPath().getString("advertiserRelation"), "OWNER");
     }
     @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAdBySavedRea", "upgradeLicense","addLicense"})
-    public void addLicenseForAttorney() throws IOException
+    public static void addLicenseForAttorney() throws IOException
     {
         String endpoint = "/ad-license-request/" + licenseId;
         Map<String, Object> requestBody = getJsonDataAsMap("/AdsLisence/addLicenseForAttorney.json");
@@ -90,7 +98,7 @@ public static void createCoupon()
     }
 
     @Test(dependsOnMethods = {"DealApp.ADS.CreateAd.createAdBySavedRea", "upgradeLicense","addLicense"})
-    public void addLicenseForEntity() throws IOException
+    public  static  void addLicenseForEntity() throws IOException
     {
         String endpoint = "/ad-license-request/" + licenseId;
         Map<String, Object> requestBody = getJsonDataAsMap("/AdsLisence/addLicenseForEntity.json");

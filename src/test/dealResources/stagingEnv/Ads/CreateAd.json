@@ -22,12 +22,7 @@
   "description": "created by Rest Assured.",
   "advertiser": {
     "name": "محمد الخالدي",
-    "phone": "+966500844666",
-    "relation": "OWNER",
-    "regaType": "CITIZEN",
-    "acceptAdPolicy": true,
-    "crNumber": "252531",
-    "idNumber": "1234567891"
+    "phone": "+966500844666"
   },
   "notificationMethods": [
     "CHAT",

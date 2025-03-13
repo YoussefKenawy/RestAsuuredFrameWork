@@ -25,7 +25,6 @@ public class InteractWithRequests extends BaseTest
     @Test(dependsOnMethods = {"DealApp.Requests.CreateRequest.createRequestsByNewRea"})
     public void activateRequestsByNewRea() throws InterruptedException
         {
-            setSettingsForPaidRequestToBeDisabled();
             String endpoint = "/request/" + requestIdByNewRea + "/activate";
             Map<String, Object> requestBody = Map.of("status", "ACTIVE");
             Response response = performPatch(endpoint, newReaToken, requestBody, sendHeaders());
@@ -35,8 +34,6 @@ public class InteractWithRequests extends BaseTest
     @Test(dependsOnMethods = {"DealApp.Requests.CreateRequest.createRequestByNewClient"})
     public void activateRequestsByNewClient() throws InterruptedException
         {
-            setSettingsForPaidRequestToBeDisabled();
-
             String endpoint = "/request/" + requestIdNewClient + "/activate";
             Map<String, Object> requestBody = Map.of("status", "ACTIVE");
             Response response = performPatch(endpoint, newClientToken, requestBody, sendHeaders());
@@ -47,7 +44,6 @@ public class InteractWithRequests extends BaseTest
     @Test(dependsOnMethods = {"DealApp.Requests.CreateRequest.createRequestByClient",})
     public void activateRequestsBySavedClient() throws InterruptedException
         {
-            setSettingsForPaidRequestToBeDisabled();
             String endpoint = "/request/" + requestIdSavedClient + "/activate";
             Map<String, Object> requestBody = Map.of("status", "ACTIVE");
             Response response = performPatch(endpoint, Tokens.getInstance().getClientToken(), requestBody, sendHeaders());
@@ -57,7 +53,6 @@ public class InteractWithRequests extends BaseTest
     @Test(dependsOnMethods = {"DealApp.Requests.CreateRequest.createRequestBySavedRea",})
     public void activateRequestsBySavedRea() throws InterruptedException
         {
-            setSettingsForPaidRequestToBeDisabled();
             String endpoint = "/request/" + CreateRequest.requestIdBySavedRea + "/activate";
             Map<String, Object> requestBody = Map.of("status", "ACTIVE");
             Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
@@ -68,7 +63,7 @@ public class InteractWithRequests extends BaseTest
     @Test(dependsOnMethods = {"DealApp.Requests.CreateRequest.createRequestBySavedRea", "activateRequestsBySavedRea",
 
     })
-    public void Check_chat_Interaction_WithRequests()
+    public static void Check_chat_Interaction_WithRequests()
         {
             String endpoint = "/request/" + requestIdBySavedRea + "/communication-interaction";
             String requestBody = "{\"type\":\"CHAT\"}";
@@ -173,30 +168,7 @@ public class InteractWithRequests extends BaseTest
 
         }
 
-    @Test
-    public void setSettingsForPaidRequestToBeDisabled()
-        {
-            String endpoint = "/setting";
-            List<Map<String, Object>> requestBody = new ArrayList<>();
-
-// First object
-            Map<String, Object> setting1 = new HashMap<>();
-            setting1.put("_id", "66e2c261ae731629e14baa3e");
-            setting1.put("value", false);
-
-// Second object
-            Map<String, Object> setting2 = new HashMap<>();
-            setting2.put("_id", "66e2c261ae731629e14baa3d");
-            setting2.put("value", false);
-
-// Add both objects to the list
-            requestBody.add(setting1);
-            requestBody.add(setting2);
 
 
-            Response response = performPatch(endpoint, Tokens.getInstance().getAdminToken(), requestBody, sendHeaders());
-            Assert.assertEquals(response.statusCode(), 204);
 
-
-        }
     }

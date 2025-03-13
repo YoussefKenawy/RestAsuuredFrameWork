@@ -19,6 +19,7 @@ public class UpdateAd extends RestAssuredUtilities {
         Map<String, Object> requestBody = getJsonDataAsMap("/Ads/UpdateAd.json");
         Response response = performPut(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
         Assert.assertEquals(response.getStatusCode(), 200);
+
         Assert.assertNotNull(response.jsonPath().getString("data.updatedAt"), "should npt be null ");
     }
 }

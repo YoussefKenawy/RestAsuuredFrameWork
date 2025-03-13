@@ -12,7 +12,7 @@ public class setLoyltyActions extends RestAssuredUtilities
     {
 
         @Test
-        public void setActionPoints()
+        public static void setActionPoints()
         {
             // String USES_THE_APP_FOR_A_DAY = "67866f5070b30f896836ddc0";
             //String SUBMIT_THE_INTERESTS = "67866f5070b30f896836ddc1";
@@ -22,7 +22,7 @@ public class setLoyltyActions extends RestAssuredUtilities
             //String DOCUMENTED_DONE_DEAL_INSIDE_DEAL = "67866f5070b30f896836ddbf";
             // String GET_POSITIVE_REVIEW = "678af5b0f6ebd06412242eb8";
             String[] actions = {"67866f5070b30f896836ddc0", "67866f5070b30f896836ddc1", "67866f5070b30f896836ddbc","67866f5070b30f896836ddbd", "67866f5070b30f896836ddbe", "67866f5070b30f896836ddbf", "678af5b0f6ebd06412242eb8"};
-            Map<String, Object> requestBody = Map.of("enabled", "true", "scope", "UNLIMITED","points","1000");
+            Map<String, Object> requestBody = Map.of("enabled", "true", "scope", "UNLIMITED","points","10");
             for (int i = 1; i <= actions.length - 1; i++)
                 {
                     String endpoint = "/loyalty/actions/admin/" + actions[i];

@@ -26,6 +26,6 @@ public class GetMyDeals extends RestAssuredUtilities
         Response response = performGet(endpoint, Tokens.getInstance().getReaToken(), sendQueryParams());
         Assert.assertEquals(response.statusCode(), 200);
         Assert.assertEquals(response.jsonPath().getString("data[0]._id"), PostMyDeal.myDealsId);
-        Assert.assertEquals(response.jsonPath().getString("data[0].status"), "PENDING");
+        Assert.assertEquals(response.jsonPath().getString("data[0].status"), "APPROVED");
     }
 }

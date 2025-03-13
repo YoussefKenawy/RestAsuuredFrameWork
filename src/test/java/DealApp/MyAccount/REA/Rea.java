@@ -28,7 +28,7 @@ public class Rea extends RestAssuredUtilities
 
     static final String ID_PREFIX = "11";
 
-    public String generateRandomKSAPhoneNumber()
+    public static String generateRandomKSAPhoneNumber()
         {
             StringBuilder phoneNumber = new StringBuilder(PREFIX);
 
@@ -51,7 +51,7 @@ public class Rea extends RestAssuredUtilities
             return reaEnterOTP();
         }
 
-    public void reaRegister() throws IOException
+    public static void reaRegister() throws IOException
         {
             String endpoint = "/user/register";
             String requestBodyJson = new String(Files.readAllBytes(Paths.get("src/test/dealResources/stagingEnv/Users/reaRegistrationData.json")), StandardCharsets.UTF_8);
@@ -68,7 +68,7 @@ public class Rea extends RestAssuredUtilities
         }
 
 
-    public void reaRequestOTP() throws IOException
+    public static void reaRequestOTP() throws IOException
         {
             String endpoint = "/user/login";
             Map<String, Object> requestBody = Map.of("phone", phone);
@@ -78,7 +78,7 @@ public class Rea extends RestAssuredUtilities
         }
 
 
-    public void getOTP()
+    public static void getOTP()
         {
             String endpoint = "/user/otp";
             Map<String, Object> requestBody = Map.of("phone", phone);
@@ -89,7 +89,7 @@ public class Rea extends RestAssuredUtilities
         }
 
 
-    public String reaEnterOTP()
+    public static String reaEnterOTP()
         {
             String endpoint = "/user/verify";
             Map<String, Object> requestBody = Map.of("phone", phone, "token", token);

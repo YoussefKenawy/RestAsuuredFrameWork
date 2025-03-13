@@ -13,6 +13,19 @@
 
                 </methods>
             </class>
+            <class name="LoyaltySystem.PrepareLoyaltySettings.setLoyltyActions"></class>
+            <class name="LoyaltySystem.PrepareLoyaltySettings.setLoyaltyProductsPoints"></class>
+            <class name="LoyaltySystem.PerofrmActions.DocumentDealDoneInsideDeal"></class>
+            <class name="LoyaltySystem.PerofrmActions.getPostiveReviewToGetPoints"></class>
+            <class name="LoyaltySystem.PerofrmActions.submitInterestsToGetPoints"></class>
+            <class name="LoyaltySystem.PerofrmActions.communicateWithRequestToGetPoints"></class>
+            <class name="LoyaltySystem.PerofrmActions.logintoGetPoints"></class>
+            <class name="LoyaltySystem.PerofrmActions.publishLicensedAdToGetPoints"></class>
+            <class name="LoyaltySystem.RedeemProductsWithLoyaltyPoints.UpgradeSeriousRequestBuyUsingPoints"></class>
+            <class name="LoyaltySystem.RedeemProductsWithLoyaltyPoints.SubscribeProffessionalOneMonthPackageUsingPoints"></class>
+            <class name="LoyaltySystem.RedeemProductsWithLoyaltyPoints.SubscribeProffessionalOneYearPackageUsingPoints"></class>
+            <class name="LoyaltySystem.RedeemProductsWithLoyaltyPoints.SubscribePremiumOneMonthPackageUsingPoints"></class>
+            <class name="LoyaltySystem.RedeemProductsWithLoyaltyPoints.SubscribePremiumOneYearPackageUsingPoints"></class>
             <class name="DealApp.AdsLicense.CreateLicense"/>
             <class name="DealApp.AdsLicense.UpdateAdLicense"/>
             <class name="DealApp.ADS.GetAdsFromMap"/>
