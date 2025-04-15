@@ -7,8 +7,7 @@ import org.testng.annotations.Test;
 import utilities.Tokens;
 
 import static utilities.JsonUtilitiles.getJsonDataAsMap;
-import static utilities.RestAssuredUtilities.performPost;
-import static utilities.RestAssuredUtilities.sendHeaders;
+import static utilities.RestAssuredUtilities.*;
 
 import java.io.IOException;
 import java.util.Map;
@@ -19,6 +18,15 @@ public class CreateRequest extends BaseTest
     public static String requestIdNewClient;
     public static String requestIdBySavedRea;
     public static String requestIdSavedClient;
+
+    @Test
+    public  static  void setupRequestsSettings()
+        {
+            String endpoint="/setting";
+            performPatch(endpoint,Tokens.getInstance().getAdminToken(),
+                    "[\n" + "    {\n" + "        \"_id\": \"66e2c261ae731629e14baa3e\",\n" + "        \"value\": false\n" + "    },\n" + "    {\n" + "        \"_id\": \"66e2c261ae731629e14baa3d\",\n" + "        \"value\": false\n" + "    }\n" + "]"
+                    ,sendHeaders());
+        }
     @Test
     public static void createRequestBySavedRea() throws IOException
     {

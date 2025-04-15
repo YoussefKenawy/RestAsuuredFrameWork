@@ -22,7 +22,7 @@ public class MyClients extends BaseTest
                 (
                         "page", "1",
                         "limit", "10",
-                        "interactionsType", "FAVORITE",
+                        "interactionFilter", "FAVORITE",
                         "sortBy", "favoriteBy.at"
                 );
         return queryParams;
@@ -33,7 +33,7 @@ public class MyClients extends BaseTest
                 (
                         "page", "1",
                         "limit", "10",
-                        "interactionsType", "CHAT,CALL_PHONE,WHATSAPP"
+                        "interactionFilter", "CHAT,CALL_PHONE,WHATSAPP"
                 );
         return queryParams;
     }
@@ -43,7 +43,7 @@ public class MyClients extends BaseTest
                 (
                         "page", "1",
                         "limit", "10",
-                        "interactionsType", "READ",
+                        "interactionFilter", "READ",
                         "sortBy","readBy.at"
                 );
         return queryParams;
