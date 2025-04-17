@@ -1,0 +1,16 @@
+{
+  "logo": "https://uploadsstaging.dealapp.sa/1b1a8689-0325-4fe6-98a0-215a4d0eeb3e-n.webp",
+  "banner": "https://uploadsstaging.dealapp.sa/682ee51e-366a-43b4-afa7-c77a339dd112-n.webp",
+  "addressEn": "aaaaaaaaaa",
+  "addressAr": " ",
+  "location": {
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        46.711461927585,
+        24.62881343698572
+      ]
+    },
+    "type": "PRECISE"
+  }
+}

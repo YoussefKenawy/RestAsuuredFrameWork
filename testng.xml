@@ -93,6 +93,10 @@
             <class name="DealApp.DealOpportiunities.ShowProjectInDealOpportunities"/>
             <class name="DealApp.DealOpportiunities.DealOpportunitiesFeature"/>
             <class name="DealApp.DealOpportiunities.DeleteDeveloperAgentCompany"/>
+            <class name="DealApp.Offices.CreateOffoice"></class>
+            <class name="DealApp.Offices.UpdateOffice"></class>
+            <class name="DealApp.Offices.ShowOfficesInAgentsMap"></class>
+
         </classes>
     </test>
 </suite>

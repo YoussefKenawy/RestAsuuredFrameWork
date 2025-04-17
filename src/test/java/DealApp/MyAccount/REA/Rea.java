@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 
@@ -25,7 +25,6 @@ public class Rea extends RestAssuredUtilities
     public static String reaToken;
     public static Boolean isReaCreated = false;
     public static String reaId;
-
     static final String ID_PREFIX = "11";
 
     public static String generateRandomKSAPhoneNumber()
@@ -43,7 +42,7 @@ public class Rea extends RestAssuredUtilities
             return generatedNumber;
         }
 
-    public  String reaHelperMethod() throws IOException
+    public String reaHelperMethod() throws IOException
         {
             reaRegister();
             reaRequestOTP();
@@ -159,5 +158,7 @@ public class Rea extends RestAssuredUtilities
             Assert.assertEquals(response.jsonPath().getString("status"), "PENDING");
 
         }
+
+
     }
 
