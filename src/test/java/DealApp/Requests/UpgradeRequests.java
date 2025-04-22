@@ -1,5 +1,6 @@
 package DealApp.Requests;
 
+import DealApp.MyAccount.CLIENT.Client;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,18 +14,18 @@ public class UpgradeRequests extends RestAssuredUtilities {
     public static Map<String, Object> sendRequestBodyForReaRequest()
     {
         Map<String, Object> requestBody = Map.of(
-                "cardId", "66f3c96214fc6e57c344aaac",
+                "paymentMethod", "LOYALTY_CREDIT",
                 "requestType", "SERIOUS"
         );
         return requestBody;
     }
 
 
-    @Test (dependsOnMethods = "DealApp.Requests.CreateRequest.createRequestByRea")
+    @Test (dependsOnMethods = {"DealApp.Requests.CreateRequest.createRequestBySavedRea","DealApp.Requests.InteractWithRequests.activateRequestsBySavedRea"})
     public void upgradeReaRequest() throws IOException
     {
 
-        String endpoint = "/request/"+CreateRequest.requestIdByRea+ "/upgrade";
+        String endpoint = "/request/"+CreateRequest.requestIdBySavedRea+"/upgrade";
         Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), sendRequestBodyForReaRequest(), sendHeaders());
         Assert.assertNotNull(response.jsonPath().getString(" updatedAt"));
         Assert.assertEquals(response.statusCode(), 200);
@@ -34,19 +35,20 @@ public class UpgradeRequests extends RestAssuredUtilities {
     public static Map<String, Object> sendRequestBodyForClientRequest()
     {
         Map<String, Object> requestBody = Map.of(
-                "cardId", "66f42e2612c3a072aa5a5c63",
+                "coupon", "Marwan",
                 "requestType", "SERIOUS"
         );
         return requestBody;
     }
-    @Test (dependsOnMethods = "DealApp.Requests.CreateRequest.createRequestByClient")
+    @Test (dependsOnMethods = {"DealApp.Requests.CreateRequest.createRequestByClient","DealApp.Requests.InteractWithRequests.activateRequestsBySavedClient"})
     public void upgradeClientRequest() throws IOException
     {
 
-        String endpoint = "/request/"+CreateRequest.requestIdByClient+ "/upgrade";
+        String endpoint = "/request/"+CreateRequest.requestIdSavedClient+"/upgrade";
         Response response = performPatch(endpoint, Tokens.getInstance().getClientToken(), sendRequestBodyForClientRequest(), sendHeaders());
         Assert.assertNotNull(response.jsonPath().getString(" updatedAt"));
         Assert.assertEquals(response.statusCode(), 200);
     }
+
 }
 

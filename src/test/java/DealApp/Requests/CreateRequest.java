@@ -1,28 +1,52 @@
 package DealApp.Requests;
-
+import DealApp.BaseTest;
+import LoyaltySystem.PrepareLoyaltySettings.setLoyltyActions;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utilities.RestAssuredUtilities;
 import utilities.Tokens;
 
 import static utilities.JsonUtilitiles.getJsonDataAsMap;
+import static utilities.RestAssuredUtilities.*;
 
 import java.io.IOException;
 import java.util.Map;
 
-public class CreateRequest extends RestAssuredUtilities {
-    public static String requestIdByRea;
-    public static String requestIdByClient;
+public class CreateRequest extends BaseTest
+    {
+    public static String requestIdByNewRea;
+    public static String requestIdNewClient;
+    public static String requestIdBySavedRea;
+    public static String requestIdSavedClient;
+
     @Test
-    public void createRequestByRea() throws IOException
+    public  static  void setupRequestsSettings()
+        {
+            String endpoint="/setting";
+            performPatch(endpoint,Tokens.getInstance().getAdminToken(),
+                    "[\n" + "    {\n" + "        \"_id\": \"66e2c261ae731629e14baa3e\",\n" + "        \"value\": false\n" + "    },\n" + "    {\n" + "        \"_id\": \"66e2c261ae731629e14baa3d\",\n" + "        \"value\": false\n" + "    }\n" + "]"
+                    ,sendHeaders());
+        }
+    @Test
+    public static void createRequestBySavedRea() throws IOException
     {
         String endpoint = "/request";
         Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/CreateRequest.json");
         Response response = performPost(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 201);
-        requestIdByRea = response.jsonPath().getString("data._id");
-        Assert.assertNotNull((requestIdByRea),"id should not be null");
+        requestIdBySavedRea = response.jsonPath().getString("data._id");
+        Assert.assertNotNull((requestIdBySavedRea),"id should not be null");
+    }
+@Test
+public void createRequestsByNewRea() throws IOException
+    {
+        String endpoint = "/request";
+        Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/CreateRequest.json");
+        Response response = performPost(endpoint,newReaToken, requestBody, sendHeaders());
+        Assert.assertEquals(response.statusCode(), 201);
+        requestIdByNewRea = response.jsonPath().getString("data._id");
+        Assert.assertNotNull((requestIdByNewRea),"id should not be null");
+
     }
     @Test
     public void createRequestByClient() throws IOException
@@ -31,8 +55,20 @@ public class CreateRequest extends RestAssuredUtilities {
         Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/CreateRequest.json");
         Response response = performPost(endpoint, Tokens.getInstance().getClientToken(), requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 201);
-        requestIdByClient = response.jsonPath().getString("data._id");
-        Assert.assertNotNull(requestIdByClient, "id should not be null");
+        requestIdSavedClient = response.jsonPath().getString("data._id");
+        Assert.assertNotNull(requestIdSavedClient, "id should not be null");
+        System.out.println("Request id for saved client is : when from create request for saved client  Response "+requestIdSavedClient);
+
+    }
+    @Test
+    public void createRequestByNewClient() throws IOException
+    {
+        String endpoint = "/request";
+        Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/CreateRequest.json");
+        Response response = performPost(endpoint, newClientToken, requestBody, sendHeaders());
+        Assert.assertEquals(response.statusCode(), 201);
+        requestIdNewClient = response.jsonPath().getString("data._id");
+        Assert.assertNotNull(requestIdNewClient, "id should not be null");
     }
 
 }

@@ -1,0 +1,5 @@
+{"notificationMethods":["CHAT","WHATSAPP","CALL_PHONE"],
+  "name": "Youssef",
+  "entity":{"type":"INDIVIDUAL","name":"MyCompany"},
+  "bio":"newBio",
+  "socialLinks":{"facebook":"https://www.facebook.com/youssef-kenawy"}}

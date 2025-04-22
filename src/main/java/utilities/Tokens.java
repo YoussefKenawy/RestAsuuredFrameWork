@@ -32,7 +32,7 @@ public class Tokens {
 
     private void loadTokens() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, String> tokensMap = objectMapper.readValue(new File("C:\\Users\\Youssef\\IdeaProjects\\RestAssuredFrameWork\\src\\main\\resources\\tokens.json"), Map.class);
+        Map<String, String> tokensMap = objectMapper.readValue(new File("C:\\Users\\Youssef\\IdeaProjects\\RestAsuuredFrameWork\\src\\main\\resources\\tokens.json"), Map.class);
 
         this.adminToken = tokensMap.get("adminToken");
         this.reaToken = tokensMap.get("reaToken");

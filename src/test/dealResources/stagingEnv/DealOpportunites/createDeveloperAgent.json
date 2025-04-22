@@ -1,0 +1,31 @@
+{
+  "name":"newCompanyByAutomation",
+  "cityDistrictOfInterest": [
+    {
+      "cityId": "5dd49005af8af4002cbfb706",
+      "districtsId": [
+        "5dd490b6bc2e91004242ef2c"
+      ]
+    }
+  ],
+  "emails": [
+    "ypussef123@gmail.com"
+  ],
+  "backgroundColor": "#ffffff",
+  "fontColor": "#000000",
+  "logos": {
+    "large": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+    "small" :"https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp" ,
+    "medium":
+    "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp" ,
+    "map": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+    "homePage": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp",
+    "listing": "https://uploadsstaging.dealapp.sa/c41ab904-2ccf-433f-85b9-a5d8cd5467d8-wm.webp"
+  },
+  "sendingTime": {
+    "hour": 12,
+    "minute": 5
+  },
+  "sendingDays": ["SUNDAY"],
+  "sendingStatuses": ["NOT_CONTACTED"]
+}

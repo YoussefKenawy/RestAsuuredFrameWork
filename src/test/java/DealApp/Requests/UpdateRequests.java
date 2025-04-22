@@ -13,10 +13,10 @@ import static utilities.JsonUtilitiles.getJsonDataAsMap;
 
 public class UpdateRequests extends RestAssuredUtilities {
 
-    @Test (dependsOnMethods = "DealApp.Requests.CreateRequest.createRequestByRea")
+    @Test (dependsOnMethods = "DealApp.Requests.CreateRequest.createRequestBySavedRea")
     public void UpdateRequestByRea() throws IOException
     {
-        String endpoint = "/request/"+CreateRequest.requestIdByRea+ "/update";
+        String endpoint = "/request/"+CreateRequest.requestIdBySavedRea+ "/update";
         Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/UpdateRequests.json");
         Response response = performPatch(endpoint, Tokens.getInstance().getReaToken(), requestBody, sendHeaders());
         Assert.assertEquals(response.statusCode(), 200);
@@ -26,7 +26,7 @@ public class UpdateRequests extends RestAssuredUtilities {
     @Test (dependsOnMethods = "DealApp.Requests.CreateRequest.createRequestByClient")
     public void UpdateRequestClient() throws IOException
     {
-        String endpoint = "/request/"+CreateRequest.requestIdByClient+ "/update";
+        String endpoint = "/request/"+CreateRequest.requestIdSavedClient+ "/update";
         Map<String, Object> requestBody = getJsonDataAsMap("/PropertyRequests/UpdateRequests.json");
         Response response = performPatch(endpoint, Tokens.getInstance().getClientToken(), requestBody, sendHeaders());
         Assert.assertNotNull(response.jsonPath().getString(" updatedAt"));

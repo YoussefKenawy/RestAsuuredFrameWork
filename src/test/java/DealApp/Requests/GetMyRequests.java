@@ -17,7 +17,6 @@ public class GetMyRequests extends RestAssuredUtilities {
                         "page", "1",
                         "limit", "10"
                 );
-
         return queryParams;
 
     }

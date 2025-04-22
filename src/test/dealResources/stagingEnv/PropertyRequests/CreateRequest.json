@@ -1,24 +1,26 @@
 {
-  "purpose": "RENT",
-  "relatedQuestions": {
-    "roomsNum": "5",
-    "hallsNum": "7",
-    "toiletsNum": "7",
-    "propertyAgeRange": "9"
-  },
   "requestType": "NORMAL",
-  "propertyCategory": "6307c64e45e4badb612be78a",
-  "propertyType": "63091bcd45e4ba93412d5d25",
-  "city": "5dd49005af8af4002cbfbc61",
+  "purpose": "BUY",
+  "propertyType": "630910da45e4bab52f2d5c02",
+  "propertyCategory": "6307c11345e4ba5ad32be774",
+
+  "city": "5dd49004af8af4002cbfae51",
+  "note": "Hello there here are my contact information, http://www.google.com, +201113510544",
+
+
   "districts": [
-    "5dd490b6bc2e91004242ee31"
+    "5dd490b5bc2e91004242ecdf","5dd490b5bc2e91004242ecdd","5dd490b5bc2e91004242ecdc"
   ],
+
   "priceType": "BASED_ON_MARKET",
-  "note": "لا يوجد",
-  "paymentMethod": "CASH",
   "notificationMethods": [
     "CHAT",
-    "CALL_PHONE",
-    "WHATSAPP"
-  ]
+    "WHATSAPP",
+    "CALL_PHONE"
+  ],
+  "relatedQuestions": {
+    "streetWidthRange":"71-80",
+    "minArea": 100,
+    "maxArea": 600
+  }
 }

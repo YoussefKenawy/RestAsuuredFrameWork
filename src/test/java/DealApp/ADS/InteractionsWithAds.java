@@ -12,7 +12,7 @@ import static utilities.JsonUtilitiles.getJsonDataAsMap;
 public class InteractionsWithAds extends RestAssuredUtilities {
 
 
-    @Test (dependsOnMethods = "DealApp.ADS.CreateAd.createAd")
+    @Test (dependsOnMethods = "DealApp.ADS.CreateAd.createAdBySavedRea")
     public void putAdAsFavorite() throws IOException
     {
         String endpoint = "/ad/"+ CreateAd.adId+"/interaction";
@@ -23,7 +23,7 @@ public class InteractionsWithAds extends RestAssuredUtilities {
     }
 
 
-    @Test (dependsOnMethods = "DealApp.ADS.CreateAd.createAd")
+    @Test (dependsOnMethods = "DealApp.ADS.CreateAd.createAdBySavedRea")
     public void interactWithAdByWhatsapp() throws IOException
     {
         String endpoint = "/ad/"+ CreateAd.adId+"/interaction";
